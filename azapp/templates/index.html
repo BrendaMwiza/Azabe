@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Azabe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet">
+	<link href="static/color/default.css" rel="stylesheet">
+	<link rel="shortcut icon" href="static/img/favicon.ico">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
+
+</head>
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<body>
+
+	<!-- Header area -->
+	<div id="header-wrapper" class="header-slider">
+		<header class="clearfix">
+			<div class="logo">
+				<!-- <img src="static/img/logo-image.png" alt="" /> -->
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md">
+						<div id="main-flexslider" class="flexslider">
+							<ul class="slides">
+								<li>
+									<p class="home-slide-content">
+										<strong>creative</strong> and passion
+									</p>
+								</li>
+
+								<li>
+									<p class="home-slide-content">
+										We love <strong>simplicity</strong>
+									</p>
+								</li>
+							</ul>
+						</div>
+						<!-- end slider -->
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+	<!-- spacer section -->
+	<section class="spacer green">
+		<div class="container">
+			<div class="row" style="margin-left:9%">
+				<div class="col-md-6 alignright flyLeft">
+					<blockquote class="large">
+						There's huge space beetween creativity and imagination <cite>Mark Simmons, Nett Media</cite>
+					</blockquote>
+				</div>
+				<div class="col-md-1 aligncenter flyRight"></div>
+				<div class="col-md-5 aligncenter flyRight">
+					<i class="fa fa-map icon-10x"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end spacer section -->
+
+	<!-- section: team -->
+	<section id="about" class="section">
+		<div class="container">
+			<h4>Who We Are</h4>
+			<br>
+			<div class="row" style="margin-left:9%">
+				<div class="col-md-5 offset1">
+					<div>
+						<h2>We live with <strong>creativity</strong></h2>
+						<p>
+							this platform will help children to discover and improve the hobbies and their skills. Parents are the ones to
+							register their children. By participating in same Exhibition, Game and Events.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="aligncenter">
+						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573768596/creativity_pnkckw.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<!--  -->
+		</div>
+		<!-- /.container -->
+		<!-- section: services -->
+		<section id="services" class="section orange">
+			<div class="container">
+				<h4>Services</h4>
+				<!-- Four columns -->
+				<div class="row" style="margin-left:7%">
+					<div class="col-md-4 animated-fast flyIn">
+						<div class="service-box">
+							<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%"
+							 height="100px" />
+							<h2>Skills</h2>
+							<p>
+								We Help children between 0 to 13 years old to know and increase the skills.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 animated flyIn">
+						<div class="service-box">
+							<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801637/2213368_xyve9k.png" alt="" width="30%"
+							 height="100px" />
+							<h2>Personality</h2>
+							<p>
+								Every children have their own Trainner wish will guide them .
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 animated-fast flyIn">
+						<div class="service-box">
+							<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573802803/2171171_yb9r8s.svg" alt="" width="30%"
+							 height="100px" />
+							<h2>Technology</h2>
+							<p>
+								Children can also be acce
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- end section: services -->
+		<!-- section: contact -->
+		<section id="contact" class="section green">
+			<div class="container">
+				<h6>Get update information by filling this form and stay in Touch</h6>
+				<p></p>
+				<div class="blankdivider30">
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="cform" id="contact-form">
+							<div id="sendmessage">Your message has been sent. Thank you!</div>
+							<div id="errormessage"></div>
+							<form action="" method="post" role="form" class="contactForm">
+								<div class="row">
+									<div class="col-md-5">
+										<div class=" form-group">
+											<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
+											 data-msg="Please enter at least 4 chars" />
+											<div class="validation"></div>
+										</div>
+										<div class=" form-group">
+											<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email"
+											 data-msg="Please enter a valid email" />
+											<div class="validation"></div>
+										</div>
+										<div class=" form-group">
+											<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4"
+											 data-msg="Please enter at least 8 chars of subject" />
+											<div class="validation"></div>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class=" form-group">
+											<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"
+											 placeholder="Message"></textarea>
+											<div class="validation"></div>
+										</div>
+										<input type="submit" value="Send message" class="btn btn-theme pull-left">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- ./span12 -->
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container" style="margin-left:27%">
+				<div class="row">
+					<div class="col-md-6 ">
+						<ul class="social-networks">
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-instagram icon-2x"></i></a></li>
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-twitter icon-2x"></i></a></li>
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-dribbble icon-2x"></i></a></li>
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-pinterest icon-2x"></i></a></li>
+						</ul>
+						<p class="copyright">
+							&copy;Azabe 2019. All rights reserved.
+							<div class="credits">
+
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- ./container -->
+		</footer>
+		<a href="#" class="scrollup"><i class="fa fa-angle-up icon-square icon-bgdark icon-2x"></i></a>
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/jquery.scrollTo.js"></script>
+		<script src="static/js/jquery.nav.js"></script>
+		<script src="static/js/jquery.localScroll.js"></script>
+		<script src="static/js/bootstrap.js"></script>
+		<script src="static/js/jquery.prettyPhoto.js"></script>
+		<script src="static/js/isotope.js"></script>
+		<script src="static/js/jquery.flexslider.js"></script>
+		<script src="static/js/inview.js"></script>
+		<script src="static/js/animate.js"></script>
+		<script src="static/js/custom.js"></script>
+		<script src="static/contactform/contactform.js"></script>
+
+</body>
+
+<style>
+	/*
+    Theme Name: Maxim
+    Theme URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+*/
+
+	/*
+
+	
