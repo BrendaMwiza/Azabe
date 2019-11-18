@@ -1,21 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.http  import HttpResponse
-
-# Create your views here.
-# def home_images(request):
-
-#     return render(request,'index.html')
-    # return HttpResponse('Welcome to the Moringa Tribune')from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from .models import Post, Parents, Child, Partners, Activities
 from .forms import NewPostForm, RegChildForm
-# Create your views here.
-# @login_required(login_url='/accounts/login/')
 
 def welcome(request):
     post = Post.objects.all()
