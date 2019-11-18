@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Child, Trainer
+from .models import Post, Child, Partners
 class NewPostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -8,7 +8,7 @@ class RegChildForm(forms.ModelForm):
     class Meta:
         model = Child
         exclude = []
-class RegTrainerForm(forms.ModelForm):
-    class Meta:
-        model = Trainer
-        exclude = []
+# class RegTrainerForm(forms.ModelForm):
+#     class Meta:
+#         model = Trainer
+#         exclude = []

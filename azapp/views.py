@@ -12,17 +12,17 @@ from django.http  import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
-from .models import Post, Parents, Child, Trainer
-from .forms import NewPostForm, RegChildForm, RegTrainerForm
+from .models import Post, Parents, Child, Partners, Activities
+from .forms import NewPostForm, RegChildForm
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
 
 def welcome(request):
     post = Post.objects.all()
     child = Child.objects.all()
-    trainer = Trainer.objects.all()
+    partners = Partners.objects.all()
     parent = Parents.objects.all()
-    return render(request, 'index.html', {'post':post, 'child':child, 'trainer':trainer, 'parent':parent})
+    return render(request, 'index.html', {'post':post, 'child':child, 'partners':partners, 'parent':parent})
 # login_required(login_url='/accounts/login')
 def post(request, id):
     try:

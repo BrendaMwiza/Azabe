@@ -6,9 +6,10 @@ from django.contrib import admin
 # Register your models here.
 
 from django.contrib import admin
-from .models import Trainer, Parents,Post
+from .models import Post, Parents, Child, Partners, Activities
 # Register your models here.
 admin.site.register(Parents)
-admin.site.register(Trainer)
+admin.site.register(Partners)
 admin.site.register(Post)
+admin.site.register(Activities)
 
