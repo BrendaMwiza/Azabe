@@ -13,6 +13,8 @@ urlpatterns=[
     url(r'^new/post$',views.new_post, name ='new-post'),
     url(r'^new/newchild$',views.new_child, name ='new-child'),
     url(r'^new/child$',views.child, name ='child'),
+    url(r'^partners/$',views.partners,name = 'partner'),
+     url(r'^new_event/$',views.new_event,name = 'event'),
 ]
 
 if settings.DEBUG:

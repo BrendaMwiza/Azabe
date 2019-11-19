@@ -41,7 +41,7 @@ class Child(models.Model):
 
     def save_child(self):
         self.save()
-
+ 
 class Partners(models.Model):
     partner_name = models.CharField(max_length=60)
     description= models.CharField(max_length=60)
@@ -49,14 +49,14 @@ class Partners(models.Model):
     partner_image = models.ImageField(upload_to='partner/')
 
     def __str__(self):
-        return str(self.patner_name)
+        return str(self.partner_name)
         
     def save_partner(self):
         self.save()
 
 class Activities(models.Model):
+    partner_name = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True)
     activity_name = models.CharField(max_length=60)
-    partner_image = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True)
     description= models.CharField(max_length=60)
     activity_image = models.ImageField(upload_to='activity/')
     price=models.CharField(max_length=60)
@@ -66,4 +66,5 @@ class Activities(models.Model):
 
     def save_activity(self):
         self.save()
+
 

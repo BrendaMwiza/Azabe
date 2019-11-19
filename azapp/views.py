@@ -13,7 +13,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from .models import Post, Parents, Child, Partners, Activities
-from .forms import NewPostForm, RegChildForm
+from .forms import NewPostForm, RegChildForm,ActivityForm
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
 
@@ -82,3 +82,30 @@ def new_child(request):
 #         form = RegTrainerForm()
 #     return render (request, 'new_trainer.html', {"form":form})
 
+def partners(request):
+    current_user = request.user
+    activities = Activities.objects.filter()
+
+    # current_user = request.user
+    # partners = Partners.objects.filter(user=current_user).first()
+#     return render(request, 'trainer.html',{'trainer':trainer})
+# activities, description, email, id, partner_image, partner_name
+
+    return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities})
+
+
+# @login_required(login_url='/accounts/login/')
+def new_event(request):
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = ActivityForm(request.POST, request.FILES)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.user = current_user
+            event.save()
+        return redirect('partner')
+
+    else:
+        form = ActivityForm()
+    return render(request, 'new_event.html', {"form": form})
