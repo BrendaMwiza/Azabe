@@ -112,6 +112,10 @@ def new_event(request):
 
 
 
-def subscribers(request):
-    child = Child.objects.filter().first()
+def subscribers(request,id):
+    
+    act = Activities.objects.all()
+    print(act)
+    
+    child = Child.objects.filter(activity_id=id)
     return render(request, 'events.html', {"child": child})

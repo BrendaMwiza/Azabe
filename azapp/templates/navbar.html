@@ -63,7 +63,7 @@
       <a class="" href="/">Home</a>
       <a href="">About</a>
       <a href="">Profile</a>
-      <a href="{%url 'partner'%}">Partner</a>
+      <a href="{% url 'partner' %}">Partner</a>
       <!-- <a  href="{%url 'event'%}"> Post an event </a> -->
       <a href="">Project</a>
       {% if user.is_authenticated %}

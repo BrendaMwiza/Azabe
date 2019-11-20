@@ -31,17 +31,7 @@ class Parents(models.Model):
     def save_parent(self):
         self.save()
 
-class Child(models.Model):
-    names=models.CharField(max_length=60)
-    age = models.IntegerField()
-    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True)
-    # activity_name = models.ForeignKey(Activities, on_delete=models.CASCADE, blank=True)
 
-    def __str__(self):
-        return str(self.names)
-
-    def save_child(self):
-        self.save()
  
 class Partners(models.Model):
     partner_name = models.CharField(max_length=60)
@@ -68,4 +58,14 @@ class Activities(models.Model):
     def save_activity(self):
         self.save()
 
+class Child(models.Model):
+    names=models.CharField(max_length=60)
+    age = models.IntegerField()
+    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True)
+    activity_id = models.ForeignKey(Activities, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return str(self.names)
+
+    def save_child(self):
+        self.save()
