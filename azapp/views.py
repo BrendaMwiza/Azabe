@@ -43,11 +43,11 @@ def new_post(request):
 @login_required(login_url='/accounts/login/')
 def getProfile(request,users=None):
     user = request.user
-    parent_image = Parents.objects.filter(name=user)
+    image = Parents.objects.filter(name=user)
     name = request.user
     profile = Parents.objects.filter(name=name).all()
     
-    return render(request,'profile/profile.html',locals(),{"parent_image":parent_image})
+    return render(request,'profile/profile.html',locals(),{"image":image})
 
 
 @login_required(login_url='/accounts/login/')

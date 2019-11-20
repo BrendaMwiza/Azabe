@@ -4,17 +4,19 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
+from django.utils.timezone import utc
+from datetime import datetime
 
 # Create your models here.
 class Post(models.Model):
     name= models.CharField(max_length=60, null=True)
     description = models.CharField(max_length=60, null=True)
     location = models.CharField(max_length=60)
-    time = models.CharField(max_length=60)
+    time = models.DateTimeField(auto_now=True, null=True)
     user= models.ForeignKey(User,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return str(self.title)
+        return str(self.name)
 
     def save_post(self):
         self.save()
@@ -22,9 +24,10 @@ class Post(models.Model):
 class Parents(models.Model):
     name = models.CharField(max_length=60)
     noChild = models.IntegerField()
-    residence = models.CharField(max_length=60)
+    user =models.ForeignKey(User,on_delete=models.CASCADE)
+    location = models.CharField(max_length=60)
     email = models.CharField(max_length=60)
-    parent_image = models.ImageField(upload_to='parent/')
+    image = models.ImageField(upload_to='parent/',null=True, blank=True)
 
     def __str__(self):
         return str(self.name)
@@ -35,7 +38,7 @@ class Parents(models.Model):
 class Child(models.Model):
     names=models.CharField(max_length=60)
     age = models.IntegerField()
-    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True)
+    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True,null=True )
 
     def __str__(self):
         return str(self.names)
@@ -46,8 +49,9 @@ class Child(models.Model):
 class Partners(models.Model):
     partner_name = models.CharField(max_length=60)
     description= models.CharField(max_length=60)
+    user =models.ForeignKey(User,on_delete=models.CASCADE)
     email = models.CharField(max_length=60)
-    partner_image = models.ImageField(upload_to='partner/')
+    partner_image = models.ImageField(upload_to='partner/',null=True ,blank=True)
 
     def __str__(self):
         return str(self.patner_name)
@@ -57,9 +61,9 @@ class Partners(models.Model):
 
 class Activities(models.Model):
     activity_name = models.CharField(max_length=60)
-    partner_image = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True)
+    partner_image = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True )
     description= models.CharField(max_length=60)
-    activity_image = models.ImageField(upload_to='activity/')
+    activity_image = models.ImageField(upload_to='activity/',null=True ,blank=True)
     price=models.CharField(max_length=60)
     
     def __str__(self):
