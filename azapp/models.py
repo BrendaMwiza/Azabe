@@ -24,6 +24,7 @@ class Parents(models.Model):
     noChild = models.IntegerField()
     residence = models.CharField(max_length=60)
     email = models.CharField(max_length=60)
+    parent_image = models.ImageField(upload_to='parent/')
 
     def __str__(self):
         return str(self.name)

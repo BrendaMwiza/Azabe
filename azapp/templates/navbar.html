@@ -3,12 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.topnav {
-  /* overflow: hidden;
-  background-color: black; */
-  /* position: fixed; */
-  /* width:97.5%; */
-}
+
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -60,9 +55,9 @@
     <div class="container-fluid">
 		<div class="navbar-header">
     <div class="topnav">
-      <a class="active" href="">Home</a>
-      <a href="">About</a>
-      <a href="">Profile</a>
+      <a class="active" href="{% url 'welcome' %}">Home</a>
+      <a href="{% url 'welcome' %}">About</a>
+      <a href="{% url 'profile' %}">Profile</a>
       <a href="">Project</a>
       {% if user.is_authenticated %}
      
