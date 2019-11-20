@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http  import HttpResponse
+from django.contrib.auth.models import User
 
 # Create your views here.
 # def home_images(request):
@@ -13,7 +14,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from .models import Post, Parents, Child, Partners, Activities
-from .forms import NewPostForm, RegChildForm
+from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partnerForm
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
 
@@ -81,4 +82,66 @@ def new_child(request):
 #     else:
 #         form = RegTrainerForm()
 #     return render (request, 'new_trainer.html', {"form":form})
+@login_required(login_url='/accounts/login/')
+def getProfile(request,users=None):
+    user = request.user
+    parent_image = Parents.objects.filter(name=user)
+    name = request.user
+    profile = Parents.objects.filter(name=name).all()
+    return render(request,'profile/profile.html',locals(),{"parent_image":parent_image})
+@login_required(login_url='/accounts/login/')
+def editProfile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UpdateProForm(request.POST,request.FILES)
+        if form.is_valid():
+            pics = form.save(commit=False)
+            pics.user_name = current_user
+            pics.save()
+        return redirect('profile')
+    else:
+        form = UpdateProForm()
+    return render(request,'profile/editProfile.html',{"test":form})
+
+@login_required(login_url='/accounts/login/')
+def pargetProfile(request,users=None):
+    user = request.user
+    parent_image = Partners.objects.filter(partner_name=user)
+    name = request.user
+    profile = Partners.objects.filter(partner_name=name).all()
+    return render(request,'profile/partner_Profile.html',locals(),{"parent_image":parent_image})
+
+@login_required(login_url='/accounts/login/')
+def pareditProfile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UpdateParForm(request.POST,request.FILES)
+        if form.is_valid():
+            pics = form.save(commit=False)
+            pics.user_name = current_user
+            pics.save()
+        return redirect('parprofile')
+    else:
+        form = UpdateParForm()
+    return render(request,'profile/pareditProfile.html',{"form":form})
+# ============================
+def username_present(username):
+    user=request.user
+    partner= Partners.objects.filter(user=user).first()
+    if partner.approved == True:
+        redirect("partner")
+    else:
+        form= partnerForm()
+    return render (request, 'profile/partn.html', {"form":form})
+    
+    # partner=Partners.objects.filter(partner_name=user)
+    # if User.objects.filter(username=username).exists():
+    #     return True
+    
+    # return False
+
+
+
+
+
 

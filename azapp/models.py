@@ -22,11 +22,13 @@ class Post(models.Model):
 class Parents(models.Model):
     name = models.CharField(max_length=60)
     noChild = models.IntegerField()
-    user=models.ForeignKey(User,on_delete=models.CASCADE, blank=True)
-    residence = models.CharField(max_length=60)
-    email = models.CharField(max_length=60)
-
-    def __str__(self):
+    user=models.ForeignKey(User,on_delete=models.CASCADE, blank=True,null=True)
+    location = models.CharField(max_length=60,null=True)
+    email = models.CharField(max_length=60,null=True)
+    # partner_name = models.CharField(max_length=60)
+    image = models.ImageField(upload_to='parent/',null=True)
+    partner_name = models.CharField(max_length=60,null=True)
+    def __str__(self): 
         return str(self.name)
 
     def save_parent(self):
@@ -35,7 +37,7 @@ class Parents(models.Model):
 class Child(models.Model):
     names=models.CharField(max_length=60)
     age = models.IntegerField()
-    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True)
+    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True,null=True)
 
     def __str__(self):
         return str(self.names)
@@ -46,8 +48,10 @@ class Child(models.Model):
 class Partners(models.Model):
     partner_name = models.CharField(max_length=60)
     description= models.CharField(max_length=60)
-    email = models.CharField(max_length=60)
-    partner_image = models.ImageField(upload_to='partner/')
+    user=models.OneToOneField(User,on_delete=models.CASCADE, blank=True,null=True)
+    email = models.CharField(max_length=60,null=True)
+    partner_image = models.ImageField(upload_to='partner/',null=True)
+    approved = models.BooleanField(default=False )
 
     def __str__(self):
         return str(self.partner_name)
@@ -57,9 +61,9 @@ class Partners(models.Model):
 
 class Activities(models.Model):
     activity_name = models.CharField(max_length=60)
-    partner_image = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True)
+    partner_image = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True)
     description= models.CharField(max_length=60)
-    activity_image = models.ImageField(upload_to='activity/')
+    activity_image = models.ImageField(upload_to='activity/',null=True)
     price=models.CharField(max_length=60)
     
     def __str__(self):
