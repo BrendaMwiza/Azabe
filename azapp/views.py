@@ -109,3 +109,9 @@ def new_event(request):
     else:
         form = ActivityForm()
     return render(request, 'new_event.html', {"form": form})
+
+
+
+def subscribers(request):
+    child = Child.objects.filter().first()
+    return render(request, 'events.html', {"child": child})

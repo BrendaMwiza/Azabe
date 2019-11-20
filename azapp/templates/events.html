@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{block.super}}
+<style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+        
+<div class="container-fluid" style="margin-top:7%">
+
+    <h2 class="slogan" style=" text-align: center">SUBSCRIBERS!</h2><br>
+</div>
+<div class="container">
+
+<table >
+    <tr >
+        <th >Name</th>
+        <th >Age</th>
+        <th >Parent</th>
+        <th>Event name</th>
+    </tr>
+    <tr >
+        {% for kid in child %}
+        <td >{{kid.names}}</td>
+        <td >{{kid.age}}</td>
+        <td >{{kid.parent}}</td>
+        <!-- <td>{{kid.activity_name}}</td> -->
+        {% endfor %}
+    </tr>
+</table>
+</div>
+
+{% endblock %}

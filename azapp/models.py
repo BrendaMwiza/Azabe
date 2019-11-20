@@ -35,6 +35,7 @@ class Child(models.Model):
     names=models.CharField(max_length=60)
     age = models.IntegerField()
     parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True)
+    # activity_name = models.ForeignKey(Activities, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return str(self.names)
