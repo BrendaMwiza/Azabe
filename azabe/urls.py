@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from django.contrib.auth import views 
+from django.contrib.auth import views
 
 
 # from app.admin import admin_site
@@ -33,4 +33,8 @@ urlpatterns = [
     # # TADA thats done !! whhoh
     # url(r'^admin/', include(admin_site.urls)),
 
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'}),
 ]
+

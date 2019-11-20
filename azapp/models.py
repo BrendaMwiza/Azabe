@@ -34,17 +34,9 @@ class Parents(models.Model):
     def save_parent(self):
         self.save()
 
-class Child(models.Model):
-    names=models.CharField(max_length=60)
-    age = models.IntegerField()
-    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True,null=True)
 
-    def __str__(self):
-        return str(self.names)
 
-    def save_child(self):
-        self.save()
-
+ 
 class Partners(models.Model):
     partner_name = models.CharField(max_length=60)
     description= models.CharField(max_length=60)
@@ -60,11 +52,11 @@ class Partners(models.Model):
         self.save()
 
 class Activities(models.Model):
+    partner_name = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True)
     activity_name = models.CharField(max_length=60)
-    partner_image = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True)
-    description= models.CharField(max_length=60)
+    description= models.CharField(max_length=60,null=True)
     activity_image = models.ImageField(upload_to='activity/',null=True)
-    price=models.CharField(max_length=60)
+    price=models.CharField(max_length=60,null=True)
     
     def __str__(self):
         return str(self.activity_name)
@@ -72,6 +64,14 @@ class Activities(models.Model):
     def save_activity(self):
         self.save()
 
-# class DateModel(models.Model):
-#     created_by = models.CharField(max_length=50)
-#     modified_by = models.CharField(max_length=50)
+class Child(models.Model):
+    names=models.CharField(max_length=60,null=True)
+    age = models.IntegerField()
+    parent = models.ForeignKey(Parents,on_delete=models.CASCADE, blank=True,null=True)
+    activity_id = models.ForeignKey(Activities, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return str(self.names)
+
+    def save_child(self):
+        self.save()

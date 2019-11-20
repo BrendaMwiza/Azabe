@@ -62,7 +62,7 @@
     <div class="topnav">
       <a class="active" href="{% url 'welcome' %}">Home</a>
       <a href="{% url 'welcome' %}">About</a>
-      <a href="{% url 'parprofile' %}">Par_Profile</a>
+    
       <a href="">Project</a>
       <a href="{% url 'profile' %}">Profile</a>
       {% if user.is_authenticated %}
@@ -74,7 +74,7 @@
       {% if user is partner_name %}
       <a href="">logout</a>
       {% else %}
-      <a href="{% url 'username_present' %}">Partner</a>
+      <a href="{% url 'partner' %}">Partner</a>
       {% endif %}
       <a style="color:white;margin-left:200px;font-size: 30px;font-family:'Open Sans', Arial, sans-serif;"><strong>AZABE</strong></a>
 <!--

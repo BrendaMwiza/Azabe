@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid" style="margin-top:7%">
+    {% if partner %}
+    
+    {% if partner.approved == False %}
+    <h2>{{message}}</h2>
+    <p>If you want to register go to that page</p>
+    <a href="{% url 'username_present'%}"> Create a business account</a>
+    {% else %}
+    <h2 class="slogan" style=" text-align: center">EVENTS!</h2>
+</div>
+</div>
+<div class="container">
+    <nav class="bg-black navbar navbar-inverse navbar-fixed-top" style="color: white;background-color:#2E151B;">
+    <button type="button" class="btn btn-info"><a href="{%url 'event'%}"> Post an event </a></button>
+    
+    </nav>
+    <br>
+    <div class="row">
+        {% for event in activities %}
+
+        <div class="col-md-4" style="padding:1%">
+            <div class="card border border-info" id="borderid">
+                <p class="heading" style="text-align:center;"><strong>Organisers:</strong> {{event.partner_name}}</p>
+                <div style="text-align:center; background-color:#2E151B;" class="card-image">
+
+                    <img class="img-responsive" src="{{event.activity_image.url}}" alt="" height="200px" width="300px">
+
+                </div>
+                <div style="margin:2%">
+                    <br>
+                    <p class="heading"><strong>Activity:</strong> {{event.activity_name}}</p>
+                    <button type="button" class="btn" style=" margin-left:205px;"> <a href="{%url 'sub'%}">subscribers</a></button>
+                    <hr>
+                    <p><strong>Description: </strong>{{event.description}}</p>
+                    <p><strong>Price:</strong>{{event.price}}</p>
+
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row">
+            <h2 class="text-center">There are no events yet!</h2>
+        </div>
+        {% endfor %}
+    </div>
+    
+    {% endif %}
+    {% else %}
+    <h2>{{message}}</h2>
+    <p>If you want to register go to that page</p>
+    <a href="{% url 'username_present'%}"> Create a business account</a>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -12,7 +12,7 @@
 	<link href="static/color/default.css" rel="stylesheet">
 	<link rel="shortcut icon" href="static/img/favicon.ico">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://kit.fontawesome.com/yourcode.js"></script>
 
 </head>
@@ -20,8 +20,9 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+
 <body>
-	
+
 	<!-- Header area -->
 	<div id="header-wrapper" class="header-slider">
 		<header class="clearfix">
@@ -35,10 +36,10 @@
 							<ul class="slides">
 								<li>
 									<p class="home-slide-content">
-										<strong>creative</strong> and passion
+										<strong>creativity</strong> and passion
 									</p>
 								</li>
-							
+
 								<li>
 									<p class="home-slide-content">
 										We love <strong>simplicity</strong>
@@ -70,146 +71,155 @@
 	</section>
 	<!-- end spacer section -->
 
-<!-- section: team -->
-<section id="about" class="section">
-	<div class="container">
-		<h4>Who We Are</h4>
-		<br>
-		<div class="row"style="margin-left:9%">
-			<div class="col-md-5 offset1">
-				<div>
-					<h2>We live with <strong>creativity</strong></h2>
-					<p>
-						this platform will help children to discover and improve the hobbies and their skills. Parents are the ones to register their children. By participating in same Exhibition, Game and Events.
-					</p>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="aligncenter">
-					<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573768596/creativity_pnkckw.png" alt="" />
-				</div>
-			</div>
-		</div>
-		<!--  -->
-	</div>
-	<!-- /.container -->
-	<!-- section: services -->
-	<section id="services" class="section orange">
-		<div class="container" >
-			<h4>Services</h4>
-			<!-- Four columns -->
-			<div class="row"style="margin-left:7%">
-				<div class="col-md-4 animated-fast flyIn">
-					<div class="service-box">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/>
-						<h2>Skills</h2>
-						<p>
-							We Help children between 0 to 13 years old to know and increase the skills. 
-							</p>
-					</div>
-				</div>
-				<div class="col-md-4 animated flyIn">
-					<div class="service-box">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801637/2213368_xyve9k.png" alt="" width="30%" height="100px"/>
-						<h2>Personality</h2>
-						<p>
-								Every children have their own Trainner wish will guide them .
-						</p>
-					</div>
-				</div>
-				<div class="col-md-4 animated-fast flyIn">
-					<div class="service-box">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573802803/2171171_yb9r8s.svg" alt="" width="30%" height="100px"/>
-						<h2>Technology</h2>
-						<p>
-							Children can also be acce
-						</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- end section: services -->
-	<!-- section: contact -->
-	<section id="contact" class="section green">
+	<!-- section: team -->
+	<section id="about" class="section">
 		<div class="container">
-			<h6>Get update information by filling this form and stay in Touch</h6>
-			<p></p>
-			<div class="blankdivider30">
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="cform" id="contact-form">
-						<div id="sendmessage">Your message has been sent. Thank you!</div>
-						<div id="errormessage"></div>
-						<form action="" method="post" role="form" class="contactForm">
-							<div class="row">
-								<div class="col-md-5">
-									<div class=" form-group">
-										<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-										<div class="validation"></div>
-									</div>
-									<div class=" form-group">
-										<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-										<div class="validation"></div>
-									</div>
-									<div class=" form-group">
-										<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-										<div class="validation"></div>
-									</div>
-								</div>
-								<div class="col-md-5">
-									<div class=" form-group">
-										<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-										<div class="validation"></div>
-									</div>
-									<input type="submit" value="Send message" class="btn btn-theme pull-left">
-								</div>
-							</div>
-						</form>
+			<h4>Who We Are</h4>
+			<br>
+			<div class="row" style="margin-left:9%">
+				<div class="col-md-5 offset1">
+					<div>
+						<h2>We live with <strong>creativity</strong></h2>
+						<p>
+							this platform will help children to discover and improve the hobbies and their skills. Parents are the ones to
+							register their children. By participating in same Exhibition, Game and Events.
+						</p>
 					</div>
 				</div>
-				<!-- ./span12 -->
-			</div>
-		</div>
-	</section>
-	<footer>
-		<div class="container" style="margin-left:27%">
-			<div class="row">
-				<div class="col-md-6 ">
-					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark fa fa-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark fa fa-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark fa fa-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark fa fa-pinterest icon-2x"></i></a></li>
-					</ul>
-					<p class="copyright">
-						&copy;Azabe 2019. All rights reserved.
-						<div class="credits">
-							
-          </div>
-					</p>
+				<div class="col-md-3">
+					<div class="aligncenter">
+						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573768596/creativity_pnkckw.png" alt="" />
+					</div>
 				</div>
 			</div>
+			<!--  -->
 		</div>
-		<!-- ./container -->
-	</footer>
-	<a href="#" class="scrollup"><i class="fa fa-angle-up icon-square icon-bgdark icon-2x"></i></a>
-	<script src="static/js/jquery.js"></script>
-	<script src="static/js/jquery.scrollTo.js"></script>
-	<script src="static/js/jquery.nav.js"></script>
-	<script src="static/js/jquery.localScroll.js"></script>
-	<script src="static/js/bootstrap.js"></script>
-	<script src="static/js/jquery.prettyPhoto.js"></script>
-	<script src="static/js/isotope.js"></script>
-	<script src="static/js/jquery.flexslider.js"></script>
-	<script src="static/js/inview.js"></script>
-	<script src="static/js/animate.js"></script>
-	<script src="static/js/custom.js"></script>
-	<script src="static/contactform/contactform.js"></script>
+		<!-- /.container -->
+		<!-- section: services -->
+		<section id="services" class="section orange">
+			<div class="container">
+				<h4>Services</h4>
+				<!-- Four columns -->
+				<div class="row" style="margin-left:7%">
+					<div class="col-md-4 animated-fast flyIn">
+						<div class="service-box">
+							<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%"
+							 height="100px" />
+							<h2>Skills</h2>
+							<p>
+								We Help children between 0 to 13 years old to know and increase the skills.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 animated flyIn">
+						<div class="service-box">
+							<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801637/2213368_xyve9k.png" alt="" width="30%"
+							 height="100px" />
+							<h2>Personality</h2>
+							<p>
+								Every children have their own Trainner wish will guide them .
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 animated-fast flyIn">
+						<div class="service-box">
+							<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573802803/2171171_yb9r8s.svg" alt="" width="30%"
+							 height="100px" />
+							<h2>Technology</h2>
+							<p>
+								Children can also be acce
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- end section: services -->
+		<!-- section: contact -->
+		<section id="contact" class="section green">
+			<div class="container">
+				<h6>Get update information by filling this form and stay in Touch</h6>
+				<p></p>
+				<div class="blankdivider30">
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="cform" id="contact-form">
+							<div id="sendmessage">Your message has been sent. Thank you!</div>
+							<div id="errormessage"></div>
+							<form action="" method="post" role="form" class="contactForm">
+								<div class="row">
+									<div class="col-md-5">
+										<div class=" form-group">
+											<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
+											 data-msg="Please enter at least 4 chars" />
+											<div class="validation"></div>
+										</div>
+										<div class=" form-group">
+											<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email"
+											 data-msg="Please enter a valid email" />
+											<div class="validation"></div>
+										</div>
+										<div class=" form-group">
+											<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4"
+											 data-msg="Please enter at least 8 chars of subject" />
+											<div class="validation"></div>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class=" form-group">
+											<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"
+											 placeholder="Message"></textarea>
+											<div class="validation"></div>
+										</div>
+										<input type="submit" value="Send message" class="btn btn-theme pull-left">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- ./span12 -->
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container" style="margin-left:27%">
+				<div class="row">
+					<div class="col-md-6 ">
+						<ul class="social-networks">
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-instagram icon-2x"></i></a></li>
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-twitter icon-2x"></i></a></li>
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-dribbble icon-2x"></i></a></li>
+							<li><a href="#"><i class="icon-circled icon-bgdark fa fa-pinterest icon-2x"></i></a></li>
+						</ul>
+						<p class="copyright">
+							&copy;Azabe 2019. All rights reserved.
+							<div class="credits">
+
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- ./container -->
+		</footer>
+		<a href="#" class="scrollup"><i class="fa fa-angle-up icon-square icon-bgdark icon-2x"></i></a>
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/jquery.scrollTo.js"></script>
+		<script src="static/js/jquery.nav.js"></script>
+		<script src="static/js/jquery.localScroll.js"></script>
+		<script src="static/js/bootstrap.js"></script>
+		<script src="static/js/jquery.prettyPhoto.js"></script>
+		<script src="static/js/isotope.js"></script>
+		<script src="static/js/jquery.flexslider.js"></script>
+		<script src="static/js/inview.js"></script>
+		<script src="static/js/animate.js"></script>
+		<script src="static/js/custom.js"></script>
+		<script src="static/contactform/contactform.js"></script>
 
 </body>
+
 <style>
 	/*
     Theme Name: Maxim
@@ -219,22 +229,6 @@
 */
 
 /*
-===========================
-CONTENTS:
-
-01 General
-02 Typography
-03 Non-semantic
-04 Navbar
-05 Page sections
-06 Footer
-07 Icons
-08 Buttons
-09 Media queries 
-===========================
-*/
-/* Import css */
-/* Google font */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 /* bootstrap */
 @import url('bootstrap.css');
@@ -244,7 +238,6 @@ CONTENTS:
 @import url('prettyPhoto.css');
 /* flexslider */
 @import url('flexslider.css');
-
 /* font awesome */
 @import url('font-awesome.css');
 /* overwrite */
@@ -256,8 +249,7 @@ CONTENTS:
 
 /* =========================================================
 01. General
-============================================================ */
-
+=======================*/
 div, article, section, header, footer, nav, li {
 	position:relative;
 }
@@ -286,7 +278,6 @@ body {
 ::selection {
 	color:#333;
 }
-
 /* scroll to top */
 .scrollup{
     position:fixed;
@@ -295,12 +286,10 @@ body {
     bottom:20px;
     right:20px;
 }
-
 a.scrollup {
 	outline:0;
 	text-decoration:none;
 }
-
 a.scrollup:hover,a.scrollup:active,a.scrollup:focus {
 	opacity:1;
 	text-decoration:none;
@@ -312,12 +301,10 @@ a.scrollup:hover,a.scrollup:active,a.scrollup:focus {
 a.scrollup i:hover {
 	text-decoration:none;
 }
-
 .blankdivider10 {
 	height: 10px;
 	display: block;
 }
-
 .blankdivider20 {
 	height: 20px;
 	display: block;
@@ -342,19 +329,16 @@ a.scrollup i:hover {
 
 /* =========================================================
 02. Typography
-============================================================ */
-
+===========================*/
 p {
 	line-height: 1.6em;
 	margin: 0 0 10px 0;
 }
-
 blockquote {
 	font-size:18px;
 	border:none;
 	padding:0;
 }
-
 blockquote.large {
 	font-size:36px;
 	font-weight:700;
@@ -366,13 +350,11 @@ blockquote.large:before {
 	content: "\f10d";
 	margin-right:20px;
 }
-
 blockquote cite 						{ display:block; font-size:12px;}
 blockquote cite:before 					{ content:"\2014 \0020"; }
 blockquote cite a,
 blockquote cite a:visited,
 blockquote cite a:visited 				{ color:#555; }
-
 ul, ol {
 	font-size: 1em; /* 16px */
 	line-height: 1.5; /* 24px */
@@ -380,12 +362,10 @@ ul, ol {
 }
 /* body, input, textarea {
 } */
-
 a {
   color: #454545;
   text-decoration: none;
 }
-
 a:hover, a:active {
 	text-decoration: underline;
 }
@@ -442,7 +422,6 @@ em {
 	text-shadow:
  -1px -1px 0 rgba(0, 0, 0, 0.5), /* shadow */  1px 1px 0 rgba(255, 255, 255, 0.9); /* highlight */
 }
-
 h2.pagetitle {
 	color:#fff;
 	font-size:46px;
@@ -452,10 +431,6 @@ h2.pagetitle {
 
 /* =========================================================
 05. Page sections
-============================================================ */
-
-/* === section header === */
-
 #header-wrapper {
 	width: 100%;
 	min-height: 600px;
@@ -479,12 +454,10 @@ h2.pagetitle {
 	margin: 0.5em 0;
 	text-shadow: 1px 1px 1px #333333;
 }
-
 header .logo {
 	text-align:center;
 	margin-bottom:30px;
 }
-
 /* --- Header slider --- */
 #header-wrapper.header-slider {
 	margin-top: 0%;
@@ -496,7 +469,6 @@ header .logo {
 	-o-background-size: cover;
 	background-size: cover;
 }
-
 #main-flexslider ul.slides li p {
 	font-size: 72px;
 	text-transform: uppercase;
@@ -622,14 +594,12 @@ section.spacer.bg2 {
 	height:auto;
 	margin:0;	
 }
-
 section.spacer.bg3 {
 	background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573768699/bg-3_sfdwuu.jpg') 50% 0 no-repeat fixed;
 	width:100%;
 	height:auto;
 	margin:0;	
 }
-
 section.spacer blockquote.large:before {
 	color:#eee;
 	opacity:0.6;
@@ -780,44 +750,6 @@ div.cform-response-output {
 
 /* =========================================================
 06. Footer
-============================================================ */
-
-footer {
-	/* background: rgb(226, 226, 226) url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg') no-repeat center center fixed; */
-	
-	background: #2b2b2b;
-	text-align: center;
-	color: #ddd;
-	padding:50px 0 50px;
-
-	height: 250px;
-}
-
-footer a {
-    color: #ddd;
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-footer ul.social-networks {
-	list-style:none;
-}
-
-footer ul.social-networks li {
-	display:inline;
-}
-
-footer ul.social-networks li i {
-	display:inline-block;
-}
-
-footer ul.social-networks li a {
-	color: #5e5e5e;
-	margin: 0 5px;
-}
-
 footer ul.social-networks li a:hover {
 	text-decoration:none;
 	-webkit-transition: all 0.4s ease-in-out;
@@ -826,7 +758,6 @@ footer ul.social-networks li a:hover {
 	-ms-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
 }
-
 footer ul.social-networks li i.icon-bgdark {
 	background:#414141;
 	color: #656565;
@@ -856,12 +787,6 @@ footer ul.social-networks li a i.icon-pinterest:hover {
 
 /* =========================================================
 07. Icons
-============================================================ */
-
-/* bg */
-i.icon-bglight {
-	color: #444;
-	background: #f7f7f7;
 }
 i.icon-bglight.active {
 	color: #fff;
@@ -912,7 +837,6 @@ i.icon-square.icon-5x{
 	height: 120px !important;
 	line-height: 120px !important;
 }
-
 /* rounded */
 i.icon-rounded {
 	display: inline-block;
@@ -926,7 +850,6 @@ i.icon-rounded {
 	height: 24px !important;
 	line-height: 24px !important;
 }
-
 .icon-rounded.icon-2x{
 	width: 48px !important;
 	height: 48px !important;
@@ -977,7 +900,6 @@ i.icon-circled {
 	height: 24px !important;
 	line-height: 24px !important;
 }
-
 .icon-circled.icon-2x{
 	width: 48px !important;
 	height: 48px !important;
@@ -1015,7 +937,6 @@ i.icon-white {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-
 .icon-7x {
   font-size: 7em;
 }
@@ -1025,7 +946,6 @@ i.icon-white {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-
 .icon-8x {
   font-size: 8em;
 }
@@ -1035,7 +955,6 @@ i.icon-white {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-
 .icon-9x {
   font-size: 9em;
 }
@@ -1059,8 +978,7 @@ i.icon-white {
 
 /* =========================================================
 08. Buttons
-============================================================ */
- 
+========================*/
 .btn {
 	color: #fff;
 	text-shadow: none;
@@ -1115,12 +1033,10 @@ i.icon-white {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
   margin-top: 4px;
 }
-
 .btn-small {
   padding: 6px 13px;
   font-size: 11.9px;
@@ -1128,17 +1044,14 @@ i.icon-white {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-
 .btn-small [class^="icon-"],
 .btn-small [class*=" icon-"] {
   margin-top: 0;
 }
-
 .btn-mini [class^="icon-"],
 .btn-mini [class*=" icon-"] {
   margin-top: -1px;
 }
-
 .btn-mini {
   padding: 0 6px;
   font-size: 10.5px;
@@ -1158,7 +1071,6 @@ i.icon-white {
   border-color: none;
   filter:none;
 }
-
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
@@ -1184,7 +1096,6 @@ i.icon-white {
   border-color: none;
   filter:none;
 }
-
 .btn-warning:hover,
 .btn-warning:focus,
 .btn-warning:active,
@@ -1211,7 +1122,6 @@ i.icon-white {
   border-color: none;
   filter:none;
 }
-
 .btn-danger:hover,
 .btn-danger:focus,
 .btn-danger:active,
@@ -1237,7 +1147,6 @@ i.icon-white {
   border-color: none;
   filter:none;
 }
-
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active,
@@ -1263,7 +1172,6 @@ i.icon-white {
   border-color: none;
   filter:none;
 }
-
 .btn-info:hover,
 .btn-info:focus,
 .btn-info:active,
@@ -1289,7 +1197,6 @@ i.icon-white {
   border-color: none;
   filter:none;
 }
-
 .btn-inverse:hover,
 .btn-inverse:focus,
 .btn-inverse:active,
@@ -1313,7 +1220,6 @@ i.icon-white {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-
 /* button rounded */
 .btn-rounded {
   -webkit-border-radius: 20px;
@@ -1334,10 +1240,6 @@ i.icon-white {
 
 /* =========================================================
 09. Media queries
-============================================================ */
-
-
- @media (min-width: 768px) and (max-width: 979px) {
 	body {
 		padding-left:0 ;
 		padding-right:0;
@@ -1413,7 +1315,6 @@ i.icon-white {
 	#header-wrapper {
 		padding-top:80px;
 	}
-
 	#team .team-thumb {
 		 margin-right: auto;
 		 margin-left: auto;
@@ -1447,7 +1348,6 @@ i.icon-white {
  margin-left: auto;
  display: block;
 }
-
  section#services h2 {
  margin-bottom: 0.25em;
 }
@@ -1481,7 +1381,6 @@ i.icon-white {
 		width: 100%;
 	}
 }
-
 
 </style>
 {% endblock %}

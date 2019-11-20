@@ -29,7 +29,11 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/home/dukunde/Azabe/virtual"
+=======
+set -gx VIRTUAL_ENV "/home/wecode/Azabe/virtual"
+>>>>>>> 25e34fbd6cb9c64c02292ab853c921f79e656ae0
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
