@@ -65,11 +65,18 @@
       <a href="">Profile</a>
       <a href="">Project</a>
       {% if user.is_authenticated %}
-     
-      <a href="/logout">Logout</a> 
+          
+            <li>
+              <a href="/logout">Logout</a>
+            </li>
+          
       {% else %}
-      <a  href="/accounts/login">Login</a> 
+      <li>
+        <a class='btn btn-default' href="/accounts/login">Login</a>
+      </li>
+
       {% endif %}
+
       
       <a style="color:white;margin-left:200px;font-size: 30px;font-family:'Open Sans', Arial, sans-serif;"><strong>AZABE</strong></a>
 <!--    
@@ -83,5 +90,30 @@
 </div>
 </nav>
    
+
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigaion</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">News Highlight</a>
+
+
+      </div>
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+
+          </ul>
+
+      </div>
+
+  </div>
+</div>
+
 </body>
 </html>

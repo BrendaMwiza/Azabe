@@ -17,9 +17,20 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.contrib.auth import views 
 
+
+# from app.admin import admin_site
 # from django.contrib.auth import views 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'',include('azapp.urls'))
+    url(r'',include('azapp.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'}), 
+
+
+    # url(r'^app/',include('app.urls',namespace="app"),name='app_access'),
+    # #informing the django about the new admin site
+    # # TADA thats done !! whhoh
+    # url(r'^admin/', include(admin_site.urls)),
+
 ]

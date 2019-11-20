@@ -22,6 +22,7 @@ class Post(models.Model):
 class Parents(models.Model):
     name = models.CharField(max_length=60)
     noChild = models.IntegerField()
+    user=models.ForeignKey(User,on_delete=models.CASCADE, blank=True)
     residence = models.CharField(max_length=60)
     email = models.CharField(max_length=60)
 
@@ -49,7 +50,7 @@ class Partners(models.Model):
     partner_image = models.ImageField(upload_to='partner/')
 
     def __str__(self):
-        return str(self.patner_name)
+        return str(self.partner_name)
         
     def save_partner(self):
         self.save()
@@ -67,3 +68,6 @@ class Activities(models.Model):
     def save_activity(self):
         self.save()
 
+# class DateModel(models.Model):
+#     created_by = models.CharField(max_length=50)
+#     modified_by = models.CharField(max_length=50)
