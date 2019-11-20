@@ -15,7 +15,9 @@ urlpatterns=[
     url(r'^new/child$',views.child, name ='child'),
     url(r'^partners/$',views.partners,name = 'partner'),
     url(r'^new_event/$',views.new_event,name = 'event'),
-    url(r'^subscribers/(?P<id>\d+)',views.subscribers,name = 'sub'),
+    url(r'^subscribers/(\d+)',views.subscribers,name = 'sub'),
+    url(r'^profile/', views.getProfile, name='profile'),
+    url(r'^editprofile',views.editProfile, name='editProfile'),
 ]
 
 if settings.DEBUG:

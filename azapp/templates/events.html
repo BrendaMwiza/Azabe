@@ -33,14 +33,16 @@
         <th >Parent</th>
         <!-- <th>Event name</th> -->
     </tr>
+    {% for kid in child %}
     <tr >
-        {% for kid in child %}
+        
         <td >{{kid.names}}</td>
         <td >{{kid.age}}</td>
         <td >{{kid.parent}}</td>
         <!-- <td>{{kid.activity_name}}</td> -->
-        {% endfor %}
+        
     </tr>
+    {% endfor %}
 </table>
 </div>
 

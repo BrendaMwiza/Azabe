@@ -179,8 +179,7 @@ ul, ol {
 	line-height: 1.5; /* 24px */
 	margin: 0 0 1.5em 0;
 }
-body, input, textarea {
-}
+
 
 a {
   color: #454545;
@@ -274,10 +273,10 @@ h2.pagetitle {
 04. Navigation
 ============================================================ */
 
-.navbar-fixed-top .container {
+/* .navbar-fixed-top .container { */
 /* Uncomment to make nav expand full width */
  /*	width: auto; */
-}
+/* } */
 .navbar .brand {
 	margin-left:0;
 	padding: 0;
@@ -873,7 +872,7 @@ section#about {
 
 #tweet ul li:before {
 	font-family: 'FontAwesome';
-	speak: none;
+	speak-as: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;

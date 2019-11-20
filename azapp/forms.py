@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Child, Partners,Activities
+from .models import Post, Child, Partners,Activities,Parents
 class NewPostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -17,3 +17,7 @@ class ActivityForm(forms.ModelForm):
     class Meta:
         model = Activities
         exclude = []
+class UpdateProForm(forms.ModelForm):
+    class Meta:
+        model = Parents
+        exclude = ['email']
