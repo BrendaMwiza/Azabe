@@ -23,6 +23,7 @@ class Post(models.Model):
 
 class Parents(models.Model):
     name = models.CharField(max_length=60)
+    biography = models.CharField(max_length=300)
     noChild = models.IntegerField()
     user =models.ForeignKey(User,on_delete=models.CASCADE)
     location = models.CharField(max_length=60)
