@@ -18,6 +18,8 @@ from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partner
 from .forms import NewPostForm, RegChildForm,ActivityForm
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
+from .forms import NewPostForm, RegChildForm, UpdateProForm
+
 
 def welcome(request):
     post = Post.objects.all()
@@ -25,6 +27,8 @@ def welcome(request):
     partners = Partners.objects.all()
     parent = Parents.objects.all()
     return render(request, 'index.html', {'post':post, 'child':child, 'partners':partners, 'parent':parent})
+
+
 # login_required(login_url='/accounts/login')
 def post(request, id):
     try:
@@ -32,6 +36,7 @@ def post(request, id):
     except DoesNotExist:
         raise Http404
     return render(request, 'index.html',{'post':post})
+
 
 # @login_required(login_url='/accounts/login')
 def new_post(request):
@@ -47,11 +52,40 @@ def new_post(request):
         form = NewPostForm()
     return render (request, 'new_post.html', {"form":form})
 
+
+@login_required(login_url='/accounts/login/')
+def getProfile(request,users=None):
+    user = request.user
+    image = Parents.objects.filter(name=user)
+    name = request.user
+    profile = Parents.objects.filter(name=name).all()
+    
+    return render(request,'profile/profile.html',locals(),{"image":image})
+
+
+@login_required(login_url='/accounts/login/')
+def editProfile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UpdateProForm(request.POST,request.FILES)
+        if form.is_valid():
+            pics = form.save(commit=False)
+            pics.user_name = current_user
+            pics.save()
+        return redirect('profile')
+
+    else:
+        form = UpdateProForm()
+    return render(request,'profile/editProfile.html',{"test":form})
+
+
 # @login_required(login_url='/accounts/login')
 def child(request):
     current_user = request.user
     child = Child.objects.filter(user=current_user).first()
     return render(request, 'child.html',{'child':child})
+
+
 # @login_required(login_url='/accounts/login')
 def new_child(request):
     current_user = request.user
