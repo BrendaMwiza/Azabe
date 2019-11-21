@@ -34,6 +34,10 @@
                 </div>
             </div>
         </div>
+        {% for com in event.comments_set.all %}
+        <p>{{com.comment_cont}}</p>
+        {% endfor %}
+        <a href="{%url 'comment' event.id%}" class="btn btn-primary">comment</a>
         {% empty %}
         <div class="row">
             <h2 class="text-center">There are no events yet!</h2>

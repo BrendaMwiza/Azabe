@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% load bootstrap4 %}
+{% load staticfiles %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
 <style>
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   display: block;
-  color: white;
+  color: rgb(15, 15, 15);
   font-family:'Open Sans', Arial, sans-serif;
   /* text-decoration: none */
   /* text-align: center; */
@@ -16,12 +16,13 @@
   text-decoration: none;
   /* margin-left:15%; */
   font-size: 17px;
-  /* font-weight: bold; */
+  font-weight: bold;
+  font-family: 'Libre Baskerville', serif;
 }
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  /* background-color: #ddd; */
+  color: rgb(109, 108, 108);
 }
 /* Style the "active" element to highlight the current page */
 /* Style the search box inside the navigation bar */
@@ -50,33 +51,45 @@
 }
 </style>
 </head>
+
 <body>
-	<nav class="bg-black navbar navbar-inverse navbar-fixed-top"  style="color: white;background-color:black">
+	<nav class="bg-black navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(22, 22, 22,0.4);">
     <div class="container-fluid">
 		<div class="navbar-header">
     <div class="topnav">
       <a class="active" href="{% url 'welcome' %}">Home</a>
-      <a href="{% url 'welcome' %}">About</a>
+      
       <a href="{% url 'profile' %}">Profile</a>
-            <a href="{% url 'dash' %}">Events</a>
-            <a href="{% url 'partner'%}">Partner</a>
+      <a href="{% url 'dash' %}">Events</a>
+      <a href="{% url 'partner' %}">Partner</a>
+      
+      <a href="{% url 'profile' %}">Profile</a>
       {% if user.is_authenticated %}
-      <a href="/logout">Logout</a> 
+      <a href="/logout">Logout</a>
       {% else %}
-      <a  href="/accounts/login">Login</a> 
+      <a  href="/accounts/login">Login</a>
+      {% endif %}
+
+      {% if user is partner_name %}
+      <a href="">logout</a>
+      {% else %}
+      <a href="{% url 'partner' %}">Partner</a>
       {% endif %}
       
-      <a style="color:white;margin-left:200px;font-size: 30px;font-family:'Open Sans', Arial, sans-serif;"><strong>AZABE</strong></a>
+      <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;"><strong>AZABE</strong></a>
+      
 <!--    
       <input type="text" placeholder="Search..">
-           
-        <a href="" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a>   
-        
+        <a href="" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a>
    -->
     </div>
   </div>
 </div>
 </nav>
    
+
+
+
 </body>
+{% endblock %}
 </html>
