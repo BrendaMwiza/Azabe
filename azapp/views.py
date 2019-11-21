@@ -25,7 +25,7 @@ def welcome(request):
     post = Post.objects.all()
     child = Child.objects.all()
     partners = Partners.objects.all()
-    parent = Parents.objects.all()
+    parent = Parents.objects.all() 
     return render(request, 'index.html', {'post':post, 'child':child, 'partners':partners, 'parent':parent})
 
 

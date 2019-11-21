@@ -18,7 +18,7 @@
         </div>
         <div class="panel-body">
 
-          <form  action="/accounts/register/" method="post" style="color:rgb(234, 243, 243);width: 300px;">
+          <form  action="/accounts/login/" method="post" style="color:rgb(234, 243, 243);width: 300px;">
             {% csrf_token %}
             {% bootstrap_form form %}
             <div class="form-group">
@@ -26,8 +26,7 @@
               <input type="submit" class="btn btn-dark btn-sm" value="Login">
             </div>
 
-            <input type="hidden" name="next" value="{{next}}">
-            <input type="submit" class="btn btn-dark btn-sm" value="Create your account"><br><br>
+          <a href="/accounts/register/" type="button" class="btn btn-dark btn-sm" value="Create your account">Create your account</a>
             <input type="submit" class="btn btn-dark btn-sm" value="Change password!">
           
           </form>

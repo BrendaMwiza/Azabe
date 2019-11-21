@@ -20,7 +20,7 @@ urlpatterns=[
     url(r'^pareditprofile',views.username_present, name='username_present'),
     url(r'^partners/$',views.partners,name = 'partner'),
     url(r'^new_event/$',views.new_event,name = 'event'),
-    url(r'^subscribers/(?P<id>\d+)',views.subscribers,name = 'sub'),
+    url(r'^subscribers/(\d+)',views.subscribers,name = 'sub'),
 
   
 ]
