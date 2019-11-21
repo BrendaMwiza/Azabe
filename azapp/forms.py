@@ -7,7 +7,7 @@ class NewPostForm(forms.ModelForm):
 class RegChildForm(forms.ModelForm):
     class Meta:
         model = Child
-        exclude = []
+        exclude = ['parent']
 # class RegTrainerForm(forms.ModelForm):
 #     class Meta:
 #         model = Trainer
@@ -34,4 +34,4 @@ class ActivityForm(forms.ModelForm):
 class commentForm(forms.ModelForm):
     class Meta:
         model = Comments
-        exclude = ['commented_by','commented_image']
+        exclude = ['commented_by','commented_act']

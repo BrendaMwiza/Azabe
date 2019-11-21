@@ -58,7 +58,7 @@ class Activities(models.Model):
     description= models.CharField(max_length=60,null=True)
     activity_image = models.ImageField(upload_to='activity/',null=True ,blank=True)
     price=models.CharField(max_length=60,null=True)
-    
+
     @classmethod
     def ge_all_act(cls):
         act = cls.objects.all().prefetch_related('comments_set')

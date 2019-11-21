@@ -82,8 +82,9 @@ def editProfile(request):
 # @login_required(login_url='/accounts/login')
 def child(request):
     current_user = request.user
-    child = Child.objects.filter(user=current_user).first()
-    return render(request, 'child.html',{'child':child})
+    child = Child.objects.filter(parent=current_user).first()
+    # parent = current_user
+    return render(request, 'child.html',{'child':child, 'parent':parent})
 
 
 # @login_required(login_url='/accounts/login')
@@ -194,18 +195,18 @@ def partners(request):
     partner= Partners.objects.filter(user=current_user).first()
     print(current_user)
     message=None
-    if partner is None:
+    # if partner is None:
         
-        message= "you are not registered as a partner"
+    #     message= "you are not registered as a partner"
         
-        # redirect(username_present)
-        # if partner.approved == False:
-        #     redirect("username_present")
-    elif partner.approved == False:
-        message= "please check in 24 hours  "
-    else:
-        message= "Welcome to Azap Business View"
-        print(partner.approved)
+    #     # redirect(username_present)
+    #     # if partner.approved == False:
+    #     #     redirect("username_present")
+    # elif partner.approved == False:
+    #     message= "please check in 24 hours  "
+    # else:
+    message= "Welcome to Azap Business View"
+    print(partner.approved)
 
     return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities, "message":message, "partner":partner})
 
@@ -254,7 +255,7 @@ def partners(request):
 def comment(request, act_id):
     current_user = request.user
     act = Activities.objects.filter(id = act_id).first()
-    parent = Parent.objects.filter(user = current_user.id).first()
+    parent = Parents.objects.filter(user = current_user.id).first()
     if request.method == 'POST':
         form = commentForm(request.POST, request.FILES)
         if form.is_valid():
