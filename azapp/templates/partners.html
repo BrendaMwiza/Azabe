@@ -4,6 +4,7 @@
 {{block.super}}
 
 <div class="container-fluid" style="margin-top:7%">
+    <h2 class="slogan" style=" text-align: center">Welcome to dashboard!</h2>
     {% if partner %}
     
     {% if partner.approved == False %}
@@ -16,12 +17,12 @@
 </div>
 <div class="container">
     <nav class="bg-black navbar navbar-inverse navbar-fixed-top" style="color: white;background-color:#2E151B;">
-    <button type="button" class="btn btn-info"><a href="{%url 'event'%}"> Post an event </a></button>
-    
+        <button type="button" class="btn btn-info"><a href="{%url 'event' %}"> Post an event </a></button>
+
     </nav>
     <br>
     <div class="row">
-        {% for event in activities %}
+        {% for event in act %}
 
         <div class="col-md-4" style="padding:1%">
             <div class="card border border-info" id="borderid">
@@ -34,7 +35,7 @@
                 <div style="margin:2%">
                     <br>
                     <p class="heading"><strong>Activity:</strong> {{event.activity_name}}</p>
-                    <button type="button" class="btn" style=" margin-left:205px;"> <a href="{%url 'sub'%}">subscribers</a></button>
+                    <button type="button" class="btn" style=" margin-left:205px;"> <a href="{%url 'sub' event.id %}">subscribers</a></button>
                     <hr>
                     <p><strong>Description: </strong>{{event.description}}</p>
                     <p><strong>Price:</strong>{{event.price}}</p>

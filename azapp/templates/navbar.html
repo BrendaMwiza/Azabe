@@ -58,8 +58,30 @@
 		<div class="navbar-header">
     <div class="topnav">
       <a class="active" href="{% url 'welcome' %}">Home</a>
+      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
+       
+        <span class="caret">Activities</span>
+    </a>
+<ul class="dropdown-menu" role="menu">
+<li>
+  <a href="{% url 'activity'%}">Schools </a>
+</li>
+<li>
+  <a href="learn.html">Learn </a>
+</li>
+<li>
+  <a href="class.html">Classes </a>
+</li>
+
+</ul>
       
       <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'dash' %}">Activities</a>
+      <a href="{% url 'partner' %}">Partner</a>
+
+     
+<!--       
+      <a href="{% url 'profile' %}">Profile</a> -->
       <!-- <a href="">Project</a> -->
       <!-- <a href="{% url 'profile' %}">Profile</a> -->
       {% if user.is_authenticated %}
