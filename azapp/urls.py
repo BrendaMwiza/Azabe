@@ -18,6 +18,7 @@ urlpatterns=[
     url(r'^subscribers/(\d+)',views.subscribers,name = 'sub'),
     url(r'^profile/', views.getProfile, name='profile'),
     url(r'^editprofile',views.editProfile, name='editProfile'),
+    url(r'^dashboard/', views.dashboard, name='dash'),
 ]
 
 if settings.DEBUG:

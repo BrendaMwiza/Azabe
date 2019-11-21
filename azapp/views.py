@@ -87,35 +87,8 @@ def new_child(request):
     else:
         form = RegChildForm()
     return render (request, 'new_child.html', {"form":form})
-# @login_required(login_url='/accounts/login')
-# def Trainer(request):
-#     current_user = request.user
-#     trainer = Trainer.objects.filter(user=current_user).first()
-#     return render(request, 'trainer.html',{'trainer':trainer})
-# @login_required(login_url='/accounts/login')
-# def new_Trainer(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = RegTrainerForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             trainer = form.save(commit=False)
-#             trainer.user = current_user
-#             trainer.save()
-#         return redirect('welcome')
-#     else:
-#         form = RegTrainerForm()
-#     return render (request, 'new_trainer.html', {"form":form})
 
-def partners(request):
-    current_user = request.user
-    activities = Activities.objects.all()
 
-    # current_user = request.user
-    # partners = Partners.objects.filter(user=current_user).first()
-#     return render(request, 'trainer.html',{'trainer':trainer})
-# activities, description, email, id, partner_image, partner_name
-
-    return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities})
 
 
 # @login_required(login_url='/accounts/login/')
@@ -129,17 +102,31 @@ def new_event(request):
             event.user = current_user
             event.save()
         return redirect('partner')
-
     else:
         form = ActivityForm()
     return render(request, 'new_event.html', {"form": form})
 
 
-
 def subscribers(request,act_id):
-    # activity = Activities.objects.all()
     act = Activities.objects.filter(id=act_id).first()
     print(act)
-    # print(act)
     child = Child.objects.filter(activity_id=act.id)
-    return render(request, 'events.html', {"child": child,"act":act})
+    return render(request, 'subscribers.html', {"child": child,"act":act})
+
+
+
+def dashboard(request):
+    current_user = request.user
+    activities = Activities.objects.all()
+    return render(request,'events.html',{ 'current_user':current_user, 'activities':activities})
+
+
+# @login_required(login_url='/accounts/login/')
+def partners(request):
+    current_user = request.user
+    # even = Activities.objects.filter(=even_id).first()
+    
+    act = Activities.objects.filter(partner_name=current_user.id).all()
+    return render(request, 'partners.html', {"act":act})
+
+

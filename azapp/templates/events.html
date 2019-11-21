@@ -2,48 +2,45 @@
 
 {% block content %}
 {{block.super}}
-<style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        </style>
-        
+
 <div class="container-fluid" style="margin-top:7%">
 
-    <h2 class="slogan" style=" text-align: center">SUBSCRIBERS!</h2><br>
+    <h2 class="slogan" style=" text-align: center">EVENTS!</h2>
+</div>
 </div>
 <div class="container">
+    
+    <br>
+    <div class="row">
+        {% for event in activities %}
 
-<table >
-    <tr >
-        <th >Name</th>
-        <th >Age</th>
-        <th >Parent</th>
-        <!-- <th>Event name</th> -->
-    </tr>
-    {% for kid in child %}
-    <tr >
-        
-        <td >{{kid.names}}</td>
-        <td >{{kid.age}}</td>
-        <td >{{kid.parent}}</td>
-        <!-- <td>{{kid.activity_name}}</td> -->
-        
-    </tr>
-    {% endfor %}
-</table>
+        <div class="col-md-4" style="padding:1%">
+            <div class="card border border-info" id="borderid">
+                <p class="heading" style="text-align:center;"><strong>Organisers:</strong> {{event.partner_name}}</p>
+                <div style="text-align:center; background-color:#2E151B;" class="card-image">
+
+                    <img class="img-responsive" src="{{event.activity_image.url}}" alt="" height="200px" width="300px">
+
+                </div>
+                <div style="margin:2%">
+                    <br>
+                    <p class="heading"><strong>Activity:</strong> {{event.activity_name}}</p>
+                    
+                    <button type="button" class="btn"> <a href="{%url 'new-child' %}">Register</a></button>
+                    <hr>
+                    <p><strong>Description: </strong>{{event.description}}</p>
+                    <p><strong>Price:</strong>{{event.price}}</p>
+
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row">
+            <h2 class="text-center">There are no events yet!</h2>
+        </div>
+        {% endfor %}
+    </div>
 </div>
+
 
 {% endblock %}
