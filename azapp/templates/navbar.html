@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% load bootstrap4 %}
+{% load staticfiles %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
 <style>
 
 /* Style the links inside the navigation bar */
@@ -17,6 +17,7 @@
   /* margin-left:15%; */
   font-size: 17px;
   font-weight: bold;
+  font-family: 'Libre Baskerville', serif;
 }
 /* Change the color of links on hover */
 .topnav a:hover {
@@ -50,6 +51,7 @@
 }
 </style>
 </head>
+
 <body>
 	<nav class="bg-black navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(22, 22, 22,0.4);">
     <div class="container-fluid">
@@ -66,7 +68,8 @@
       <a  href="/accounts/login">Login</a> 
       {% endif %}
       
-      <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family:'Open Sans', Arial, sans-serif;"><strong>AZABE</strong></a>
+      <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;"><strong>AZABE</strong></a>
+      
 <!--    
       <input type="text" placeholder="Search..">
            
@@ -79,4 +82,5 @@
 </nav>
    
 </body>
+{% endblock %}
 </html>

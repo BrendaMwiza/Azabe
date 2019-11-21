@@ -11,42 +11,35 @@
 	<link href="static/css/style.css" rel="stylesheet">
 	<link href="static/color/default.css" rel="stylesheet">
 	<link rel="shortcut icon" href="static/img/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://kit.fontawesome.com/yourcode.js"></script>
 
 </head>
 {% extends 'base.html' %}
 {% load bootstrap4 %}
-{% load static %}
+{% load staticfiles %}
 {% block content %}
 <body>
-	
+	<div class="logo">
+		<img src="/static/imageonline-co-whitebackgroundremoved.png" width="200px" height="150px">
+	</div>
 	<!-- Header area -->
 	<div id="header-wrapper" class="header-slider">
 		<header class="clearfix">
-			<div class="logo">
-				<!-- <img src="static/img/logo-image.png" alt="" /> -->
-			</div>
+			
 			<div class="container">
 				<div class="row">
 					<div class="col-md">
-						<div id="main-flexslider" class="flexslider">
-							<ul class="slides">
-								
-									<p class="home-slide-content">
-										Where <strong>passion</strong> grows
-									</p>
-								
-							
-								
-									<p class="home-slide-content">
-										With <strong>creativity</strong>
-									</p>
-								
-							</ul>
+						<div id="main-slider" class="slider">
+							<p class="home-slide-content">
+								Where <strong>passion</strong> grows
+							</p>
+							<p class="home-slide-content">
+								With <strong>creativity</strong>
+							</p>
 						</div>
-						<!-- end slider -->
 					</div>
 				</div>
 			</div>
@@ -55,7 +48,7 @@
 	<!-- spacer section -->
 	<section class="spacer green" style="background-color: rgb(136, 135, 135);">
 		<div class="container">
-			<div class="row" style="margin-left:9%">
+			<div class="row" style="margin-left:9%;font-family: 'Bitter', serif;">
 				<div class="col-md-6 alignright flyLeft">
 					<blockquote class="large">
 						There's huge space beetween creativity and imagination <cite>Mark Simmons, Nett Media</cite>
@@ -73,13 +66,13 @@
 <!-- section: team -->
 <section id="about" class="section" style="background-image:url(https://shawglobalnews.files.wordpress.com/2019/07/gettyimages-1096013698.jpg?quality=70&amp;strip=all&amp;w=720&amp;h=379&amp;crop=1);background-size: 100% 90%;background-attachment: fixed;">
 	<div class="container" style="background-color: rgba(85, 84, 84,0.5);">
-		<h4 style="color: honeydew;"><b>Who We Are</b></h4>
+		<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Who We Are</b></h4>
 		<br>
 		<div class="row"style="margin-left:9%">
 			<div class="col-md-5 offset1">
 				<div>
-					<h2 style="color: honeydew;">We live with <strong>creativity</strong></h2>
-					<p style="color: honeydew;">
+					<h2 style="color: honeydew;font-family: 'Bitter', serif;">We live with <strong>creativity</strong></h2>
+					<p style="color: honeydew;font-family: 'Bitter', serif;">
 						this platform will help children to discover and improve the hobbies and their skills. Parents are the ones to register their children. By participating in same Exhibition, Game and Events.
 					</p>
 				</div>
@@ -96,10 +89,10 @@
 	<!-- section: services -->
 	<section id="services" class="section orange">
 		<div class="container" >
-			<h4>Services</h4>
+			<h4 style="font-family: 'Bitter', serif;">Services</h4>
 			<!-- Four columns -->
 			<div class="row"style="margin-left:7%">
-				<div class="col-md-4 animated-fast flyIn">
+				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
 						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/>
 						<h2>Skills</h2>
@@ -108,7 +101,7 @@
 							</p>
 					</div>
 				</div>
-				<div class="col-md-4 animated flyIn">
+				<div class="col-md-4 animated flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
 						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801637/2213368_xyve9k.png" alt="" width="30%" height="100px"/>
 						<h2>Personality</h2>
@@ -117,7 +110,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="col-md-4 animated-fast flyIn">
+				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
 						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573802803/2171171_yb9r8s.svg" alt="" width="30%" height="100px"/>
 						<h2>Technology</h2>
@@ -170,33 +163,29 @@
 						</form>
 					</div>
 				</div>
-				<!-- ./span12 -->
+				 ./span12 -->
 			<!-- </div> -->
 		<!-- </div> -->
 	<!-- </section> --> 
 	<footer>
-		<div class="row">
-			<div >
-				<h4 style="color: honeydew;"><b>Contact us</b></h4>
-				<div class="site-section" data-aos="fade">
-					<div class="container-fluid">
-						
-						<div class="row justify-content-center">
-						<div class="col-md-7">
+	
+			<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>
+			<div class="site-section" data-aos="fade">
+				<div class="container-fluid">
+					
+						<div class="row">
 							
-				
-							<div class="row">
-							<div class="col-lg-8 mb-5">
-								<form action="#">
+							<div class="col-md-6">
+								<form action="#" style="width: 80%;margin-left: 60px;font-family: 'Bitter', serif;">
 								
 				
 								<div class="row form-group">
 									<div class="col-md-6 mb-3 mb-md-0">
-									<label class="text-black" for="fname" style="margin-right: 45%;">First Name</label>
+									<label class="text-black" for="fname" style="margin-right: 55%;">First Name</label>
 									<input type="text" id="fname" class="form-control">
 									</div>
 									<div class="col-md-6">
-									<label class="text-black" for="lname" style="margin-right: 45%;">Last Name</label>
+									<label class="text-black" for="lname" style="margin-right: 55%;">Last Name</label>
 									<input type="text" id="lname" class="form-control">
 									</div>
 								</div>
@@ -233,48 +222,44 @@
 					
 								</form>
 							</div>
-							<div class="col-lg-4 ml-auto">
+							<div class="col-md-6 ml-auto" style="margin-left: 60px;font-family: 'Bitter', serif;">
 								<div class="mb-3">
-								<p class="mb-0 font-weight-bold">Address</p>
-								<p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+								<p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
+								<p class="mb-4">203 KK St. Gishushu, Gasabo, Kigali, Rwanda</p>
 				
-								<p class="mb-0 font-weight-bold">Phone</p>
-								<p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+								<p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
+								<p class="mb-4"><a href="#">+250 784 129 592</a></p>
 				
-								<p class="mb-0 font-weight-bold">Email Address</p>
-								<p class="mb-0"><a href="#">youremail@domain.com</a></p>
+								<p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
+								<p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
 				
 								</div>
-								
+								<br><br><br>
+								<div class="container">
+									<h4 style="color: honeydew;"><b>Follow us</b></h4>
+									<div class="row">
+										
+										<div class="col-md-6 " style="margin-left:20%;display:inline-block;">
+											<ul class="social-networks">
+												<li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
+												<li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
+												<li><a href="#"><i class="icon-circled icon-bglight fa fa-facebook icon-2x"></i></a></li>
+												<!-- <li><a href="#"><i class="icon-circled icon-bgdark fa fa-pinterest icon-2x"></i></a></li> -->
+											</ul>
+											<p class="copyright" style="margin-left:18%;">
+												&copy;Azabe 2019. All rights reserved.
+											</p>
+										</div>
+										<a href="#" class="scrollup"><i class="fa fa-angle-up icon-square icon-bgdark icon-2x"></i></a>
+									</div>
+								</div>
 							</div>
-							</div>
 						</div>
-					
-						</div>
-					</div>
-					</div>
-			</div>
-		
-		
-			<!-- <div class="col-md-6">
-				<div class="container" style="margin-left:27%">
-					<div class="row">
-						<div class="col-md-6 ">
-							<ul class="social-networks">
-								<li><a href="#"><i class="icon-circled icon-bgdark fa fa-instagram icon-2x"></i></a></li>
-								<li><a href="#"><i class="icon-circled icon-bgdark fa fa-twitter icon-2x"></i></a></li>
-								<li><a href="#"><i class="icon-circled icon-bgdark fa fa-dribbble icon-2x"></i></a></li>
-								<li><a href="#"><i class="icon-circled icon-bgdark fa fa-pinterest icon-2x"></i></a></li>
-							</ul>
-							<p class="copyright">
-								&copy;Azabe 2019. All rights reserved.
-							</p>
-						</div>
-						<a href="#" class="scrollup"><i class="fa fa-angle-up icon-square icon-bgdark icon-2x"></i></a>
-					</div>
+				
 				</div>
-			</div> -->
 			</div>
+			
+			
 
 			<a href="#" class="scrollup"><i class="fa fa-angle-up icon-square icon-bgdark icon-2x"></i></a>
 
@@ -287,7 +272,7 @@
 	<script src="static/js/bootstrap.js"></script>
 	<script src="static/js/jquery.prettyPhoto.js"></script>
 	<script src="static/js/isotope.js"></script>
-	<script src="static/js/jquery.flexslider.js"></script>
+	<script src="static/js/jquery.slider.js"></script>
 	<script src="static/js/inview.js"></script>
 	<script src="static/js/animate.js"></script>
 	<script src="static/js/custom.js"></script>
@@ -311,8 +296,8 @@
 @import url('bootstrap-responsive.css');
 /* prettyPhoto */
 @import url('prettyPhoto.css');
-/* flexslider */
-@import url('flexslider.css');
+/* slider */
+@import url('slider.css');
 /* font awesome */
 @import url('font-awesome.css');
 /* overwrite */
@@ -531,7 +516,7 @@ header .logo {
 	-o-background-size: cover;
 	background-size: cover;
 }
-#main-flexslider ul.slides p {
+#main-slider p {
 	font-size: 72px;
 	text-transform: uppercase;
 	position: relative;
@@ -540,8 +525,9 @@ header .logo {
 	text-decoration: none;
 	line-height: 1;
 	color:rgb(15, 15, 15);
+	font-family: 'Bitter', serif;
 }
-#main-flexslider.flexslider {
+#main-slider.slider {
 		margin:0;
 		background:none;
 		border:none;
@@ -666,7 +652,7 @@ footer {
 	/* background: rgb(226, 226, 226) url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg(592 kB)
 https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg
 ') no-repeat center center fixed; */
-	background: rgb(14, 13, 13);
+	background: rgb(70, 69, 69);
 	text-align: center;
 	color: #ddd;
 	padding:50px 0 50px;
