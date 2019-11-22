@@ -26,14 +26,14 @@ class Post(models.Model):
 
 
 class Parents(models.Model):
-    name = models.CharField(max_length=60,null=True)
+    name = models.CharField(max_length=60)
+    biography = models.CharField(max_length=300)
     noChild = models.IntegerField()
-    user=models.ForeignKey(User,on_delete=models.CASCADE, blank=True,null=True)
-    location = models.CharField(max_length=60,null=True)
-    email = models.CharField(max_length=60,null=True)
-    # partner_name = models.CharField(max_length=60)
-    image = models.ImageField(upload_to='parent/',null=True)
-    partner_name = models.CharField(max_length=60,null=True)
+    user =models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+    location = models.CharField(max_length=60, null=True)
+    email = models.CharField(max_length=60, null=True)
+    image = models.ImageField(upload_to='parent/',null=True, blank=True)
+    
     
     def __str__(self): 
         return str(self.name)
@@ -109,6 +109,7 @@ class Comments(models.Model):
         return str(self.comment_cont)
     def save_comment(self):
         self.save()
+
 class Blog(models.Model):
     name= models.CharField(max_length=60, null=True)
     content = HTMLField(null=True)

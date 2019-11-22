@@ -2,17 +2,20 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
 {% block content %}
-<div style="height: 650px; background-image:url(https://improvephotography.com/wp-content/uploads/2015/07/Sacramento-Family-Lifestyle-Photographer_0003.jpg);background-size: 100% 900px;" >
+<div style="height: 700px; background-image:url(https://improvephotography.com/wp-content/uploads/2015/07/Sacramento-Family-Lifestyle-Photographer_0003.jpg);background-size: 100% 900px;" >
     <div>
         <div class="panel-heading">
-            <br><br><br><br>
+            <br><br>
            <h3 class="text-center" style="font-family: 'Dancing Script','cursive';color: azure"><b>Edit Profile</b></h3>
         </div>
         <form  action="{%url 'editProfile'%}" method="post" enctype="multipart/form-data" style="color:rgb(234, 243, 243);width: 700px;margin-left: 25%;">
           {%csrf_token%}
       
           {% bootstrap_form test%}
-          <input type="submit" class="btn btn-danger btn-lg" value="Post">
+          <!-- <input type="submit" class="btn btn-danger btn-lg" value="Post"> -->
+          <input type="submit" class="btn btn-danger" value="Save Changes">
+          <span></span>
+          <input type="reset" class="btn btn-default" value="Cancel">
         </form>
     </div>
   </div>

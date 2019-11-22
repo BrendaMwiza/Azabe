@@ -1,62 +1,84 @@
 {%extends 'base.html'%}
 {% block content %}
-<div style="background-color: rgb(248, 246, 246);">
-    <div class="container">
-        <br><br>
+
+<style>
+
+    .user-profile .user-profile-card {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    }
+
+    .user-profile-card .user-profile-header {
+    background: url("https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-back-view-dim-dream-natural-beauty-image_19384.jpg");
+    background-size: cover;
+    height: 135px;
+    }
+
+    .user-profile-card .user-profile-avatar {
+    position: relative;
+    top: -100px;
+    margin-bottom: -100px;
+    padding: 0 15px;
+    }
+
+    .user-profile-card .user-profile-avatar img {
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .user-profile small {
+    display: block;
+    line-height: 1.428571429;
+    color: #999;
+    }
+
+</style>
+
+<div class="container-fluid user-profile">
         <div class="row">
-            <div class="col-md-4">
-                <img src="{{user.profile.parent_image.url}}" alt="picture" style="height: 200px; width:200px;" class="rounded-circle profile-img">
-            </div>
-            <div class="col-md-4">
-                <h3 > {{user.username}} </h3> 
-                <p class="text-secondary"> Email: {{ user.email }}</p> 
-                
-                <p>Bio: {{user.profile.boi}}</p>
-                
-                
-            </div>
-            <div class="col-md-4">
-                <a href="{% url 'editProfile' %}" ><button class="btn btn-outline-primary">Edit Profile</button></a>
-            </div>
-        </div>
-        <div>
-            <br><br>
-        
-        <!-- <div class="container">
-            <div class="row">
-                {% for pict in image_pic %}
-                <div class="col-md-3 col-md-4">
-                
-                    <img src="{{pict.pic.url}}" class="img-responsive btn btn-succes" height="300px" width="300px" alt="Image" type="button" data-toggle="modal" data-target="#{{pict.id}}" > -->
-
-                    <!-- codes from Bootstrap  -->
-                    <!-- Button trigger modal -->
-
-                    <!-- Modal -->
-                    <!-- <div class="modal fade" id="{{pict.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="modal-title" id="exampleModalLabel">
-                                        <img src="{{pict.pic.url}}" class="img-responsive" height="300px" width="400px" alt="Image"> 
-                                        <p style="color: rgb(34, 33, 33);font-family: 'Pacifico', cursive;">{{ pict.description }}</p>
-                                    </div>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br><br>
+          <div class="col-md-12">
+            <div class="well well-sm">
+              <div class="user-profile-card">
+                <div class="user-profile-header">
                 </div>
-                
-                {% endfor %} -->
-            <!-- </div>
-            
-        </div> -->
-        
-    </div>
-    
-</div>
+                <div class="user-profile-avatar text-center">
+                  <img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png">
+                </div>
+                <div >
+                  <div class="text-center">
+                    <h4> {{user.username}} </h4>
+                    
+                    <br />
+                  </div>
+                  <div class="panel-footer"></div>
+                  <div class="container">
+                    <p>
+                      <small class="text-secondary">Email</small>
+                       {{ user.email }}
+                    </p>
+                    <p>
+                        <small>Biography</small>
+                        Bio: {{user.profile.boi}}
+                    </p>
+                    <p>
+                        <small>User</small>
+                        
+                    </p>
+                    <p>
+                        <small>Location</small>
+                         {{user.location}}
+                    </p>
+                    <div class="panel-footer"><a href="{% url 'editProfile' %}" data-original-title="Edit My Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-edit"></i> Edit My Profile</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 {% endblock %}
