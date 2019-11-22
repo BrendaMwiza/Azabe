@@ -1,5 +1,7 @@
+{%extends 'base.html'%}
 {% load bootstrap4 %}
 {% load staticfiles %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 
@@ -17,17 +19,24 @@
 
 </head>
 
-<body><br>
-  <p class="newdata" style="text-align:center;">Add a new blog</p>
-  <div class="container" style="margin-top:30px">
-    <div class="jumbotron" style="background-color:rgb(216, 232, 233)">
-
-      <form action="{% url 'new-blog' %}" method="post" enctype="multipart/form-data">
-        {%csrf_token%}
-
-        {% bootstrap_form form%}
-        <input type="submit" class="btn btn-info btn-lg" value="Post">
-      </form>
+<body style="background-image:url(https://www.mmomastermind.com/wp-content/uploads/2017/10/blogging-image-11.jpg);">
+  <div style="height: 640px; background-size: 100% 900px;" >
+    <div>
+        <div class="panel-heading">
+            
+           <h3 class="text-center" style="font-family: 'Dancing Script','cursive';color: rgb(1, 80, 80)"><b>Add a new blog</b></h3>
+        </div>
+        <form class="jumbotron"  action="{% url 'new-blog' %}" method="post" enctype="multipart/form-data" style="color:rgb(234, 243, 243);width: 700px;margin-left: 25%;background-color: rgba(3, 61, 63, 0.5);">
+          {%csrf_token%}
+      
+          {% bootstrap_form form%}
+          
+          <input type="submit" class="btn btn-danger" value="Save Changes">
+          <span></span>
+          <input type="reset" class="btn btn-default" value="Cancel">
+        </form>
+    </div>
+  </div>
 
       {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -38,3 +47,4 @@
 </body>
 
 </html>
+{% endblock %}

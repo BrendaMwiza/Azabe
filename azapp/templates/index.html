@@ -92,15 +92,15 @@
 	<section id="services" class="section orange">
 		<div class="container" >
 			<h4 style="font-family: 'Bitter', serif;">Services</h4>
-			<!-- Four columns -->
+			
 			<div class="row"style="margin-left:7%">
 				{% for cat in categories %}
 				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
 							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
-						<!-- <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> -->
-						<!-- <h2>Skills</h2> -->
-						<p>{{cat.description}}
+						 <!-- <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> --> 
+						
+						<p>{{cat.descriptions}}</p>
 							<!-- We Help children between 0 to 13 years old to know and increase the skills.  -->
 							</p>
 							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
@@ -113,7 +113,10 @@
 			
 			</div>
 		</div>
-	</section>
+	</section> 
+
+
+
 	<section>
 	<button class="btn btn-default" href="{% url 'blog' %}">Read More</button>
 </section>

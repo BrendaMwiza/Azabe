@@ -202,6 +202,7 @@ def username_present(request):
 #     return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities, "message":message, "partner":partner})
 
 
+ 
 
 
 def partners(request):
@@ -300,8 +301,7 @@ def blog(request):
     # except DoesNotExist:
     #     raise Http404
     blog= Blog.objects.all()
-    
-    return render(request, 'index.html',{'blog':blog})
+    return render(request, 'blog.html',{'blog':blog})
 
 @login_required(login_url='/accounts/login')
 def new_blog(request):

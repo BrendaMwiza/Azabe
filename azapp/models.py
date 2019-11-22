@@ -44,7 +44,7 @@ class Parents(models.Model):
  
 class Partners(models.Model):
     partner_name = models.CharField(max_length=60,null=True)
-    description= models.CharField(max_length=60,null=True)
+    description= models.CharField(max_length=300,null=True)
     user=models.OneToOneField(User,on_delete=models.CASCADE, blank=True,null=True)
     email = models.CharField(max_length=60,null=True)
     partner_image = models.ImageField(upload_to='partner/',null=True)
@@ -59,11 +59,10 @@ class Partners(models.Model):
 
 class Categories(models.Model):
     category=models.CharField(max_length=60, null=True)
-    description=models.CharField(max_length=60, null=True)
+    descriptions=models.CharField(max_length=300, null=True)
     icon= models.ImageField(upload_to='icon/',null=True ,blank=True)
     def __str__(self):
         return str(self.category)
-
     def save_category(self):
         self.save()
     @classmethod
@@ -111,13 +110,13 @@ class Comments(models.Model):
         self.save()
 
 class Blog(models.Model):
-    name= models.CharField(max_length=60, null=True)
+    title = models.CharField(max_length=60, null=True)
     content = HTMLField(null=True)
     time = models.DateTimeField(auto_now=True, null=True)
     user= models.ForeignKey(User,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.title)
 
     def save_blog(self):
         self.save() 

@@ -15,7 +15,7 @@ class RegChildForm(forms.ModelForm):
 class UpdateProForm(forms.ModelForm):
     class Meta:
         model = Parents
-        exclude = ['email']
+        exclude = ['email','user']
 class UpdateParForm(forms.ModelForm):
     class Meta:
         model = Partners

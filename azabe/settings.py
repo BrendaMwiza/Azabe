@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'azabe.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'azabe',
+        'NAME': 'azapp',
         'USER': 'dukunde',
     'PASSWORD':'12',
     }
