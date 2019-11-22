@@ -16,17 +16,14 @@ urlpatterns=[
     url(r'^partners/$',views.partners,name = 'partner'),
     url(r'^new_event/$',views.new_event,name = 'event'),
     url(r'^subscribers/(\d+)',views.subscribers,name = 'sub'),
-    # url(r'^profile/', views.getProfile, name='profile'),
+    
     url(r'^editprofile',views.editProfile, name='editProfile'),
     url(r'^dashboard/', views.dashboard, name='dash'),
     url(r'^profile/', views.getProfile, name='profile'),
     url(r'^parprofile/', views.pargetProfile, name='parprofile'),
-    # url(r'^editprofile',views.editProfile, name='editProfile'),
-    # url(r'^pareditprofile',views.pareditProfile, name='pareditProfile'),
+    
     url(r'^pareditprofile',views.username_present, name='username_present'),
-    # url(r'^partners/$',views.partners,name = 'partner'),
-    # url(r'^new_event/$',views.new_event,name = 'event'),
-    # url(r'^subscribers/(?P<id>\d+)',views.subscribers,name = 'sub'),
+   
     url(r'^new/comment/(\d+)/$',views.comment, name ='comment'),
     url(r'^activity$',views.activity, name ='activity'),
     url(r'^new/blog$',views.new_blog, name ='new-blog'),

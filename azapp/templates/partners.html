@@ -2,48 +2,100 @@
 
 {% block content %}
 {{block.super}}
-
-<div class="container-fluid" style="margin-top:7%">
-    <h2 class="slogan" style=" text-align: center">Welcome to dashboard!</h2>
+<style>
+    .col-sm-4
+        {
+            padding: 15px;
+        }
+    /*zoom-out*/
+    .zoombox
+    {
+        background-color: #333;
+        overflow: hidden;
+    }
+    .zoombox img.zoomboximg
+    {
+        width: 100%;
+        height: 240px;
+        transform: scale(1.5);
+        -webkit-transition: 2s ease-in;
+        animation-duration: 10s;
+    }
+    .zoombox .zoomboxDiv
+    {
+        margin-top: -15%;
+        position: absolute;
+        right: 60px;
+        left: 40px;
+        top: 60px;
+        bottom: 60px;
+        display: block;
+        background-color: transparent;
+        /* border:1px solid #fff; */
+        padding: 30px;
+        text-align: center;
+        transform: scale(0);
+        -webkit-transition: 0.5s ease-in-out;
+    }
+    .zoombox .zoomboxDiv p
+    {
+        width: 100%;
+        height: auto;
+        color: white;
+        font-family:Great,Vibes;
+    }
+    .zoombox:hover img.zoomboximg
+    {
+        opacity: .3;
+        transform: scale(1);
+    }
+    .zoombox:hover .zoomboxDiv
+    {
+        transform: scale(1);
+    }
     
-    <h2 class="slogan" style=" text-align: center">EVENTS!</h2>
-</div>
-</div>
-<div class="container">
-    <nav class="bg-black navbar navbar-inverse navbar-fixed-top" style="color: white;background-color:#2E151B;">
-        <button type="button" class="btn btn-info"><a href="{%url 'event' %}"> Post an event </a></button>
+    </style>
+<div class="container-fluid" style="margin-top:-300px; font-family: 'Libre Baskerville', serif; background-image: url(http://northamptonsmartstart.org/wp-content/uploads/2014/02/amazon.jpg)">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1 class="slogan" style="  font-size: 300%; color: rgb(0, 0, 0);">Welcome to dashboard!</h1>
+    <button type="button" class="btn btn-info" style="margin-left:15%;"><a href="{%url 'event' %}"> Post an event </a></button>
+    <br><br><br><br><br><br><br><br><br><br>
 
-    </nav>
+</div>
+</div>
+<div class="container"><br>
+    <h3 style="text-align:center; font-family:Great,Vibes;">YOUR POSTS.</h3>
     <br>
     <div class="row">
         {% for event in act %}
 
-        <div class="col-md-4" style="padding:1%">
-            <div class="card border border-info" id="borderid">
-                <p class="heading" style="text-align:center;"><strong>Organisers:</strong> {{event.partner_name}}</p>
-                <div style="text-align:center; background-color:#2E151B;" class="card-image">
 
-                    <img class="img-responsive" src="{{event.activity_image.url}}" alt="" height="200px" width="300px">
+        <div class="col-sm-4">
 
-                </div>
-                <div style="margin:2%">
-                    <br>
+            <div class="zoombox">
+                <img src="{{event.activity_image.url}}" class="zoomboximg">
+                <div class="zoomboxDiv">
                     <p class="heading"><strong>Activity:</strong> {{event.activity_name}}</p>
-                    <button type="button" class="btn" style=" margin-left:205px;"> <a href="{%url 'sub' event.id %}">subscribers</a></button>
-                    <hr>
+                    <p class="heading"><strong>Category:</strong> {{event.category}}</p>
+
                     <p><strong>Description: </strong>{{event.description}}</p>
                     <p><strong>Price:</strong>{{event.price}}</p>
-
+                    <button type="button" class="btn"> <a href="{%url 'sub' event.id %}">subscribers</a></button>
                 </div>
-            </div>
+                <!--div-->
+            </div><br>
+
+
+            <!--zoombox-->
         </div>
         {% empty %}
         <div class="row">
             <h2 class="text-center">There are no events yet!</h2>
         </div>
         {% endfor %}
+
     </div>
-    
+
 </div>
 
 
