@@ -59,12 +59,17 @@ class Partners(models.Model):
 
 class Categories(models.Model):
     category=models.CharField(max_length=60, null=True)
-
+    description=models.CharField(max_length=60, null=True)
+    icon= models.ImageField(upload_to='icon/',null=True ,blank=True)
     def __str__(self):
         return str(self.category)
 
     def save_category(self):
         self.save()
+    @classmethod
+    def find_category(cls,category_id):
+        category = cls.objects.get(id=category_id)
+        return category
 
 class Activities(models.Model):
     partner_name = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True)
