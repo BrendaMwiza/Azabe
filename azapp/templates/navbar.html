@@ -59,11 +59,34 @@
     <div class="topnav">
       <a class="active" href="{% url 'welcome' %}">Home</a>
       <a href="#">Holidays</a>
+      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
+       
+        <span class="caret">Blogs</span>
+    </a>
+    
+<ul class="dropdown-menu" role="menu">
+
+<li>
+  <a href="{% url 'blog' %}">view blogs </a>
+</li>
+<li>
+
+  <a href="{% url 'new-blog' %}">add a blog </a>
+</li>
+<li>
+  
+</li>
+</ul>
+      
       <a href="{% url 'profile' %}">Profile</a>
       <a href="{% url 'dash' %}">Activities</a>
       <a href="{% url 'partner' %}">Partner</a>
-      
-      <a href="{% url 'profile' %}">Profile</a>
+
+     
+<!--       
+      <a href="{% url 'profile' %}">Profile</a> -->
+      <!-- <a href="">Project</a> -->
+      <!-- <a href="{% url 'profile' %}">Profile</a> -->
       {% if user.is_authenticated %}
       <a href="/logout">Logout</a>
       {% else %}

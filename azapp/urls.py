@@ -28,7 +28,9 @@ urlpatterns=[
     # url(r'^new_event/$',views.new_event,name = 'event'),
     # url(r'^subscribers/(?P<id>\d+)',views.subscribers,name = 'sub'),
     url(r'^new/comment/(\d+)/$',views.comment, name ='comment'),
-
+    url(r'^activity$',views.activity, name ='activity'),
+    url(r'^new/blog$',views.new_blog, name ='new-blog'),
+    url(r'^blog$',views.blog, name ='blog'),
   
 ]
 

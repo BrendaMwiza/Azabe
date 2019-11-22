@@ -13,8 +13,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
-from .models import Post, Parents, Child, Partners, Activities, Comments
-from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partnerForm,commentForm
+from .models import Post, Parents, Child, Partners, Activities, Comments,Blog
+from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partnerForm,commentForm,NewBlogForm
 from .forms import NewPostForm, RegChildForm,ActivityForm
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
@@ -25,8 +25,9 @@ def welcome(request):
     post = Post.objects.all()
     child = Child.objects.all()
     partners = Partners.objects.all()
-    parent = Parents.objects.all()
-    return render(request, 'index.html', {'post':post, 'child':child, 'partners':partners, 'parent':parent})
+    parent = Parents.objects.all() 
+    blog =Blog.objects.all()
+    return render(request, 'index.html', {'blog':blog,'post':post, 'child':child, 'partners':partners, 'parent':parent})
 
 
 # login_required(login_url='/accounts/login')
@@ -186,29 +187,51 @@ def username_present(request):
 
 
 
-
-
-
 def partners(request):
     current_user = request.user
     activities = Activities.objects.filter()
     partner= Partners.objects.filter(user=current_user).first()
     print(current_user)
+    print(partner.approved)
+    print(approved)
+    message=None
+    if partner is None:
+        message= "you are not registered as a partnwer"
+        # redirect(username_present)
+        # if partner.approved == False:
+        #     redirect("username_present")
+ 
+    else:
+        message= "Welcome to Azap Business View"
+
+    return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities, "message":message, "partner":partner})
+
+
+
+
+def partners(request):
+    current_user = request.user
+    # activities = Activities.objects.filter()
+    partner= Partners.objects.filter(user=current_user).first()
+    print(current_user)
+    
+    act = Activities.objects.filter(partner_name=current_user.id).all()
+    
     message=None
     # if partner is None:
         
     #     message= "you are not registered as a partner"
         
-    #     # redirect(username_present)
-    #     # if partner.approved == False:
-    #     #     redirect("username_present")
-    # elif partner.approved == False:
-    #     message= "please check in 24 hours  "
-    # else:
-    message= "Welcome to Azap Business View"
-    print(partner.approved)
-
-    return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities, "message":message, "partner":partner})
+        # redirect(username_present)
+        # if partner.approved == False:
+        #     redirect("username_present")
+    if partner.approved == False:
+        
+        message= "please check in 24 hours  "
+    else:
+        message= "Welcome to Azapp Business View"
+       
+    return render(request,'partners.html',{"act":act ,'current_user':current_user,  "message":message, "partner":partner})
 
 
 # @login_required(login_url='/accounts/login/')
@@ -242,14 +265,23 @@ def dashboard(request):
     return render(request,'events.html',{ 'current_user':current_user, 'activities':activities, 'comment':comment})
 
 
-# @login_required(login_url='/accounts/login/')
-def partners(request):
-    current_user = request.user
-    # even = Activities.objects.filter(=even_id).first()
+# # @login_required(login_url='/accounts/login/')
+# def partners(request):
+#     current_user = request.user
+#     # even = Activities.objects.filter(=even_id).first()
     
-    act = Activities.objects.filter(partner_name=current_user.id).all()
-    return render(request, 'partners.html', {"act":act})
+#     act = Activities.objects.filter(partner_name=current_user.id).all()
+#     return render(request, 'partners.html', {"act":act})
 
+# @login_required(login_url='/accounts/login/')
+def activity(request):
+    current_user = request.user
+    # partner_name=Activities.objects.filter(partner_name=current_user.id).all()
+    # even = Activities.objects.filter(=even_id).first()
+    comment = Comments.objects.filter(id = current_user.id).first()
+    acty = Activities.objects.all()
+    # act = Activities.objects.filter(category=partner_name).all()
+    return render(request, 'school.html', {'acty':acty})
 
 @login_required(login_url='/accounts/login')
 def comment(request, act_id):
@@ -267,3 +299,27 @@ def comment(request, act_id):
     else:
         form = commentForm()
     return render(request, 'commentform.html', {'form': form, 'act_id':act_id})
+
+
+@login_required(login_url='/accounts/login')
+def blog(request):
+    # try:
+    #     blog= Blog.objects.all()
+    # except DoesNotExist:
+    #     raise Http404
+    blog= Blog.objects.all()
+    return render(request, 'blog.html',{'blog':blog})
+
+@login_required(login_url='/accounts/login')
+def new_blog(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewBlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.user = current_user
+            blog.save()
+        return redirect('welcome')
+    else:
+        form = NewBlogForm()
+    return render (request, 'new_blog.html', {"form":form})

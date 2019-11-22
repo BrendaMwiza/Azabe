@@ -35,8 +35,7 @@
                     {% for com in event.comments_set.all %}
                     <p>{{com.comment_cont}}</p>
                     {% endfor %}
-                    
-                    <a  href="{%url 'comment' event.id%}" class="btn btn-primary">comment</a>
+                    <a href="{%url 'comment' event.id%}" class="btn btn-primary">comment</a>
 
                 </div>
             </div>

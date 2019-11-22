@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{block.super}}
+
+<style>
+    .col-sm-4
+	{
+		padding: 15px;
+	}
+/*zoom-out*/
+.zoombox
+{
+	background-color: #333;
+	overflow: hidden;
+}
+.zoombox img.zoomboximg
+{
+	width: 100%;
+	height: 240px;
+	transform: scale(1.5);
+	-webkit-transition: 2s ease-in;
+	animation-duration: 10s;
+}
+.zoombox .zoomboxDiv
+{
+	position: absolute;
+	right: 60px;
+	left: 40px;
+	top: 60px;
+	bottom: 60px;
+	display: block;
+	background-color: transparent;
+	/* border:1px solid #fff; */
+	padding: 30px;
+	text-align: center;
+	transform: scale(0);
+	-webkit-transition: 0.5s ease-in-out;
+}
+.zoombox .zoomboxDiv p
+{
+	width: 100%;
+    height: auto;
+    color: white;
+    font-family:Great,Vibes;
+}
+.zoombox:hover img.zoomboximg
+{
+	opacity: .3;
+	transform: scale(1);
+}
+.zoombox:hover .zoomboxDiv
+{
+	transform: scale(1);
+}
+
+</style>
+<div style=" margin-top: -130px; background-image: url(https://23u0pr24qn4zn4d4qinlmyh8-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/education_poll_caro_original_53750.jpg)">
+    <img src="" alt="">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br>
+</div>
+</div>
+<br>
+<div class="container">
+    <h2 class="slogan" style=" text-align: center; font-family: 'Abhaya Libre', serif;">SCHOOL ACTIVITIES</h2>
+    <br>
+    <div class="row">
+
+        <div class="container">
+            <div class="row">
+                {% for event in acty %}
+                <div class="col-sm-4">
+                    <p class="heading" style="text-align:center;"><strong>Organisers:</strong>
+                        {{event.partner_name}}</p>
+                    <div class="zoombox">
+                        <img src="{{event.activity_image.url}}" class="zoomboximg">
+                        <div class="zoomboxDiv">
+                            <p class="heading"><strong>Activity:</strong> {{event.activity_name}}</p>
+                            <p class="heading"><strong>Category:</strong> {{event.category}}</p>
+
+                            <p><strong>Description: </strong>{{event.description}}</p>
+                            <p><strong>Price:</strong>{{event.price}}</p>
+                        </div>
+                        <!--div-->
+                    </div><br>
+                    <button type="button" class="btn"> <a href="{%url 'new-child' %}">Register</a></button>
+                    <a href="{%url 'comment' event.id%}" class="btn btn-primary">comment</a>
+
+                    <hr>
+                    <h4 style="text-align:center; font-family:Great,Vibes;">comments</h4>
+                    {% for com in event.comments_set.all %}
+                    <p><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
+                    {% endfor %}
+                    <!--zoombox-->
+                </div>
+                {% empty %}
+                <div class="row">
+                    <h2 class="text-center">There are no events yet!</h2>
+                </div>
+                {% endfor %}
+                <!--col-4-->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
