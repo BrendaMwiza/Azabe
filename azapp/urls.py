@@ -31,6 +31,7 @@ urlpatterns=[
     url(r'^activity/(\d+)$',views.activity, name ='activity'),
     # url(r'^service/(?P<category_id>\d+)',views.service,name = 'service'),
     url(r'^new/blog$',views.new_blog, name ='new-blog'),
+    url(r'^blog$',views.blog, name ='blog'),
   
 ]
 

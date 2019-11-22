@@ -86,11 +86,7 @@
 		</div>
 		<!--  -->
 	</div>
-	{% for b in blog %}
-				<p>{{b.name}}</p>
-				<p>{{b.content}}</p>
-				<p>{{b.user}}</p>
-				{% endfor %}
+
 	<!-- /.container -->
 	<!-- section: services -->
 	<section id="services" class="section orange">
@@ -118,6 +114,9 @@
 			</div>
 		</div>
 	</section>
+	<section>
+	<button class="btn btn-default" href="{% url 'blog' %}">Read More</button>
+</section>
 	<!-- end section: services -->
 	<!-- section: contact -->
 	<!-- <section id="contact" class="section light">
