@@ -59,21 +59,15 @@
     <div class="topnav">
       <a class="active" href="{% url 'welcome' %}">Home</a>
       <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
-       
-        <span class="caret">Activities</span>
+        <span class="caret">Blogs</span>
     </a>
 <ul class="dropdown-menu" role="menu">
 <li>
-  <a href="{% url 'activity'%}">Schools </a>
+  <a href="{% url 'blog' %}">view blogs </a>
 </li>
 <li>
-  <a href="learn.html">Learn </a>
-</li>
-<li>
-  <a href="class.html">Classes </a>
-</li>
-
-</ul>
+  <a href="{% url 'new-blog' %}">add a blog </a>
+</li></ul>
       
       <a href="{% url 'profile' %}">Profile</a>
       <a href="{% url 'dash' %}">Activities</a>

@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
-from .models import Post, Parents, Child, Partners, Activities, Comments,Blog
+from .models import Post, Parents, Child, Partners, Activities, Comments,Blog,Categories
 from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partnerForm,commentForm,NewBlogForm
 from .forms import NewPostForm, RegChildForm,ActivityForm
 # Create your views here.
@@ -27,7 +27,12 @@ def welcome(request):
     partners = Partners.objects.all()
     parent = Parents.objects.all() 
     blog =Blog.objects.all()
-    return render(request, 'index.html', {'blog':blog,'post':post, 'child':child, 'partners':partners, 'parent':parent})
+
+    categories=Categories.objects.all()
+    # activity=Activities.objects.all()
+    # return render(request, 'index.html', {'categories':categories,'blog':blog,'post':post, 'child':child, 'partners':partners, 'parent':parent})
+
+    return render(request, 'index.html', {'blog':blog,'post':post, 'child':child, 'partners':partners, 'parent':parent,'categories':categories})
 
 
 # login_required(login_url='/accounts/login')
@@ -186,26 +191,17 @@ def username_present(request):
 
 
 
-def partners(request):
+def activity(request, category_id):
     current_user = request.user
-    activities = Activities.objects.filter()
-    partner= Partners.objects.filter(user=current_user).first()
-    print(current_user)
-    print(partner.approved)
-    print(approved)
-    message=None
-    if partner is None:
-        message= "you are not registered as a partnwer"
-        # redirect(username_present)
-        # if partner.approved == False:
-        #     redirect("username_present")
+    # partner_name=Activities.objects.filter(partner_name=current_user.id).all()
+    # even = Activities.objects.filter(=even_id).first()
+    comment = Comments.objects.filter(id = current_user.id).first()
+    school= Categories.objects.get(id=category_id)
+    acty = Activities.objects.filter(category=school.id).all()
+    # act = Activities.objects.filter(category=categories.id).all().prefetch_related('comments_set')
+    return render(request, 'school.html', {'acty':acty,"school":school,'comment':comment,"category_id":category_id})
+
  
-    else:
-        message= "Welcome to Azap Business View"
-
-    return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities, "message":message, "partner":partner})
-
-
 
 
 def partners(request):
@@ -310,7 +306,7 @@ def blog(request):
     # except DoesNotExist:
     #     raise Http404
     blog= Blog.objects.all()
-    return render(request, 'index.html',{'blog':blog})
+    return render(request, 'blog.html',{'blog':blog})
 
 @login_required(login_url='/accounts/login')
 def new_blog(request):

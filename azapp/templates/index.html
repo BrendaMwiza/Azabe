@@ -93,10 +93,10 @@
 				{% endfor %}
 	<!-- /.container -->
 	<!-- section: services -->
-	<section id="services" class="section orange">
+	<!-- <section id="services" class="section orange">
 		<div class="container" >
 			<h4 style="font-family: 'Bitter', serif;">Services</h4>
-			<!-- Four columns -->
+			
 			<div class="row"style="margin-left:7%">
 				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
@@ -105,7 +105,7 @@
 						<p>
 							We Help children between 0 to 13 years old to know and increase the skills. 
 							</p>
-							<a type="button" class=" btn btn-light"  href="{% url 'activity'%}">School Activities</a>
+							<a type="button" class=" btn btn-light"  href="">School Activities</a>
 					</div>
 				</div>
 				<div class="col-md-4 animated flyIn" style="font-family: 'Bitter', serif;">
@@ -115,7 +115,7 @@
 						<p>
 								Every children have their own Trainner wish will guide them .
 						</p>
-						<a type="button" class=" btn btn-light" href="{% url 'activity'%}">Learn Activities</a>
+						<a type="button" class=" btn btn-light" href="">Learn Activities</a>
 					</div>
 				</div>
 				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
@@ -125,14 +125,38 @@
 						<p>
 							Children can also be acce
 						</p>
-						<a type="button" class=" btn btn-light" href="{% url 'activity' %}">Classes Activities</a>
+						<a type="button" class=" btn btn-light" href="">Classes Activities</a>
 					</div>
 				</div>
 				
 			
 			</div>
 		</div>
+	</section> -->
+
+
+	<section id="services" class="section orange">
+		<div class="container" >
+			<h4 style="font-family: 'Bitter', serif;">Services</h4>
+			<!-- Four columns -->
+			<div class="row"style="margin-left:7%">
+				{% for cat in categories %}
+				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
+					<div class="service-box">
+							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
+						<!-- <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> -->
+						<!-- <h2>Skills</h2> -->
+						<p>{{cat.description}}
+							<!-- We Help children between 0 to 13 years old to know and increase the skills.  -->
+							</p>
+							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
 	</section>
+
 	<!-- end section: services -->
 	<!-- section: contact -->
 	<!-- <section id="contact" class="section light">
