@@ -25,17 +25,14 @@ class partnerForm(forms.ModelForm):
         model = Partners
         # exclude = ['approved']
         fields=('partner_name','description','partner_image')
-
 class ActivityForm(forms.ModelForm):
     class Meta:
         model = Activities
         exclude = []
-
 class commentForm(forms.ModelForm):
     class Meta:
         model = Comments
         exclude = ['commented_by','commented_act']
-
 class NewBlogForm(forms.ModelForm):
     class Meta:
         model = Blog

@@ -64,22 +64,7 @@
         <div class="topnav">
           <a class="active" href="{% url 'welcome' %}">Home</a>
 
-          <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
-
-            <span class="caret">Blogs</span>
-          </a>
-
-          <ul class="dropdown-menu" role="menu">
-
-            <li>
-              <a href="{% url 'blog' %}">view blogs </a>
-            </li>
-            <li>
-
-              <a href="{% url 'new-blog' %}">add a blog </a>
-            </li>
-            
-          </ul>
+          
 
           <a href="{% url 'profile' %}">Profile</a>
           <a href="{% url 'dash' %}">Activities</a>
@@ -99,17 +84,10 @@
 
           <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;"><strong>AZABE</strong></a>
 
-          <!--    
-      <input type="text" placeholder="Search..">
-        <a href="" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a>
-   -->
         </div>
       </div>
     </div>
   </nav>
-
-
-
 
 </body>
 {% endblock %}
