@@ -46,7 +46,7 @@
 		</header>
 	</div>
 	<!-- spacer section -->
-	<section class="spacer green" style="background-color: rgb(136, 135, 135);">
+	<section class="spacer green" style="background-color: rgb(101, 199, 190);">
 		<div class="container">
 			<div class="row" style="margin-left:9%;font-family: 'Bitter', serif;">
 				<div class="col-md-6 alignright flyLeft">
@@ -86,12 +86,12 @@
 		</div>
 		<!--  -->
 	</div>
-
 	<!-- /.container -->
 	<!-- section: services -->
+	<br><br>
 	<section id="services" class="section orange">
 		<div class="container" >
-			<h4 style="font-family: 'Bitter', serif;">Services</h4>
+			<h4 style="font-family: 'Bitter', serif; color: black">Services</h4>
 			
 			<div class="row"style="margin-left:7%">
 				{% for cat in categories %}
@@ -100,10 +100,10 @@
 							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
 						 <!-- <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> --> 
 						
-						<p>{{cat.descriptions}}</p>
+						<p style="color: black">{{cat.descriptions}}</p>
 							<!-- We Help children between 0 to 13 years old to know and increase the skills.  -->
 							</p>
-							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
+							<button class="glow-on-hover"  type="button"><a    href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a></button>
 							
 					</div>
 				</div>
@@ -113,57 +113,17 @@
 			
 			</div>
 		</div>
-	</section> 
-
-
-
-	<section>
-	<button class="btn btn-default" href="{% url 'blog' %}">Read More</button>
-</section>
-	<!-- end section: services -->
-	<!-- section: contact -->
-	<!-- <section id="contact" class="section light">
-		<div class="container">
-			<h6>Get update information by filling this form and stay in Touch</h6>
-			<p></p>
-			<div class="blankdivider30">
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="cform" id="contact-form">
-						<div id="sendmessage">Your message has been sent. Thank you!</div>
-						<div id="errormessage"></div>
-						<form action="" method="post" role="form" class="contactForm">
-							<div class="row">
-								<div class="col-md-5">
-									<div class=" form-group">
-										<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-										<div class="validation"></div>
-									</div>
-									<div class=" form-group">
-										<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-										<div class="validation"></div>
-									</div>
-									<div class=" form-group">
-										<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-										<div class="validation"></div>
-									</div>
-								</div>
-								<div class="col-md-5">
-									<div class=" form-group">
-										<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-										<div class="validation"></div>
-									</div>
-									<input type="submit" value="Send message" class="btn btn-theme pull-left">
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				 ./span12 -->
-			<!-- </div> -->
-		<!-- </div> -->
-	<!-- </section> --> 
+	</section>
+	<section ><br>
+		<div class="container" style="background-color: rgba(85, 84, 84,0.5);">
+			<br>
+			<p style="color:white;">All parents pass through hardships, sometimes we don't know how to handle our babies, or face the fear and anxiety of not giving them exactly what they want. View blogs of of some parents' testimonies or add a blog that can strengthen us!</p>
+		<button style="margin-left: 45%; color: rgb(255, 255, 255);"  class="glow-on-hover" type="button" ><a href="{% url 'blog' %}">View blogs</a></button>
+	<br>	<br>
+	</div>
+<br>
+	</section>
+	
 	<footer>
 	
 			<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>
@@ -176,7 +136,7 @@
 								<form action="#" style="width: 80%;margin-left: 60px;font-family: 'Bitter', serif;">
 								
 				
-								<div class="row form-group">
+								<!-- <div class="row form-group">
 									<div class="col-md-6 mb-3 mb-md-0">
 									<label class="text-black" for="fname" style="margin-right: 55%;">First Name</label>
 									<input type="text" id="fname" class="form-control">
@@ -185,7 +145,7 @@
 									<label class="text-black" for="lname" style="margin-right: 55%;">Last Name</label>
 									<input type="text" id="lname" class="form-control">
 									</div>
-								</div>
+								</div> -->
 				
 								<div class="row form-group">
 									
@@ -195,14 +155,14 @@
 									</div>
 								</div>
 				
-								<div class="row form-group">
+								<!-- <div class="row form-group">
 									
 									<div class="col-md-12">
 									<label class="text-black" for="subject" style="margin-right: 90%;">Subject</label> 
 									<input type="subject" id="subject" class="form-control">
 									</div>
 								</div>
-				
+				 -->
 								<div class="row form-group">
 									<div class="col-md-12">
 									<label class="text-black" for="message" style="margin-right: 90%;">Message</label> 
@@ -222,21 +182,21 @@
 							<div class="col-md-6 ml-auto" style="margin-left: 60px;font-family: 'Bitter', serif;">
 								<div class="mb-3">
 								<p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
-								<p class="mb-4">203 KK St. Gishushu, Gasabo, Kigali, Rwanda</p>
+								<p class="mb-4">203 KK St. Gishushu,<br> Gasabo, Kigali, Rwanda</p>
 				
 								<p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
 								<p class="mb-4"><a href="#">+250 784 129 592</a></p>
 				
 								<p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
 								<p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
-				
-								</div>
-								<br><br><br>
-								<div class="container">
+								
+								<!-- </div>
+								
+								<div class="container"> -->
 									<h4 style="color: honeydew;"><b>Follow us</b></h4>
-									<div class="row">
+									<!-- <div class="row">
 										
-										<div class="col-md-6 " style="margin-left:20%;display:inline-block;">
+										<div class="col-md-6 " style="margin-left:20%;display:inline-block;"> -->
 											<ul class="social-networks">
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
@@ -361,6 +321,64 @@ a.scrollup i:hover {
 .row.nomargin {
 	margin-bottom:0;
 }
+/* ==========================
+ */
+ 
+.glow-on-hover {
+    /* width: 220px; */
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:  rgb(73, 241, 247);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+, #FF0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(73, 241, 247);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
 /* ==============================
 02. Typography
  ============================== */
@@ -598,8 +616,9 @@ section.spacer {
 	background:#ffe873;
 }
 .spacer.orange,.section.orange {
-	/* background:#f36f36; */
-	background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573636177/room-eibtEHb7eBQ-unsplash_wbx12z.jpg') 50% 0 no-repeat fixed;}
+	background:rgb(255, 217, 102);
+	/* background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573636177/room-eibtEHb7eBQ-unsplash_wbx12z.jpg') 50% 0 no-repeat fixed;} */
+}
 section.spacer.bg2 {
 	background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573768692/bg-2_wymhlp.jpg') 50% 0 no-repeat fixed;
 	width:100%;
@@ -638,8 +657,9 @@ https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoi
 	background: rgb(70, 69, 69);
 	text-align: center;
 	color: #ddd;
+
 	padding:50px 0 50px;
-	height: 800px;
+	height: 500px;
 }
 footer a {
     color: #ddd;

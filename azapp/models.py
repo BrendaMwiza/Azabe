@@ -60,7 +60,7 @@ class Partners(models.Model):
 class Categories(models.Model):
     category=models.CharField(max_length=60, null=True)
     descriptions=models.CharField(max_length=300, null=True)
-    icon= models.ImageField(upload_to='icon/',null=True ,blank=True)
+    # icon= models.ImageField(upload_to='icon/',null=True ,blank=True)
     def __str__(self):
         return str(self.category)
     def save_category(self):
@@ -72,8 +72,8 @@ class Categories(models.Model):
 
 class Activities(models.Model):
     partner_name = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True)
-    activity_name =models.CharField(max_length=60,null=True)
-    description= models.CharField(max_length=60,null=True)
+    activity_name =models.CharField(max_length=100,null=True)
+    description= models.CharField(max_length=300,null=True)
     activity_image = models.ImageField(upload_to='activity/',null=True ,blank=True)
     price=models.CharField(max_length=60,null=True)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, blank=True,null=True)
