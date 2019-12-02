@@ -29,6 +29,7 @@
                     <button type="button" class="btn"> <a href="{%url 'new-child' %}">Register</a></button>
                     <hr>
                     <p><strong>Description: </strong>{{event.description}}</p>
+                    <p><strong>Category: </strong>{{event.category}}</p>
                     <p><strong>Price:</strong>{{event.price}}</p>
                     <hr>
                     {% for com in event.comments_set.all %}

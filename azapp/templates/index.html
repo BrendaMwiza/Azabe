@@ -50,8 +50,8 @@
 		<div class="container">
 			<div class="row" style="margin-left:9%;font-family: 'Bitter', serif;">
 				<div class="col-md-6 alignright flyLeft">
-					<blockquote class="large" data-animation="animated bounceInLeft">
-						There's huge space beetween creativity and imagination <cite>Mark Simmons, Nett Media</cite>
+					<blockquote class="large">
+							Children must be taught how to think not what to think.<cite>Margaret Mead</cite>
 						
 					</blockquote>
 				</div>
@@ -72,9 +72,9 @@
 		<div class="row"style="margin-left:9%">
 			<div class="col-md-5 offset1">
 				<div>
-					<h2 style="color: honeydew;font-family: 'Bitter', serif;">We live with <strong>creativity</strong></h2>
+					<h2 style="color: honeydew;font-family: 'Bitter', serif;">We aim at helping the young generation <strong>discover their field interest</strong></h2>
 					<p style="color: honeydew;font-family: 'Bitter', serif;">
-						this platform will help children to discover and improve the hobbies and their skills. Parents are the ones to register their children. By participating in same Exhibition, Game and Events.
+						By the experiment learning method which expose them to figuring out what they need to learn by themselves.
 					</p>
 				</div>
 			</div>
@@ -86,11 +86,7 @@
 		</div>
 		<!--  -->
 	</div>
-	{% for b in blog %}
-				<p>{{b.name}}</p>
-				<p>{{b.content}}</p>
-				<p>{{b.user}}</p>
-				{% endfor %}
+
 	<!-- /.container -->
 	<!-- section: services -->
 	<!-- <section id="services" class="section orange">
@@ -98,41 +94,26 @@
 			<h4 style="font-family: 'Bitter', serif;">Services</h4>
 			
 			<div class="row"style="margin-left:7%">
+				{% for cat in categories %}
 				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/>
-						<h2>Skills</h2>
-						<p>
-							We Help children between 0 to 13 years old to know and increase the skills. 
-							</p>
-							<a type="button" class=" btn btn-light"  href="">School Activities</a>
+							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
+						 <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> -->
+						<!-- <h2>Skills</h2> -->
+						<!-- <p>{{cat.description}} -->
+							<!-- We Help children between 0 to 13 years old to know and increase the skills.  -->
+							<!-- </p>
+							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
+							
 					</div>
 				</div>
-				<div class="col-md-4 animated flyIn" style="font-family: 'Bitter', serif;">
-					<div class="service-box">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801637/2213368_xyve9k.png" alt="" width="30%" height="100px"/>
-						<h2>Personality</h2>
-						<p>
-								Every children have their own Trainner wish will guide them .
-						</p>
-						<a type="button" class=" btn btn-light" href="">Learn Activities</a>
-					</div>
-				</div>
-				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
-					<div class="service-box">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573802803/2171171_yb9r8s.svg" alt="" width="30%" height="100px"/>
-						<h2>Technology</h2>
-						<p>
-							Children can also be acce
-						</p>
-						<a type="button" class=" btn btn-light" href="">Classes Activities</a>
-					</div>
-				</div>
+				{% endfor %}
+			 -->
 				
 			
-			</div>
-		</div>
-	</section> -->
+			<!-- </div>
+		</div> -->
+	</section> 
 
 
 	<section id="services" class="section orange">
@@ -144,10 +125,10 @@
 				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
 							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
-						<!-- <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> -->
-						<!-- <h2>Skills</h2> -->
+						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/>
+						<h2>Skills</h2>
 						<p>{{cat.description}}
-							<!-- We Help children between 0 to 13 years old to know and increase the skills.  -->
+							We Help children between 0 to 13 years old to know and increase the skills. 
 							</p>
 							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
 					</div>
@@ -156,7 +137,9 @@
 			</div>
 		</div>
 	</section>
-
+	<section>
+	<button class="btn btn-default" href="{% url 'blog' %}">Read More</button>
+</section>
 	<!-- end section: services -->
 	<!-- section: contact -->
 	<!-- <section id="contact" class="section light">

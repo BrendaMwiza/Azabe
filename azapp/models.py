@@ -60,7 +60,7 @@ class Partners(models.Model):
 class Categories(models.Model):
     category=models.CharField(max_length=60, null=True)
     description=models.CharField(max_length=60, null=True)
-    icon= models.ImageField(upload_to='activity/',null=True ,blank=True)
+    # icon= models.ImageField(upload_to='icon/',null=True ,blank=True)
     def __str__(self):
         return str(self.category)
     def save_category(self):
