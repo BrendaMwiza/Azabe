@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 {{block.super}}
-{% for b in blog %}
-				<p>{{b.name}}</p>
+
+
+<body style="background-image:url('https://image.shutterstock.com/image-photo/portrait-woman-relaxing-home-her-260nw-512079628.jpg'); background-repeat: no-repeat;background-size: cover; height:100%;">
+	<div class="container" style="color:white">
+		<h2 style="text-align: center;">welcome to blogs</h2>
+		<br><br><br>
+		{% for b in blog %}
+				<p>{{b.title}}</p>
 				<p>{{b.content}}</p>
 				<p>{{b.user}}</p>
+				
+				<h4 style="text-align:center; font-family:Great,Vibes;">comments</h4>
+				{% for com in b.comments_set.all %}
+				<p><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
 				{% endfor %}
+				<hr>
+				{% endfor %}
+				<a class ="glow-on-hover"href="{% url 'new-blog' %}">add a blog</a>
+	</div>
+</body>
 {% endblock %}
+
+<hr>
+

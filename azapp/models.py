@@ -78,12 +78,14 @@ class Activities(models.Model):
     price=models.CharField(max_length=60,null=True)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, blank=True,null=True)
     
+    def __str__(self):
+        return str(self.activity_name)
+
     @classmethod
     def ge_all_act(cls):
         act = cls.objects.all().prefetch_related('comments_set')
         return act
-    def __str__(self):
-        return str(self.activity_name)
+    
     def save_activity(self):
         self.save()
 
@@ -120,3 +122,8 @@ class Blog(models.Model):
 
     def save_blog(self):
         self.save() 
+    
+    @classmethod
+    def ge_all_blogz(cls):
+        blog = cls.objects.all().prefetch_related('comments_set')
+        return blog
