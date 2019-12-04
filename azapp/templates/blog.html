@@ -2,26 +2,91 @@
 {% block content %}
 {{block.super}}
 
-
+<html>
 <body style="background-image:url('https://image.shutterstock.com/image-photo/portrait-woman-relaxing-home-her-260nw-512079628.jpg'); background-repeat: no-repeat;background-size: cover; height:100%;">
-	<div class="container" style="color:white">
-		<h2 style="text-align: center;">welcome to blogs</h2>
+	<div class="container" style="color:white;background-color: rgba(85, 84, 84,0.5);">
+		<h2 style="text-align: center; font-family: 'Times New Roman', Times, serif;">welcome to blogs</h2>
 		<br><br><br>
+		<div class="transbox">
 		{% for b in blog %}
-				<p>{{b.title}}</p>
-				<p>{{b.content}}</p>
-				<p>{{b.user}}</p>
-				
-				<h4 style="text-align:center; font-family:Great,Vibes;">comments</h4>
-				{% for com in b.comments_set.all %}
-				<p><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
-				{% endfor %}
+				<h3 style="font-family: 'Times New Roman', Times, serif;">{{b.title}}</h3>
+				<p style="font-family: 'Times New Roman', Times, serif; font-size: 18px;">{{b.content}}</p>
+				<h4 style="font-family: 'Times New Roman', Times, serif;">{{b.user}}</h4>
+				<p><strong>{{b.likes}} likes</strong> </p>
+				<!-- <a href="{% url 'like' id=b.id %}" id="like" class="btn"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" height="15%" width="15%"></a> -->
+				<!-- <h4 style=" font-family:Great,Vibes;">comments</h4> -->
+				<!-- <a href="{%url 'comments' b.id% }" class="btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ33zh9_VhGN7GCNpd3Ydf-DR_kEyHE-0H6hCa_Ss8N2Nq2Y_QT&s" height="15%" width="15%" style="padding-right:5px;"></a>
+				{% for comm in b.comment_set.all %}
+                <p><strong>{{user.username}}:</strong> {{comm.comment_cont}}</p>
+                {% endfor %} -->
 				<hr>
 				{% endfor %}
-				<a class ="glow-on-hover"href="{% url 'new-blog' %}">add a blog</a>
+				<button class ="glow-on-hover" type="button"><a href="{% url 'new-blog' %}">add a blog</a></button>
+				<!-- <button class="glow-on-hover"  type="button"><a    href="{% url 'new-blog' %}"> blog</a></button> -->
+			</div>
 	</div>
+	
+	<style>
+			.glow-on-hover {
+				/* width: 220px; */
+				height: 50px;
+				border: none;
+				outline: none;
+				color: #fff;
+				background:  rgb(73, 241, 247);
+				cursor: pointer;
+				position: relative;
+				z-index: 0;
+				border-radius: 10px;
+			}
+			.glow-on-hover:before {
+				content: '';
+				background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+			, #FF0000);
+				position: absolute;
+				top: -2px;
+				left:-2px;
+				background-size: 400%;
+				z-index: -1;
+				filter: blur(5px);
+				width: calc(100% + 4px);
+				height: calc(100% + 4px);
+				animation: glowing 20s linear infinite;
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				border-radius: 10px;
+			}
+			.glow-on-hover:active {
+				color: #000
+			}
+			.glow-on-hover:active:after {
+				background: transparent;
+			}
+			.glow-on-hover:hover:before {
+				opacity: 1;
+			}
+			.glow-on-hover:after {
+				z-index: -1;
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: rgb(73, 241, 247);
+				left: 0;
+				top: 0;
+				border-radius: 10px;
+			}
+			@keyframes glowing {
+				0% { background-position: 0 0; }
+				50% { background-position: 400% 0; }
+				100% { background-position: 0 0; }
+			}
+			
+			</style>
 </body>
 {% endblock %}
 
-<hr>
+
+
+
 

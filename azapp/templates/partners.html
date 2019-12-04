@@ -60,7 +60,6 @@
 <div class="container-fluid" style="margin-top:-300px; font-family: 'Libre Baskerville', serif; background-image: url(http://northamptonsmartstart.org/wp-content/uploads/2014/02/amazon.jpg);">
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <h1 class="slogan" style="  font-size: 300%; color: rgb(0, 0, 0);">Welcome to dashboard!</h1>
-    <button type="button" class="btn btn-info" style="margin-left:15%;color:white"><a href="{%url 'event' %}"> Post an event </a></button>
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
     {% if partner %}
     
@@ -77,6 +76,7 @@
     <br>
     <div class="row">
         {% for event in act %}
+        
         <div class="col-sm-4">
             <div class="zoombox">
                 <img src="{{event.activity_image.url}}" class="zoomboximg">
@@ -93,6 +93,8 @@
         </div>
         {% empty %}
         <div class="row">
+                <button type="button" class="btn btn-info" style="margin-left:15%;color:white"><a href="{%url 'event' %}"> Post an event </a></button>
+   
             <h2 class="text-center">There are no events yet!</h2>
         </div>
         {% endfor %}

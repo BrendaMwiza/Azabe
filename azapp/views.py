@@ -220,9 +220,10 @@ def activity(request, category_id):
     # act = Activities.objects.filter(category=categories.id).all().prefetch_related('comments_set')
     return render(request, 'school.html', {'acty':acty,"school":school,'comment':comment,"category_id":category_id})
 @login_required(login_url='/accounts/login')
-def comment(request, act_id):
+def comment(request, act_id,blog_id):
     current_user = request.user
     act = Activities.objects.filter(id = act_id).first()
+    blog=Blog.objects.filter(id = blog_id).first()
     parent = Parents.objects.filter(user = current_user.id).first()
     if request.method == 'POST':
         form = commentForm(request.POST, request.FILES)
@@ -230,19 +231,42 @@ def comment(request, act_id):
             comment = form.save(commit = False)
             comment.commented_by = parent
             comment.commented_act = act
+            comment.commented_blog = blog
             comment.save()
             return redirect('welcome')
     else:
         form = commentForm()
-    return render(request, 'commentform.html', {'form': form, 'act_id':act_id})
+    return render(request, 'commentform.html', {'form': form, 'act_id':act_id,'blog_id':blog_id})
+
+# @login_required(login_url='/accounts/login')
+# def comments(request,blog_id):
+#     current_user = request.user
+   
+#     blog=Blog.objects.filter(id = blog_id).first()
+#     parent = Parents.objects.filter(user = current_user.id).first()
+#     if request.method == 'POST':
+#         form = commentForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             comment = form.save(commit = False)
+#             comment.commented_by = parent
+#             # comment.commented_act = act
+#             comment.commented_blog = blog
+#             comment.save()
+#             return redirect('welcome')
+#     else:
+#         form = commentForm()
+#     return render(request, 'commentform.html', {'form': form,'blog_id':blog_id})
+
 @login_required(login_url='/accounts/login')
 def blog(request):
     # try:
     #     blog= Blog.objects.all()
     # except DoesNotExist:
     #     raise Http404
+    current_user = request.user
     blog= Blog.objects.all()
-    return render(request, 'blog.html',{'blog':blog})
+    comment = Comments.objects.filter(id = current_user.id).first()
+    return render(request, 'blog.html',{'blog':blog, 'comment':comment})
 @login_required(login_url='/accounts/login')
 def new_blog(request):
     current_user = request.user
@@ -257,17 +281,12 @@ def new_blog(request):
         form = NewBlogForm()
     return render (request, 'new_blog.html', {"form":form})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@login_required(login_url='/accounts/login')
+def likes(request,id):
+    likes = 1
+    blog = Blog.objects.get(id=id)
+    blog.likes = blog.likes=+1
+    # print(blog.likes)
+    blog.save()
+    return redirect("/")
 

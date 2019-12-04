@@ -101,21 +101,12 @@ class Child(models.Model):
     def save_child(self):
         self.save()
 
-
-class Comments(models.Model):
-    comment_cont = models.CharField(max_length=120)
-    commented_by = models.ForeignKey(Parents, on_delete=models.CASCADE, null=True)
-    commented_act = models.ForeignKey(Activities, on_delete=models.CASCADE, null=True)
-    def __str__(self):
-        return str(self.comment_cont)
-    def save_comment(self):
-        self.save()
-
 class Blog(models.Model):
     title = models.CharField(max_length=60, null=True)
     content = HTMLField(null=True)
     time = models.DateTimeField(auto_now=True, null=True)
     user= models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+    likes = models.IntegerField(null=True)
 
     def __str__(self):
         return str(self.title)
@@ -123,7 +114,20 @@ class Blog(models.Model):
     def save_blog(self):
         self.save() 
     
+  
     @classmethod
     def ge_all_blogz(cls):
-        blog = cls.objects.all().prefetch_related('comments_set')
+        blog = cls.objects.all().prefetch_related('comment_set')
         return blog
+
+        
+class Comments(models.Model):
+    comment_cont = models.CharField(max_length=120)
+    commented_by = models.ForeignKey(Parents, on_delete=models.CASCADE, null=True)
+    commented_act = models.ForeignKey(Activities, on_delete=models.CASCADE, null=True)
+    commented_blog= models.ForeignKey(Blog, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return str(self.comment_cont)
+    def save_comment(self):
+        self.save()
+

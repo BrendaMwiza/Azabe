@@ -32,7 +32,7 @@ class ActivityForm(forms.ModelForm):
 class commentForm(forms.ModelForm):
     class Meta:
         model = Comments
-        exclude = ['commented_by','commented_act']
+        exclude = ['commented_by','commented_act','commented_blog']
 class NewBlogForm(forms.ModelForm):
     class Meta:
         model = Blog
