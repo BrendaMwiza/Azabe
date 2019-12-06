@@ -23,7 +23,6 @@
 {% block content %}
 <body>
 	<div class="logo">
-		<img src="/static/imageonline-co-whitebackgroundremoved.png" width="200px" height="150px">
 	</div>
 	<!-- Header area -->
 	<div id="header-wrapper" class="header-slider">
@@ -34,10 +33,10 @@
 					<div class="col-md">
 						<div id="main-slider" class="slider">
 							<p class="home-slide-content">
-								Where <strong>passion</strong> grows
+								Where <strong style="color: rgb(3, 231, 251); ">passion</strong> grows
 							</p>
 							<p class="home-slide-content">
-								With <strong>creativity</strong>
+								With <strong style="color: rgb(251, 226, 3); ">creativity</strong>
 							</p>
 						</div>
 					</div>
@@ -46,7 +45,7 @@
 		</header>
 	</div>
 	<!-- spacer section -->
-	<section class="spacer green" style="background-color: rgb(136, 135, 135);">
+	<section class="spacer green" style="background-color: rgb(101, 199, 190);">
 		<div class="container">
 			<div class="row" style="margin-left:9%;font-family: 'Bitter', serif;">
 				<div class="col-md-6 alignright flyLeft">
@@ -67,7 +66,7 @@
 <!-- section: team -->
 <section id="about" class="section" style="background-image:url(https://shawglobalnews.files.wordpress.com/2019/07/gettyimages-1096013698.jpg?quality=70&amp;strip=all&amp;w=720&amp;h=379&amp;crop=1);background-size: 100% 90%;background-attachment: fixed;">
 	<div class="container" style="background-color: rgba(85, 84, 84,0.5);">
-		<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Who We Are</b></h4>
+		<h2 style="color: honeydew;font-family: 'Bitter', serif;text-align: center;"><b>Who We Are</b></h2>
 		<br>
 		<div class="row"style="margin-left:9%">
 			<div class="col-md-5 offset1">
@@ -86,107 +85,96 @@
 		</div>
 		<!--  -->
 	</div>
-
 	<!-- /.container -->
 	<!-- section: services -->
-	<!-- <section id="services" class="section orange">
+	<br><br>
+	<section id="services" class="section orange">
 		<div class="container" >
-			<h4 style="font-family: 'Bitter', serif;">Services</h4>
+			<h2 style="font-family: 'Bitter', serif; color: black;text-align: center;">Services</h2>
 			
 			<div class="row"style="margin-left:7%">
 				{% for cat in categories %}
 				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
 					<div class="service-box">
 							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
-						 <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> -->
-						<!-- <h2>Skills</h2> -->
-						<!-- <p>{{cat.description}} -->
+						 <!-- <img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/> --> 
+						
+						<p style="color: black">{{cat.descriptions}}</p>
 							<!-- We Help children between 0 to 13 years old to know and increase the skills.  -->
-							<!-- </p>
-							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
+							</p>
+							<button class="glow-on-hover"  type="button"><a    href=" {% url 'activity' cat.id %}" style="text-decoration: none;font-family: 'Bitter', serif;">{{cat.category}} Activities</a></button>
 							
 					</div>
 				</div>
 				{% endfor %}
-			 -->
+			 
 				
 			
-			<!-- </div>
-		</div> -->
-	</section> 
-
-
-	<section id="services" class="section orange">
-		<div class="container" >
-			<h4 style="font-family: 'Bitter', serif;">Services</h4>
-			<!-- Four columns -->
-			<div class="row"style="margin-left:7%">
-				{% for cat in categories %}
-				<div class="col-md-4 animated-fast flyIn" style="font-family: 'Bitter', serif;">
-					<div class="service-box">
-							<img class="img-responsive" src="{{cat.icon.url}}" alt="" height="150px" width="200px">
-						<img src="https://res.cloudinary.com/drrezzrvd/image/upload/v1573801627/2231721_qiv3fv.svg" alt="" width="30%" height="100px"/>
-						<h2>Skills</h2>
-						<p>{{cat.description}}
-							We Help children between 0 to 13 years old to know and increase the skills. 
-							</p>
-							<a type="button" class=" btn btn-light"  href=" {% url 'activity' cat.id %}">{{cat.category}} Activities</a>
-					</div>
-				</div>
-				{% endfor %}
 			</div>
 		</div>
 	</section>
-	<section>
-	<button class="btn btn-default" href="{% url 'blog' %}">Read More</button>
-</section>
-	<!-- end section: services -->
-	<!-- section: contact -->
-	<!-- <section id="contact" class="section light">
-		<div class="container">
-			<h6>Get update information by filling this form and stay in Touch</h6>
-			<p></p>
-			<div class="blankdivider30">
+	<section ><br>
+		<div class="container" style="background-color: rgba(85, 84, 84,0.5);">
+				<h2 style="font-family: 'Bitter', serif; color: honeydew;text-align: center;">Blogs</h2>
+			<br>
+			<p style="color:white;font-family: 'Bitter', serif;">All parents pass through hardships, sometimes we don't know how to handle our babies, or face the fear and anxiety of not giving them exactly what they want. View blogs of of some parents' testimonies or add a blog that can strengthen us!</p>
+		<button style="margin-left: 45%; color: rgb(255, 255, 255);font-family: 'Bitter', serif;"  class="glow-on-hover" type="button" ><a href="{% url 'blog' %}" style="text-decoration: none;">View blogs</a></button>
+	<br>	<br>
+	</div>
+<br>
+	</section>
+
+
+	<div  style="background-color: rgb(101, 199, 190);">
+		<br>
+		<h2 style="text-align: center; font-family: 'Bitter', serif;color: black;">Gallery</h2>
+		<br>
+		<div class="row port-page">
+
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter hdpe">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAmfhSahXFe63trCBFDO5MHk-WjlbTwY_DMusDfg639MbWS1Ny&amp;s" class="img-responsive center-block port-image" >
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="cform" id="contact-form">
-						<div id="sendmessage">Your message has been sent. Thank you!</div>
-						<div id="errormessage"></div>
-						<form action="" method="post" role="form" class="contactForm">
-							<div class="row">
-								<div class="col-md-5">
-									<div class=" form-group">
-										<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-										<div class="validation"></div>
-									</div>
-									<div class=" form-group">
-										<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-										<div class="validation"></div>
-									</div>
-									<div class=" form-group">
-										<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-										<div class="validation"></div>
-									</div>
-								</div>
-								<div class="col-md-5">
-									<div class=" form-group">
-										<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-										<div class="validation"></div>
-									</div>
-									<input type="submit" value="Send message" class="btn btn-theme pull-left">
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				 ./span12 -->
-			<!-- </div> -->
-		<!-- </div> -->
-	<!-- </section> --> 
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter sprinkle">
+				<img src="https://us.123rf.com/450wm/rawpixel/rawpixel1707/rawpixel170768685/83008425-closeup-of-black-mother-and-daughter-enjoying-the-pool-with-inflatable-tubes.jpg?ver=6" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter hdpe">
+				<img src="https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/3151517/910/607/m2/fpnw/wm1/utzfufuuvmq73hn1ms2tfxnsk6wlwjeubal1yctmafehzbhrhrwmh0bjprie98cw-.jpg?1503448780&amp;s=c4f0f8bf57652109f6a02df3de1adb73" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs-dPTBdMDQfQUtolJ4Sc5-l95vL2rZGbYrs6cCsALHknw92WU&amp;s" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter spray">
+				<img src="http://supamamas.co.ke/images/Articles/Toddler/development/blackchildren.jpg" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWj1ILOMnfZVRIKfrqqIEY1TAwH9zjrvWwLJJOwv4YzYXkOMvI&amp;s" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://www.essence.com/wp-content/uploads/2016/04/1461937877/GettyImages-83371738-1920x1080.jpg" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://bloximages.newyork1.vip.townnews.com/communityvoiceks.com/content/tncms/assets/v3/editorial/a/70/a70b6300-2f72-11e7-9d89-2713f2bb5f17/5908e6c79432b.image.jpg?resize=400%2C271" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://ocdn.eu/images/pulscms/NzQ7MDA_/268f89611f171b8e8fc26cb1df937138.jpeg" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://caribbeanbookblog.files.wordpress.com/2010/04/caribkids1.jpg" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://www.nbcdi.org/sites/default/files/styles/content_width_710/public/news-images/smiling%20preschool%20boy%20reading%20a%20book.png?itok=z3cYjkjN" class="img-responsive center-block port-image">
+			</div>
+			<div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPVALyFF3NjZ0qHY88SrrVgFLL1H4FSo5C7aVYY7QTsRx4O7fg&amp;s" class="img-responsive center-block port-image">
+			</div>
+
+	
+	  </div>
+			</div>
+	
 	<footer>
 	
-			<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>
+			<h2 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h2>
 			<div class="site-section" data-aos="fade">
 				<div class="container-fluid">
 					
@@ -196,7 +184,7 @@
 								<form action="#" style="width: 80%;margin-left: 60px;font-family: 'Bitter', serif;">
 								
 				
-								<div class="row form-group">
+								<!-- <div class="row form-group">
 									<div class="col-md-6 mb-3 mb-md-0">
 									<label class="text-black" for="fname" style="margin-right: 55%;">First Name</label>
 									<input type="text" id="fname" class="form-control">
@@ -205,7 +193,7 @@
 									<label class="text-black" for="lname" style="margin-right: 55%;">Last Name</label>
 									<input type="text" id="lname" class="form-control">
 									</div>
-								</div>
+								</div> -->
 				
 								<div class="row form-group">
 									
@@ -215,14 +203,14 @@
 									</div>
 								</div>
 				
-								<div class="row form-group">
+								<!-- <div class="row form-group">
 									
 									<div class="col-md-12">
 									<label class="text-black" for="subject" style="margin-right: 90%;">Subject</label> 
 									<input type="subject" id="subject" class="form-control">
 									</div>
 								</div>
-				
+				 -->
 								<div class="row form-group">
 									<div class="col-md-12">
 									<label class="text-black" for="message" style="margin-right: 90%;">Message</label> 
@@ -232,7 +220,7 @@
 				
 								<div class="row form-group">
 									<div class="col-md-12">
-									<input type="submit" value="Send Message" class="btn btn-primary py-2 px-4 text-white">
+									<button style="margin-left: 10%; color: rgb(0, 0, 0);" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" >Send Message</button>
 									</div>
 								</div>
 				
@@ -242,28 +230,28 @@
 							<div class="col-md-6 ml-auto" style="margin-left: 60px;font-family: 'Bitter', serif;">
 								<div class="mb-3">
 								<p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
-								<p class="mb-4">203 KK St. Gishushu, Gasabo, Kigali, Rwanda</p>
+								<p class="mb-4">203 KK St. Gishushu,<br> Gasabo, Kigali, Rwanda</p>
 				
 								<p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
 								<p class="mb-4"><a href="#">+250 784 129 592</a></p>
 				
 								<p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
 								<p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
-				
-								</div>
-								<br><br><br>
-								<div class="container">
+								
+								<!-- </div>
+								
+								<div class="container"> -->
 									<h4 style="color: honeydew;"><b>Follow us</b></h4>
-									<div class="row">
+									<!-- <div class="row">
 										
-										<div class="col-md-6 " style="margin-left:20%;display:inline-block;">
+										<div class="col-md-6 " style="margin-left:20%;display:inline-block;"> -->
 											<ul class="social-networks">
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-facebook icon-2x"></i></a></li>
 												<!-- <li><a href="#"><i class="icon-circled icon-bgdark fa fa-pinterest icon-2x"></i></a></li> -->
 											</ul>
-											<p class="copyright" style="margin-left:18%;">
+											<p class="copyright" style="margin-left:1%;">
 												&copy;Azabe 2019. All rights reserved.
 											</p>
 										</div>
@@ -381,6 +369,64 @@ a.scrollup i:hover {
 .row.nomargin {
 	margin-bottom:0;
 }
+/* ==========================
+ */
+ 
+.glow-on-hover {
+    /* width: 220px; */
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:  rgb(73, 241, 247);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+, #FF0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(73, 241, 247);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
 /* ==============================
 02. Typography
  ============================== */
@@ -618,8 +664,9 @@ section.spacer {
 	background:#ffe873;
 }
 .spacer.orange,.section.orange {
-	/* background:#f36f36; */
-	background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573636177/room-eibtEHb7eBQ-unsplash_wbx12z.jpg') 50% 0 no-repeat fixed;}
+	background:rgb(255, 217, 102);
+	/* background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573636177/room-eibtEHb7eBQ-unsplash_wbx12z.jpg') 50% 0 no-repeat fixed;} */
+}
 section.spacer.bg2 {
 	background: url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573768692/bg-2_wymhlp.jpg') 50% 0 no-repeat fixed;
 	width:100%;
@@ -658,8 +705,9 @@ https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoi
 	background: rgb(70, 69, 69);
 	text-align: center;
 	color: #ddd;
+
 	padding:50px 0 50px;
-	height: 800px;
+	height: 500px;
 }
 footer a {
     color: #ddd;
@@ -1259,6 +1307,15 @@ i.icon-white {
 	#contact-form input[type=submit] {
 		width: 100%;
 	}
+}
+.port-image {
+    width: 100%;
+	height: 250px;
+}
+
+.gallery_product {
+    margin-bottom: 25px;
+
 }
 
 </style>

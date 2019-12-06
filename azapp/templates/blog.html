@@ -1,9 +1,100 @@
 {% extends 'base.html' %}
 {% block content %}
 {{block.super}}
-{% for b in blog %}
-				<p>{{b.name}}</p>
-				<p>{{b.content}}</p>
-				<p>{{b.user}}</p>
+<html>
+	<link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet">
+	<link href="static/color/default.css" rel="stylesheet">
+	<link rel="shortcut icon" href="static/img/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
+	
+<body style="background-image:url(https://www.mmomastermind.com/wp-content/uploads/2017/10/blogging-image-11.jpg);background-repeat: no-repeat;background-size: cover;">
+	<div class="container" style="color:white;">
+		<h1 style="text-align: center; font-family: 'Bitter', serif;color: black;">welcome to blogs</h1>
+		<br><br><br>
+		<div class="transbox">
+			
+			{% for b in blog %}
+			<div class="jumbotron" style="background-color: rgba(85, 84, 84,0.5);">
+				<h2 style="font-family: 'Bitter', serif;">{{b.title}}</h2>
+				<p style="font-family: 'Bitter', serif; font-size: 18px;">{{b.content}}</p>
+				<h4 style="font-family: 'Bitter', serif;">{{b.user}}</h4>
+				<!-- <p><strong>{{b.likes}} likes</strong> </p> -->
+				<!-- <a href="{% url 'like' id=b.id %}" id="like" class="btn"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" height="15%" width="15%"></a> -->
+				<a  class="btn" href="{% url 'like' id=b.id %}" style="color: black;font-size:20px;">
+					<p >{{b.likes}} <i class="fa fa-heart-o" ></i></p>
+				</a>
+				<a class="btn" href="{% url 'commentblog' b.id %}" style="color: black;font-size:25px;margin-top: -10px;"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+				<h4 style=" font-family: 'Bitter', serif;font-weight: bold;color: black;">comments:</h4>
+        
+				{% for com in b.commentblog_set.all %}
+				<p><strong>{{user.username}}:</strong> {{com.comment}}</p>
 				{% endfor %}
+			</div>
+			{% endfor %}
+	
+				<button class ="glow-on-hover" type="button"><a href="{% url 'new-blog' %}" style="text-decoration: none;">add a blog</a></button>
+			</div>
+	</div>
+	<style>
+			.glow-on-hover {
+				/* width: 220px; */
+				height: 50px;
+				border: none;
+				outline: none;
+				color: #fff;
+				background:  rgb(73, 241, 247);
+				cursor: pointer;
+				position: relative;
+				z-index: 0;
+				border-radius: 10px;
+			}
+			.glow-on-hover:before {
+				content: '';
+				background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+
+			, #FF0000);
+				position: absolute;
+				top: -2px;
+				left:-2px;
+				background-size: 400%;
+				z-index: -1;
+				filter: blur(5px);
+				width: calc(100% + 4px);
+				height: calc(100% + 4px);
+				animation: glowing 20s linear infinite;
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				border-radius: 10px;
+			}
+			.glow-on-hover:active {
+				color: #000
+			}
+			.glow-on-hover:active:after {
+				background: transparent;
+			}
+			.glow-on-hover:hover:before {
+				opacity: 1;
+			}
+			.glow-on-hover:after {
+				z-index: -1;
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: rgb(73, 241, 247);
+				left: 0;
+				top: 0;
+				border-radius: 10px;
+			}
+			@keyframes glowing {
+				0% { background-position: 0 0; }
+				50% { background-position: 400% 0; }
+				100% { background-position: 0 0; }
+			}
+			</style>
+</body>
 {% endblock %}

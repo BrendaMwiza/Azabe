@@ -1,47 +1,38 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render
 from django.http  import HttpResponse
 from django.contrib.auth.models import User
-
 # Create your views here.
 # def home_images(request):
-
 #     return render(request,'index.html')
     # return HttpResponse('Welcome to the Moringa Tribune')from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
-from .models import Post, Parents, Child, Partners, Activities, Comments,Blog,Categories
-from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partnerForm,commentForm,NewBlogForm
+from .models import Post, Parents, Child, Partners, Activities, Comments,Blog,Categories,CommentBlog
+from .forms import NewPostForm, RegChildForm,UpdateProForm,UpdateParForm,partnerForm,commentForm,NewBlogForm,CommentBlogForm
 from .forms import NewPostForm, RegChildForm,ActivityForm
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
 from .forms import NewPostForm, RegChildForm, UpdateProForm
-
-
 def welcome(request):
     post = Post.objects.all()
     child = Child.objects.all()
     partners = Partners.objects.all()
-    parent = Parents.objects.all() 
+    parent = Parents.objects.all()
     blog =Blog.objects.all()
     categories=Categories.objects.all()
     # activity=Activities.objects.all()
     return render(request, 'index.html', {'categories':categories,'blog':blog,'post':post, 'child':child, 'partners':partners, 'parent':parent})
-
-
-# login_required(login_url='/accounts/login')
+login_required(login_url='/accounts/login')
 def post(request, id):
     try:
         posts= Post.objects.get(id=id)
     except DoesNotExist:
         raise Http404
     return render(request, 'index.html',{'post':post})
-
-
-# @login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login')
 def new_post(request):
     current_user = request.user
     if request.method == 'POST':
@@ -54,18 +45,14 @@ def new_post(request):
     else:
         form = NewPostForm()
     return render (request, 'new_post.html', {"form":form})
-
-
 @login_required(login_url='/accounts/login/')
 def getProfile(request,users=None):
     user = request.user
+    child=Child.objects.filter(id=parent).all()
     image = Parents.objects.filter(name=user)
     name = request.user
     profile = Parents.objects.filter(name=name).all()
-    
-    return render(request,'profile/profile.html',locals(),{"image":image})
-
-
+    return render(request,'profile/profile.html',locals(),{"image":image,"child":child})
 @login_required(login_url='/accounts/login/')
 def editProfile(request):
     current_user = request.user
@@ -76,20 +63,16 @@ def editProfile(request):
             pics.user_name = current_user
             pics.save()
         return redirect('profile')
-
     else:
         form = UpdateProForm()
     return render(request,'profile/editProfile.html',{"test":form})
-
-
-# @login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login')
 def child(request):
     current_user = request.user
-    child = Child.objects.filter(user=current_user).first()
-    return render(request, 'child.html',{'child':child})
-
-
-# @login_required(login_url='/accounts/login')
+    child = Child.objects.filter(parent=current_user).first()
+    # parent = current_user
+    return render(request, 'child.html',{'child':child, 'parent':parent})
+@login_required(login_url='/accounts/login')
 def new_child(request):
     current_user = request.user
     if request.method == 'POST':
@@ -141,6 +124,20 @@ def editProfile(request):
         form = UpdateProForm()
     return render(request,'profile/editProfile.html',{"test":form})
 
+
+@login_required(login_url='/accounts/login/')
+def profilemy(request,username=None):
+    current_user=request.user
+    pictures=Parents.objects.filter(user=current_user)
+    if not username:
+        username=request.user.username
+        images=Parents.objects.filter(name=username)
+        # proc_img=Profile.objects.filter(user=current_user).first()
+    return render(request,'profile.html',locals(),{"pictures":pictures})
+
+
+
+
 @login_required(login_url='/accounts/login/')
 def pargetProfile(request,users=None):
     user = request.user
@@ -148,7 +145,6 @@ def pargetProfile(request,users=None):
     name = request.user
     profile = Partners.objects.filter(partner_name=name).all()
     return render(request,'profile/partner_Profile.html',locals(),{"parent_image":parent_image})
-
 @login_required(login_url='/accounts/login/')
 def pareditProfile(request):
     current_user = request.user
@@ -163,76 +159,54 @@ def pareditProfile(request):
         form = UpdateParForm()
     return render(request,'profile/pareditProfile.html',{"form":form})
 # ============================
-
+@login_required(login_url='/accounts/login')
 def username_present(request):
     user=request.user
-    
     # current_user = request.user
-    
     if request.method == 'POST':
         form = UpdateParForm(request.POST,request.FILES)
         if form.is_valid():
             pics = form.save(commit=False)
             pics.user = user
             pics.save()
-            return redirect('parprofile')
+            return redirect('partner')
     else:
         form = UpdateParForm()
     return render (request, 'profile/partn.html', {"form":form})
-    
     # partner=Partners.objects.filter(partner_name=user)
     # if User.objects.filter(username=username).exists():
     #     return True
-    
     # return False
-
-
-
-def activity(request, category_id):
-    current_user = request.user
-    # partner_name=Activities.objects.filter(partner_name=current_user.id).all()
-    # even = Activities.objects.filter(=even_id).first()
-    comment = Comments.objects.filter(id = current_user.id).first()
-    school= Categories.objects.get(id=category_id)
-    acty = Activities.objects.filter(category=school.id).all()
-    # act = Activities.objects.filter(category=categories.id).all().prefetch_related('comments_set')
-    return render(request, 'school.html', {'acty':acty,"school":school,'comment':comment,"category_id":category_id})
-
- 
-
-
+# def partners(request):
+#     current_user = request.user
+#     activities = Activities.objects.filter()
+#     partner= Partners.objects.filter(user=current_user).first()
+#     message=None
+#     if partner is None:
+#         message= "you are not registered as a partner"
+#     else:
+#         message= "Welcome to Azabe Business View"
+#     return render(request,'partners.html',{ 'current_user':current_user, 'activities':activities, "message":message, "partner":partner})
+@login_required(login_url='/accounts/login/')
 def partners(request):
     current_user = request.user
     # activities = Activities.objects.filter()
-    partner= Partners.objects.filter(user=current_user).first()
+    partner = Partners.objects.filter(user=current_user).first()
     print(current_user)
-     
-    # even = Activities.objects.filter(=even_id).first()
-    
-    act = Activities.objects.filter(partner_name=current_user.id).all()
-    # print(partner.approved)
+    # act = Activities.objects.filter(partner_name=current_user.id).all()
+    act = Activities.objects.all()
     message=None
     if partner is None:
-        
         message= "you are not registered as a partner"
         
-        # redirect(username_present)
-        # if partner.approved == False:
-        #     redirect("username_present")
     elif partner.approved == False:
-        # print(partner.approved)
         message= "please check in 24 hours  "
     else:
         message= "Welcome to Azapp Business View"
-        # print(partner.approved)
-
     return render(request,'partners.html',{"act":act ,'current_user':current_user,  "message":message, "partner":partner})
-
-
-# @login_required(login_url='/accounts/login/')
+@login_required(login_url='/accounts/login')    
 def new_event(request):
     current_user = request.user
-
     if request.method == 'POST':
         form = ActivityForm(request.POST, request.FILES)
         if form.is_valid():
@@ -243,24 +217,19 @@ def new_event(request):
     else:
         form = ActivityForm()
     return render(request, 'new_event.html', {"form": form})
-
-
+@login_required(login_url='/accounts/login')
 def subscribers(request,act_id):
     act = Activities.objects.filter(id=act_id).first()
     print(act)
     child = Child.objects.filter(activity_id=act.id)
     return render(request, 'subscribers.html', {"child": child,"act":act})
-
-
-
+@login_required(login_url='/accounts/login')
 def dashboard(request):
     current_user = request.user
     comment = Comments.objects.filter(id = current_user.id).first()
     activities = Activities.objects.all()
     return render(request,'events.html',{ 'current_user':current_user, 'activities':activities, 'comment':comment})
-
-
-
+@login_required(login_url='/accounts/login')
 def activity(request, category_id):
     current_user = request.user
     # partner_name=Activities.objects.filter(partner_name=current_user.id).all()
@@ -269,9 +238,7 @@ def activity(request, category_id):
     school= Categories.objects.get(id=category_id)
     acty = Activities.objects.filter(category=school.id).all()
     # act = Activities.objects.filter(category=categories.id).all().prefetch_related('comments_set')
-   
     return render(request, 'school.html', {'acty':acty,"school":school,'comment':comment,"category_id":category_id})
-
 @login_required(login_url='/accounts/login')
 def comment(request, act_id):
     current_user = request.user
@@ -288,8 +255,6 @@ def comment(request, act_id):
     else:
         form = commentForm()
     return render(request, 'commentform.html', {'form': form, 'act_id':act_id})
-
-
 @login_required(login_url='/accounts/login')
 def blog(request):
     # try:
@@ -298,7 +263,6 @@ def blog(request):
     #     raise Http404
     blog= Blog.objects.all()
     return render(request, 'blog.html',{'blog':blog})
-
 @login_required(login_url='/accounts/login')
 def new_blog(request):
     current_user = request.user
@@ -312,3 +276,28 @@ def new_blog(request):
     else:
         form = NewBlogForm()
     return render (request, 'new_blog.html', {"form":form})
+
+@login_required(login_url='/accounts/login/')
+def likes(request,id):
+    likes=1
+    image=Blog.objects.get(id=id)
+    image.likes=image.likes+1
+    image.save()
+    return redirect('blog')
+
+@login_required(login_url='/accounts/login')
+def commentblog(request, id):
+    current_user = request.user
+    blog = Blog.objects.filter(id = id).first()
+    parent = Parents.objects.filter(user = current_user.id).first()
+    if request.method == 'POST':
+        form = CommentBlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            comments = form.save(commit = False)
+            comments.commenter = parent
+            comments.commented_blog = blog
+            comments.save()
+            return redirect('blog')
+    else:
+        form = CommentBlogForm()
+    return render(request, 'commentBlog.html', {'form': form, 'id':id})

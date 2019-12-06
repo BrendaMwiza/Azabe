@@ -1,9 +1,9 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
 {% block content %}
+<link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
 <style>
-
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -18,6 +18,7 @@
   font-size: 17px;
   font-weight: bold;
   font-family: 'Libre Baskerville', serif;
+  /* margin-top: -50px; */
 }
 /* Change the color of links on hover */
 .topnav a:hover {
@@ -53,43 +54,43 @@
 </head>
 
 <body>
-	<nav class="bg-black navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(22, 22, 22,0.4);">
+	<nav class="bg-black navbar" style="background-color: rgba(255, 255, 255, 0.4);text-decoration: none;">
     <div class="container-fluid">
 		<div class="navbar-header">
+    <!-- <img src="/static/imageonline-co-whitebackgroundremoved.png" width="90px" height="80px" style="margin-left: -120px;"> -->
     <div class="topnav">
-      <a class="active" href="{% url 'welcome' %}">Home</a>
-      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
+      <a class="active" href="{% url 'welcome' %}" style="text-decoration: none;color: rgb(3, 231, 251);">Home</a>
+      <!-- <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
         <span class="caret">Blogs</span>
-    </a>
-<ul class="dropdown-menu" role="menu">
-<li>
-  <a href="{% url 'blog' %}">view blogs </a>
-</li>
-<li>
-  <a href="{% url 'new-blog' %}">add a blog </a>
-</li></ul>
-      
-      <a href="{% url 'profile' %}">Profile</a>
-      <a href="{% url 'dash' %}">Activities</a>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+      <li>
+        <a href="{% url 'blog' %}">view blogs </a>
+      </li>
+      <li>
+        <a href="{% url 'new-blog' %}">add a blog </a>
+      </li></ul> -->
+      <a href="{% url 'profile' %}" style="text-decoration: none;color: rgb(251, 247, 3);">Profile</a>
+      <a href="{% url 'dash' %}" style="text-decoration: none;color: rgb(251, 61, 3);">Activities</a>
     
 <!--       
       <a href="{% url 'profile' %}">Profile</a> -->
       <!-- <a href="">Project</a> -->
       <!-- <a href="{% url 'profile' %}">Profile</a> -->
       {% if user.is_authenticated %}
-      <a href="/logout">Logout</a>
+      <a href="/logout" style="text-decoration: none;color: rgb(3, 61, 251);">Logout</a>
       {% else %}
-      <a  href="/accounts/login">Login</a>
+      <a  href="/accounts/login" style="text-decoration: none;color: rgb(3, 61, 251);">Login</a>
       {% endif %}
 
       {% if user is partner_name %}
       <a href="">logout</a>
       {% else %}
-      <a href="{% url 'partner' %}">Partner</a>
+      <a href="{% url 'partner' %}" style="text-decoration: none;">Partner</a>
       {% endif %}
       
-      <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;"><strong>AZABE</strong></a>
-      
+      <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;margin-top: -10px;"><strong><span style="color: rgb(3, 231, 251);font-family: 'Pacifico', cursive;">A</span><span style="color: rgb(251, 247, 3);font-family: 'Fjalla One', sans-serif;">Z</span><span style="color: rgb(251, 61, 3);">A</span><span style="color: rgb(3, 61, 251);font-family: 'Fjalla One', sans-serif;">B</span>E</strong></a>
+
 <!--    
       <input type="text" placeholder="Search..">
         <a href="" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a>

@@ -9,8 +9,6 @@ from datetime import datetime
 
 # Create your models here.
 
-
-
 class Post(models.Model):
     name= models.CharField(max_length=60, null=True)
     description = models.CharField(max_length=60, null=True)
@@ -46,7 +44,6 @@ class Partners(models.Model):
     partner_name = models.CharField(max_length=60,null=True)
     description= models.CharField(max_length=300,null=True)
     user=models.OneToOneField(User,on_delete=models.CASCADE, blank=True,null=True)
-    email = models.CharField(max_length=60,null=True)
     partner_image = models.ImageField(upload_to='partner/',null=True)
     approved = models.BooleanField(default=False )
     phone= models.CharField(max_length=60,null=True)
@@ -59,7 +56,7 @@ class Partners(models.Model):
 
 class Categories(models.Model):
     category=models.CharField(max_length=60, null=True)
-    description=models.CharField(max_length=60, null=True)
+    descriptions=models.CharField(max_length=300, null=True)
     # icon= models.ImageField(upload_to='icon/',null=True ,blank=True)
     def __str__(self):
         return str(self.category)
@@ -72,8 +69,8 @@ class Categories(models.Model):
 
 class Activities(models.Model):
     partner_name = models.ForeignKey(Partners, on_delete=models.CASCADE, blank=True,null=True)
-    activity_name =models.CharField(max_length=60,null=True)
-    description= models.CharField(max_length=60,null=True)
+    activity_name =models.CharField(max_length=100,null=True)
+    description= models.CharField(max_length=300,null=True)
     activity_image = models.ImageField(upload_to='activity/',null=True ,blank=True)
     price=models.CharField(max_length=60,null=True)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, blank=True,null=True)
@@ -114,9 +111,24 @@ class Blog(models.Model):
     content = HTMLField(null=True)
     time = models.DateTimeField(auto_now=True, null=True)
     user= models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.title)
 
     def save_blog(self):
         self.save() 
+
+    @classmethod
+    def ge_all_blog(cls):
+        blog = cls.objects.all().prefetch_related('commentblog_set')
+        return blog
+
+class CommentBlog(models.Model):
+    comment = models.CharField(max_length=120)
+    commenter = models.ForeignKey(Parents, on_delete=models.CASCADE, null=True)
+    commented_blog = models.ForeignKey(Blog, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return str(self.comment)
+    def save_comment_blog(self):
+        self.save()
