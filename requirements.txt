@@ -10,7 +10,7 @@ chardet==3.0.4
 Click==7.0
 colorama==0.3.7
 confusable-homoglyphs==3.2.0
-cryptography==2.1.4
+cryptography==2.3
 Django==1.11.26
 django-bootstrap4==1.0.1
 django-registration==2.4.1
