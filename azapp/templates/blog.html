@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://kit.fontawesome.com/yourcode.js"></script>
 	
-<body style="background-image:url(https://www.mmomastermind.com/wp-content/uploads/2017/10/blogging-image-11.jpg);background-repeat: no-repeat;background-size: cover;">
+<body style="background-image:url(https://www.mmomastermind.com/wp-content/uploads/2017/10/blogging-image-11.jpg);background-repeat: no-repeat;background-size: 1300px 1500px;">
 	<div class="container" style="color:white;">
 		<h1 style="text-align: center; font-family: 'Bitter', serif;color: black;">welcome to blogs</h1>
 		<br><br><br>
@@ -39,6 +39,53 @@
 				<button class ="glow-on-hover" type="button"><a href="{% url 'new-blog' %}" style="text-decoration: none;">add a blog</a></button>
 			</div>
 	</div>
+	<br><br>
+	<footer>
+	
+		<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>
+		<div class="site-section" data-aos="fade">
+			<div class="container-fluid">
+				
+					<div class="row" style="font-family: 'Bitter', serif;">
+						
+						<div class="col-md-3">
+							
+							<p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
+							<p class="mb-4">203 KK St. Gishushu,<br> Gasabo, Kigali, Rwanda</p>
+						</div>
+						<div class="mb-3">
+							<p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
+							<p class="mb-4"><a href="#">+250 784 129 592</a></p>
+			
+							<p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
+							<p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
+						</div>
+						
+							
+							<div class="col-md-5 font-weight-bold" style="margin-left: 60px;font-family:'Bitter', serif;">
+								<h4 style="color: honeydew;"><b>Follow us</b></h4>
+								<div class="row">
+									
+									<div class="col-md-4" style="margin-left:28%;display:inline-block;">
+										<ul class="social-networks">
+											<li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
+											<li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
+											<li><a href="#"><i class="icon-circled icon-bglight fa fa-facebook icon-2x"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br><br><br>
+						<p class="copyright" style="margin-left:1%;font-family: 'Bitter', serif;">
+							&copy;Azabe 2019. All rights reserved.
+						</p>
+					</div>
+			
+			</div>
+		</div>
+		
+	</footer>
 	<style>
 			.glow-on-hover {
 				/* width: 220px; */
@@ -95,6 +142,67 @@
 				50% { background-position: 400% 0; }
 				100% { background-position: 0 0; }
 			}
+
+			footer {
+	/* background: rgb(226, 226, 226) url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg(592 kB)
+https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg
+') no-repeat center center fixed; */
+	background: rgb(70, 69, 69);
+    /* height: 200px; */
+	text-align: center;
+	color: #ddd;
+	padding:50px 0 50px;
+	height: 300px;
+}
+footer a {
+    color: #ddd;
+}
+footer a:hover {
+    color: #fff;
+}
+footer ul.social-networks {
+	list-style:none;
+}
+footer ul.social-networks li {
+	display:inline;
+}
+footer ul.social-networks li i {
+	display:inline-block;
+}
+footer ul.social-networks li a {
+	color: #5E5E5E;
+	margin: 0 5px;
+    font-size: 25px;
+}
+footer ul.social-networks li a:hover {
+	text-decoration:none;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+    color: #ddd;
+}
+footer ul.social-networks li i.icon-bgdark {
+	background:#414141;
+	color: #656565;
+}
+footer ul.social-networks li a i.icon-instagram:hover {
+	background: #BA7B3D;
+	color: #fff;
+}
+footer ul.social-networks li a i.icon-twitter:hover {
+	background: #5AD2EB;
+	color: #fff;
+}
+footer ul.social-networks li a i.icon-dribbble:hover {
+	background: #F57B71;
+	color: #fff;
+}
+footer ul.social-networks li a i.icon-pinterest:hover {
+	background: #D84848;
+	color: #fff;
+}
 			</style>
 </body>
 {% endblock %}

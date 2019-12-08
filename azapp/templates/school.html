@@ -16,103 +16,154 @@
 	{
 		padding: 15px;
 	}
-/*zoom-out*/
-.zoombox
-{
-	background-color: #333;
-	overflow: hidden;
-}
-.zoombox img.zoomboximg
-{
-	width: 100%;
-	height: 240px;
-	transform: scale(1.5);
-	animation-duration: 10s;
-}
-.zoombox .zoomboxDiv
-{
-	position: absolute;
-	right: 60px;
-	left: 40px;
-	top: 60px;
-	bottom: 60px;
-	display: block;
-	background-color: transparent;
-	/* border:1px solid #fff; */
-	padding: 30px;
-	text-align: center;
-	transform: scale(0);
-}
-.zoombox .zoomboxDiv p
-{
-	width: 100%;
-    height: auto;
-    color: white;
-    font-family:Great,Vibes;
-}
-.zoombox:hover img.zoomboximg
-{
-	opacity: .3;
-	transform: scale(1);
-}
-.zoombox:hover .zoomboxDiv
-{
-	transform: scale(1);
-}
+    /*zoom-out*/
+    .zoombox
+    {
+        background-color: #333;
+        overflow: hidden;
+    }
+    .zoombox img.zoomboximg
+    {
+        width: 100%;
+        height: 240px;
+        transform: scale(1.5);
+        animation-duration: 10s;
+    }
+    .zoombox .zoomboxDiv
+    {
+        position: absolute;
+        right: 60px;
+        left: 40px;
+        top: 60px;
+        bottom: 60px;
+        display: block;
+        background-color: transparent;
+        /* border:1px solid #fff; */
+        padding: 30px;
+        text-align: center;
+        transform: scale(0);
+    }
+    .zoombox .zoomboxDiv p
+    {
+        width: 100%;
+        height: auto;
+        color: white;
+        font-family:Great,Vibes;
+    }
+    .zoombox:hover img.zoomboximg
+    {
+        opacity: .3;
+        transform: scale(1);
+    }
+    .zoombox:hover .zoomboxDiv
+    {
+        transform: scale(1);
+    }
 
+.glow-on-hover {
+    /* width: 220px; */
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:  rgb(73, 241, 247);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    }
+    .glow-on-hover:before {
+        content: '';
+        background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+    , #FF0000);
+        position: absolute;
+        top: -2px;
+        left:-2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+    }
+    .glow-on-hover:active {
+        color: #000
+    }
+    .glow-on-hover:active:after {
+        background: transparent;
+    }
+    .glow-on-hover:hover:before {
+        opacity: 1;
+    }
+    .glow-on-hover:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(73, 241, 247);
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+    @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
 
 </style>
 <div style=" margin-top: -130px; background-image: url(https://hfwcny.org/hfwcny-content/uploads/pedals-thumb.jpg);background-repeat: no-repeat;background-size: cover;">
-    <img src="" alt="">
+    
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br>
 </div>
 </div>
 <br>
 <div class="container">
-    <h2 class="slogan" style=" text-align: center; font-family: 'Abhaya Libre', serif;">SCHOOL ACTIVITIES</h2>
+    <h2 class="slogan" style=" text-align: center; font-family: 'Abhaya Libre', serif;">ACCORDING ACTIVITIES</h2>
     <br>
     <div class="row">
-        {% for event in activities %}
+        {% for event in acty %}
+                <div class="card col-sm-4" style="min-height:400px;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);margin-right: 0px;margin-top: 10px;">
+                    <p class="heading"  style="text-align:center;font-family: 'Bitter', serif;"><strong>Organisers:</strong>
+                        {{event.partner_name}}</p>
+                    <div class="zoombox">
+                        <img src="{{event.activity_image.url}}" class="zoomboximg">
+                        <div class="zoomboxDiv">
+                            <p class="heading" style="font-family: 'Bitter', serif;"><strong>Activity:</strong> {{event.activity_name}}</p>
+                            <p class="heading" style="font-family: 'Bitter', serif;"><strong>Category:</strong> {{event.category}}</p>
+                            <p style="font-family: 'Bitter', serif;"><strong>Description: </strong>{{event.description}}</p>
+                            <p style="font-family: 'Bitter', serif;"><strong>Price:</strong>{{event.price}}</p>
+                        </div>
+                        <!--div-->
+                    </div><br>
+                    <button style="margin-left: 2%;" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'new-child' %}" style="text-decoration: none;font-family: 'Bitter',serif;color: white;"> Register </a></button>
+                    <br>
+                    <button style="margin-left: 2%;" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'comment' event.id%}" style="text-decoration: none;font-family: 'Bitter',serif;color: white;"> comment </a></button>
+                    <hr>
+                    <h4 style="text-align:center; font-family: 'Bitter', serif;">comments:</h4>
+                    {% for com in event.comments_set.all %}
+                    <p style="font-family: 'Bitter', serif;"><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
+                    {% endfor %}
+                    <!--zoombox-->
 
-        <div class="card col-sm-4" style="padding-left:auto;padding-right:auto;min-height:400px;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);margin-right: 10px">
-                <p class="heading" style="text-align:center;font-family: 'Bitter', serif;"><strong>Organisers:</strong>
-                    {{event.partner_name}}</p>
-                <div class="zoombox">
-                    <img src="{{event.activity_image.url}}" class="zoomboximg">
-                    <div class="zoomboxDiv">
-                        <p class="heading" style="font-family: 'Bitter', serif;"><strong>Activity:</strong> {{event.activity_name}}</p>
-                        <p class="heading" style="font-family: 'Bitter', serif;"><strong>Category:</strong> {{event.category}}</p>
-
-                        <p style="font-family: 'Bitter', serif;"><strong>Description: </strong>{{event.description}}</p>
-                        <p style="font-family: 'Bitter', serif;"><strong>Price:</strong>{{event.price}}</p>
-                        
-                    </div>
-                    <!--div-->
-                </div><br>
-                <button type="button" class="btn"> <a href="{%url 'new-child' %}">Register</a></button>
-                        <a href="{%url 'comment' event.id%}" class="btn btn-primary">comment</a>
-                <hr>
-                <!-- <h4 style="text-align:center; font-family:Great,Vibes;">comments</h4> -->
-                {% for com in event.comments_set.all %}
-                <p><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
+                </div>
+                {% empty %}
+                <div class="row">
+                    <h2 class="text-center" style="font-family: 'Bitter', serif;">There are no activities yet!</h2>
+                </div>
                 {% endfor %}
-
-                <!--zoombox-->
-            </div>
-            <br><br>
-            {% empty %}
-            <div class="row">
-                <h2 class="text-center">There are no events yet!</h2>
-            </div>
-            {% endfor %}
+                <br>
                 <!--col-4-->
-
-
             </div>
         </div>
     </div>
 </div>
+<br><br>
 <footer>
 	
     <h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>

@@ -257,7 +257,7 @@
         <h4 style="text-align:center; font-family: 'Bitter', serif;">comments:</h4>
         
         {% for com in event.comments_set.all %}
-        <p><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
+        <p style="font-family: 'Bitter', serif;"><strong>{{user.username}}:</strong> {{com.comment_cont}}</p>
         {% endfor %}
 
         <!--zoombox-->
@@ -265,7 +265,7 @@
     <br><br>
     {% empty %}
     <div class="row">
-        <h2 class="text-center">There are no events yet!</h2>
+        <h2 class="text-center" style="font-family: 'Bitter', serif;">There are no events yet!</h2>
     </div>
     {% endfor %}
     <br><br>

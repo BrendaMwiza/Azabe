@@ -221,10 +221,12 @@
     <p style="font-family:'Bitter',serif;">If you want to register as a partner use the link bellow</p>
     <a href="{% url 'username_present'%}"> Create a business account</a>
     {% else %}
+    <button style="margin-left: 10%; color: rgb(0, 0, 0);margin-left: 500px;" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'event' %}" style="text-decoration: none;font-family: 'Bitter',serif;color: white;"> Post an event </a></button>
+    <br>
     <br>
     <div class="row">
         {% for event in act %}
-        <div class="col-sm-4">
+        <div class=" card col-sm-4">
             <div class="zoombox">
                 <img src="{{event.activity_image.url}}" class="zoomboximg">
                 <div class="zoomboxDiv">
@@ -232,19 +234,21 @@
                     <p class="heading"><strong>Category:</strong> {{event.category}}</p>
                     <p><strong>Description: </strong>{{event.description}}</p>
                     <p><strong>Price:</strong>{{event.price}}</p>
-                    <button style="margin-left: 10%; color: rgb(0, 0, 0);" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'sub' event.id %}">subscribers</a></button>
+                    <button style="margin-left: 10%; color: rgb(0, 0, 0);" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'sub' event.id %}" style="text-decoration: none;font-family:'Bitter',serif;color:white;">subscribers</a></button>
                 </div>
                 
-            </div><br>
+            </div>
             
         </div>
+        <br><br>
+        
         {% empty %}
         <div class="row" style="font-family:'Bitter',serif;">
-            <button style="margin-left: 10%; color: rgb(0, 0, 0);" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'event' %}" style="text-decoration: none;font-family: 'Bitter',serif;"> Post an event </a></button>
 
             <h2 class="text-center">There are no events yet!</h2>
         </div>
         {% endfor %}
+        
     </div>
 
 
