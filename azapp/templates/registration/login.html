@@ -1,38 +1,45 @@
-{%extends "registration/base.html"%} {% load bootstrap4 %} {% block content %}
-<div class="container">
-    <div class="row">
-        <!-- Empty div -->
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            {% if form.errors %}
-            <p> Password or Username is incorrect </p>
-            {% endif %}
-            <div class="panel panel-default">
+{%extends "registration/base.html"%} 
+{% load bootstrap4 %}
+{% block content %}
 
-                <div class="panel-heading">
-                    <h3 class="text-center">Sign In</h3>
-                </div>
-                <div class="panel-body">
+<div style="height: 650px; background-image:url(https://media.wnyc.org/i/800/0/c/85/1/SG4.jpg);background-size: 100% 700px;" >
+  <div class="row">
+    <!-- Empty div -->
+    
+    <div class="col-md-4">
+      {% if form.errors %}
+        <p> Some Information Might be Incorrect </p>
+      {% endif %}
+      <div class="panel panel-default" style=" margin-left: 20%;font-family: 'Bitter', serif;">
 
-                    <form action="/accounts/login/" method="post">
-                        {% csrf_token %} {% bootstrap_form form%}
+        <div class="panel-heading">
+           <br><br><br><br>
+          <h3 class="text-center" style="font-family: 'Dancing Script','cursive';color: azure;font-family: 'Bitter', serif;"><b>Sign In</b></h3>
+        </div>
+        <div class="panel-body">
 
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Login">
-                        </div>
-
-                        <input type="hidden" name="next" value="{{next}}">
-
-                    </form>
-
-                </div>
-
+          <form  action="/accounts/login/" method="post" style="color:rgb(234, 243, 243);width: 300px;">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-group">
+          
+              <input type="submit" class="btn btn-dark btn-sm" value="Login">
             </div>
 
+            <input type="hidden" name="next" value="{{next}}">
+            <a href="/accounts/register/" type="button" class="btn btn-dark btn-sm" value="Create your account">Create your account</a>
+            <input type="submit" class="btn btn-dark btn-sm" value="Change password!">
+          
+          </form>
         </div>
-        <!-- empty div -->
-        <div class="col-md-4"></div>
+      </div>
     </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+    <!-- empty div -->
+    
+  
+</div>
 </div>
 
 {% endblock %}

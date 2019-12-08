@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% block content %}
+{{block.super}}
+<link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/color/default.css" rel="stylesheet">
+<link rel="shortcut icon" href="static/img/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/yourcode.js"></script>
+
+<style>
+    .col-sm-4
+        {
+            padding: 15px;
+        }
+    /*zoom-out*/
+    .zoombox
+    {
+        background-color: #333;
+        overflow: hidden;
+    }
+    .zoombox img.zoomboximg
+    {
+        width: 100%;
+        height: 240px;
+        transform: scale(1.5);
+        animation-duration: 10s;
+    }
+    .zoombox .zoomboxDiv
+    {
+        margin-top: -15%;
+        position: absolute;
+        right: 60px;
+        left: 40px;
+        top: 60px;
+        bottom: 60px;
+        display: block;
+        background-color: transparent;
+        /* border:1px solid #fff; */
+        padding: 30px;
+        text-align: center;
+        transform: scale(0);
+    }
+    .zoombox .zoomboxDiv p
+    {
+        width: 100%;
+        height: auto;
+        color: white;
+        font-family:Great,Vibes;
+    }
+    .zoombox:hover img.zoomboximg
+    {
+        opacity: .3;
+        transform: scale(1);
+    }
+    .zoombox:hover .zoomboxDiv
+    {
+        transform: scale(1);
+    }
+    .glow-on-hover {
+    /* width: 220px; */
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:  rgb(73, 241, 247);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    }
+    .glow-on-hover:before {
+        content: '';
+        background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+    , #FF0000);
+        position: absolute;
+        top: -2px;
+        left:-2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+    }
+    .glow-on-hover:active {
+        color: #000
+    }
+    .glow-on-hover:active:after {
+        background: transparent;
+    }
+    .glow-on-hover:hover:before {
+        opacity: 1;
+    }
+    .glow-on-hover:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(73, 241, 247);
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+    @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
+
+    footer {
+        /* background: rgb(226, 226, 226) url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg(592 kB)
+    https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg
+    ') no-repeat center center fixed; */
+        background: rgb(70, 69, 69);
+        /* height: 200px; */
+        text-align: center;
+        color: #ddd;
+        padding:50px 0 50px;
+        height: 300px;
+    }
+    footer a {
+        color: #ddd;
+    }
+    footer a:hover {
+        color: #fff;
+    }
+    footer ul.social-networks {
+        list-style:none;
+    }
+    footer ul.social-networks li {
+        display:inline;
+    }
+    footer ul.social-networks li i {
+        display:inline-block;
+    }
+    footer ul.social-networks li a {
+        color: #5E5E5E;
+        margin: 0 5px;
+        font-size: 25px;
+    }
+    footer ul.social-networks li a:hover {
+        text-decoration:none;
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        color: #ddd;
+    }
+    footer ul.social-networks li i.icon-bgdark {
+        background:#414141;
+        color: #656565;
+    }
+    footer ul.social-networks li a i.icon-instagram:hover {
+        background: #BA7B3D;
+        color: #fff;
+    }
+    footer ul.social-networks li a i.icon-twitter:hover {
+        background: #5AD2EB;
+        color: #fff;
+    }
+    footer ul.social-networks li a i.icon-dribbble:hover {
+        background: #F57B71;
+        color: #fff;
+    }
+    footer ul.social-networks li a i.icon-pinterest:hover {
+        background: #D84848;
+        color: #fff;
+    }
+        
+</style>
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="top: -24px;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img style="width:100%; height:530px;" src="https://healthykidstoday.org/wp-content/uploads/2016/02/Kids-on-playground.jpg" alt="New york" style="width:100%;">
+            </div>
+
+            <div class="item">
+                <img style="width:100%; height:530px;" src="https://cms.qz.com/wp-content/uploads/2016/06/4826969835_c17aef12c9_o.jpg?quality=75&amp;strip=all&amp;w=1600&amp;h=900&amp;crop=1" alt="New york" style="width:100%;">
+            </div>
+
+            <div class="item">
+                <img style="width:100%; height:525px;" src="https://hfwcny.org/hfwcny-content/uploads/pedals-thumb.jpg" alt="New york" style="width:100%;">
+            </div>
+        </div>   
+      
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+</div>
+<div class="container">
+    <h1 class="slogan" style="  font-size: 300%; color: rgb(0, 0, 0);font-family: 'Bitter',serif;text-align: center;">Welcome to dashboard!</h1>
+    <!-- <button type="button" class="btn btn-info" style="margin-left:15%;color:white;font-family: 'Bitter',serif;"><a href="{%url 'event' %}"> Post an event </a></button> -->
+   
+    {% if partner %}
+    
+    {% if partner.approved == False %}
+    <h2 style="font-family:'Bitter',serif;">{{message}}</h2>
+    <p style="font-family:'Bitter',serif;">If you want to register as a partner use the link bellow</p>
+    <a href="{% url 'username_present'%}"> Create a business account</a>
+    {% else %}
+    <button style="margin-left: 10%; color: rgb(0, 0, 0);margin-left: 500px;" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'event' %}" style="text-decoration: none;font-family: 'Bitter',serif;color: white;"> Post an event </a></button>
+    <br>
+    <br>
+    <div class="row">
+        {% for event in act %}
+        <div class=" card col-sm-4">
+            <div class="zoombox">
+                <img src="{{event.activity_image.url}}" class="zoomboximg">
+                <div class="zoomboxDiv">
+                    <p class="heading"><strong>Activity:</strong> {{event.activity_name}}</p>
+                    <p class="heading"><strong>Category:</strong> {{event.category}}</p>
+                    <p><strong>Description: </strong>{{event.description}}</p>
+                    <p><strong>Price:</strong>{{event.price}}</p>
+                    <button style="margin-left: 10%; color: rgb(0, 0, 0);" value="Send Message"  class="glow-on-hover btn-info py-2 px-4 text-white" type="button" type="submit" ><a href="{%url 'sub' event.id %}" style="text-decoration: none;font-family:'Bitter',serif;color:white;">subscribers</a></button>
+                </div>
+                
+            </div>
+            
+        </div>
+        <br><br>
+        
+        {% empty %}
+        <div class="row" style="font-family:'Bitter',serif;">
+
+            <h2 class="text-center">There are no events yet!</h2>
+        </div>
+        {% endfor %}
+        
+    </div>
+
+
+    
+    {% endif %}
+    {% else %}
+    <h2 style="font-family:'Bitter',serif;">{{message}}</h2>
+    <p style="font-family:'Bitter',serif;">If you want to register go to that page</p>
+    <a href="{% url 'username_present'%}" style="font-family:'Bitter',serif;color: rgb(0, 98, 0);text-decoration: none;font-size: 20px;"> Create a business account here</a>
+    {% endif %}
+</div>
+<br><br><br>
+
+<footer>
+	
+    <h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>
+    <div class="site-section" data-aos="fade">
+        <div class="container-fluid">
+            
+                <div class="row" style="font-family: 'Bitter', serif;">
+                    
+                    <div class="col-md-3">
+                        
+                        <p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
+                        <p class="mb-4">203 KK St. Gishushu,<br> Gasabo, Kigali, Rwanda</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
+                        <p class="mb-4"><a href="#">+250 784 129 592</a></p>
+        
+                        <p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
+                        <p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
+                    </div>
+                    
+                        
+                        <div class="col-md-5 font-weight-bold" style="margin-left: 60px;font-family:'Bitter', serif;">
+                            <h4 style="color: honeydew;"><b>Follow us</b></h4>
+                            <div class="row">
+                                
+                                <div class="col-md-4" style="margin-left:28%;display:inline-block;">
+                                    <ul class="social-networks">
+                                        <li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
+                                        <li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
+                                        <li><a href="#"><i class="icon-circled icon-bglight fa fa-facebook icon-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br>
+                    <p class="copyright" style="margin-left:1%;font-family: 'Bitter', serif;">
+                        &copy;Azabe 2019. All rights reserved.
+                    </p>
+                </div>
+        
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

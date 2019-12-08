@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% block content %}
+{{block.super}}
+<html>
+	<link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet">
+	<link href="static/color/default.css" rel="stylesheet">
+	<link rel="shortcut icon" href="static/img/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
+	
+<body style="background-image:url(https://www.mmomastermind.com/wp-content/uploads/2017/10/blogging-image-11.jpg);background-repeat: no-repeat;background-size: 1300px 1500px;">
+	<div class="container" style="color:white;">
+		<h1 style="text-align: center; font-family: 'Bitter', serif;color: black;">welcome to blogs</h1>
+		<br><br><br>
+		<div class="transbox">
+			
+			{% for b in blog %}
+			<div class="jumbotron" style="background-color: rgba(85, 84, 84,0.5);">
+				<h2 style="font-family: 'Bitter', serif;">{{b.title}}</h2>
+				<p style="font-family: 'Bitter', serif; font-size: 18px;">{{b.content}}</p>
+				<h4 style="font-family: 'Bitter', serif;">{{b.user}}</h4>
+				<!-- <p><strong>{{b.likes}} likes</strong> </p> -->
+				<!-- <a href="{% url 'like' id=b.id %}" id="like" class="btn"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" height="15%" width="15%"></a> -->
+				<a  class="btn" href="{% url 'like' id=b.id %}" style="color: black;font-size:20px;">
+					<p >{{b.likes}} <i class="fa fa-heart-o" ></i></p>
+				</a>
+				<a class="btn" href="{% url 'commentblog' b.id %}" style="color: black;font-size:25px;margin-top: -10px;"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+				<h4 style=" font-family: 'Bitter', serif;font-weight: bold;color: black;">comments:</h4>
+        
+				{% for com in b.commentblog_set.all %}
+				<p><strong>{{user.username}}:</strong> {{com.comment}}</p>
+				{% endfor %}
+			</div>
+			{% endfor %}
+	
+				<button class ="glow-on-hover" type="button"><a href="{% url 'new-blog' %}" style="text-decoration: none;">add a blog</a></button>
+			</div>
+	</div>
+	<br><br>
+	<footer>
+	
+		<h4 style="color: honeydew;font-family: 'Bitter', serif;"><b>Contact us</b></h4>
+		<div class="site-section" data-aos="fade">
+			<div class="container-fluid">
+				
+					<div class="row" style="font-family: 'Bitter', serif;">
+						
+						<div class="col-md-3">
+							
+							<p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
+							<p class="mb-4">203 KK St. Gishushu,<br> Gasabo, Kigali, Rwanda</p>
+						</div>
+						<div class="mb-3">
+							<p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
+							<p class="mb-4"><a href="#">+250 784 129 592</a></p>
+			
+							<p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
+							<p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
+						</div>
+						
+							
+							<div class="col-md-5 font-weight-bold" style="margin-left: 60px;font-family:'Bitter', serif;">
+								<h4 style="color: honeydew;"><b>Follow us</b></h4>
+								<div class="row">
+									
+									<div class="col-md-4" style="margin-left:28%;display:inline-block;">
+										<ul class="social-networks">
+											<li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
+											<li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
+											<li><a href="#"><i class="icon-circled icon-bglight fa fa-facebook icon-2x"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br><br><br>
+						<p class="copyright" style="margin-left:1%;font-family: 'Bitter', serif;">
+							&copy;Azabe 2019. All rights reserved.
+						</p>
+					</div>
+			
+			</div>
+		</div>
+		
+	</footer>
+	<style>
+			.glow-on-hover {
+				/* width: 220px; */
+				height: 50px;
+				border: none;
+				outline: none;
+				color: #fff;
+				background:  rgb(73, 241, 247);
+				cursor: pointer;
+				position: relative;
+				z-index: 0;
+				border-radius: 10px;
+			}
+			.glow-on-hover:before {
+				content: '';
+				background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+
+			, #FF0000);
+				position: absolute;
+				top: -2px;
+				left:-2px;
+				background-size: 400%;
+				z-index: -1;
+				filter: blur(5px);
+				width: calc(100% + 4px);
+				height: calc(100% + 4px);
+				animation: glowing 20s linear infinite;
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				border-radius: 10px;
+			}
+			.glow-on-hover:active {
+				color: #000
+			}
+			.glow-on-hover:active:after {
+				background: transparent;
+			}
+			.glow-on-hover:hover:before {
+				opacity: 1;
+			}
+			.glow-on-hover:after {
+				z-index: -1;
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: rgb(73, 241, 247);
+				left: 0;
+				top: 0;
+				border-radius: 10px;
+			}
+			@keyframes glowing {
+				0% { background-position: 0 0; }
+				50% { background-position: 400% 0; }
+				100% { background-position: 0 0; }
+			}
+
+			footer {
+	/* background: rgb(226, 226, 226) url('https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg(592 kB)
+https://res.cloudinary.com/drrezzrvd/image/upload/v1573770480/aaron-burden-6jYoil2GhVk-unsplash_nmtfax.jpg
+') no-repeat center center fixed; */
+	background: rgb(70, 69, 69);
+    /* height: 200px; */
+	text-align: center;
+	color: #ddd;
+	padding:50px 0 50px;
+	height: 300px;
+}
+footer a {
+    color: #ddd;
+}
+footer a:hover {
+    color: #fff;
+}
+footer ul.social-networks {
+	list-style:none;
+}
+footer ul.social-networks li {
+	display:inline;
+}
+footer ul.social-networks li i {
+	display:inline-block;
+}
+footer ul.social-networks li a {
+	color: #5E5E5E;
+	margin: 0 5px;
+    font-size: 25px;
+}
+footer ul.social-networks li a:hover {
+	text-decoration:none;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+    color: #ddd;
+}
+footer ul.social-networks li i.icon-bgdark {
+	background:#414141;
+	color: #656565;
+}
+footer ul.social-networks li a i.icon-instagram:hover {
+	background: #BA7B3D;
+	color: #fff;
+}
+footer ul.social-networks li a i.icon-twitter:hover {
+	background: #5AD2EB;
+	color: #fff;
+}
+footer ul.social-networks li a i.icon-dribbble:hover {
+	background: #F57B71;
+	color: #fff;
+}
+footer ul.social-networks li a i.icon-pinterest:hover {
+	background: #D84848;
+	color: #fff;
+}
+			</style>
+</body>
+{% endblock %}

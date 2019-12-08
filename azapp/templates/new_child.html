@@ -1,28 +1,50 @@
-{% load bootstrap4 %} {% load staticfiles %}
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load staticfiles %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>New Child</title>
-    {{form.media}}
+  <title>New Event/activity</title>
+  {{form.media}}
+
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% endblock %}
 
 </head>
 
+<body style="background-image:url(https://st2.depositphotos.com/1468291/6357/i/950/depositphotos_63572233-stock-photo-african-kids-painting-friends-face.jpg);background-repeat: no-repeat;width: 100%;background-size: cover;">
+  <div style="height: 580px; background-size: 100% 900px;" >
+    <div>
+        <div class="panel-heading">
+            
+           <h3 class="text-center" style="font-family: 'Dancing Script','cursive';color: rgb(0, 17, 17)"><b>Add a Your Child</b></h3>
+        </div>
+        <form class="jumbotron"  action="{% url 'new-child' %}" method="post" enctype="multipart/form-data" style="color:rgb(234, 243, 243);width: 700px;margin-left: 25%;background-color: rgba(0, 11, 12, 0.5);">
+          {%csrf_token%}
+      
+          {% bootstrap_form form%}
+          
+          <input type="submit" class="btn btn-success" value="Save Changes">
+          <span></span>
+          <input type="reset" class="btn btn-default" value="Cancel">
+        </form>
+    </div>
+  </div>
 
-<body>
-    {%block content%}
-    <form action="{%url 'new-child'%}" method="post" enctype="multipart/form-data">
-        {%csrf_token%} {% bootstrap_form form%}
-        <input type="submit" class="btn btn-success btn-lg" value="Post">
-    </form>
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %}{% endblock %} {% endblock %}
+      {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %}
+      {% endblock %}
+    </div>
+  </div>
 </body>
 
 </html>
+{% endblock %}
