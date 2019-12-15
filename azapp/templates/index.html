@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>Azabe</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link href="static/css/bootstrap-responsive.css" rel="stylesheet">
@@ -117,8 +118,9 @@
 		<div class="container" style="background-color: rgba(85, 84, 84,0.5);">
 			<br>
 			<p style="color:white;">All parents pass through hardships, sometimes we don't know how to handle our babies, or face the fear and anxiety of not giving them exactly what they want. View blogs of of some parents' testimonies or add a blog that can strengthen us!</p>
-		<button style="margin-left: 45%;" type="button" class="btn btn-default" ><a href="{% url 'blog' %}">View blogs</a></button>
-	<br>	<br>
+		<!-- <button style="margin-left: 45%;" type="button" class="btn btn-default" ><a href="{% url 'blog' %}">View blogs</a></button> -->
+		<button class="glow-on-hover" type="button" style="margin-left: 45%;"><a href="{% url 'blog' %}">View blogs</a></button>
+		<br>	<br>
 	</div>
 <br>
 	</section>
@@ -224,21 +226,21 @@
 							<div class="col-md-6 ml-auto" style="margin-left: 60px;font-family: 'Bitter', serif;">
 								<div class="mb-3">
 								<p class="mb-0 font-weight-bold"><i class="fa fa-address-book" aria-hidden="true"></i> Address</p>
-								<p class="mb-4">203 KK St. Gishushu, Gasabo, Kigali, Rwanda</p>
+								<p class="mb-4">203 KK St. Gishushu, <br>Gasabo, Kigali, Rwanda</p>
 				
 								<p class="mb-0 font-weight-bold"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone</p>
 								<p class="mb-4"><a href="#">+250 784 129 592</a></p>
 				
 								<p class="mb-0 font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</p>
 								<p class="mb-0"><a href="#">azabe987@gmail.com</a></p>
-				
-								</div>
 								<br><br><br>
-								<div class="container">
+								<!-- </div>
+								
+								<div class="container"> -->
 									<h4 style="color: honeydew;"><b>Follow us</b></h4>
-									<div class="row">
+									<!-- <div class="row">
 										
-										<div class="col-md-6 " style="margin-left:20%;display:inline-block;">
+										<div class="col-md-6 " style="margin-left:20%;display:inline-block;"> -->
 											<ul class="social-networks">
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-instagram icon-2x"></i></a></li>
 												<li><a href="#"><i class="icon-circled icon-bglight fa fa-twitter icon-2x"></i></a></li>
@@ -286,9 +288,13 @@
     Author URL: https://bootstrapmade.com
 */
 
-/*
 
 
+@media screen and (max-width: 800px) {
+  .left, .main, .right ,footer{
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+}
+}
 /* =========================================================
 01. General
 ============================================================ */
@@ -309,6 +315,74 @@ body {
 	font-size: 16px;
 	font-weight:300;
 	font-family:'Open Sans', Arial, sans-serif;
+}
+
+html,
+/* body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+} */
+.glow-on-hover {
+    /* width: 10%; */
+	
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #7A00FF, #FF00C8
+, #FF0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(4, 135, 139);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 /* body { */
     /* padding-top: 60px; 60px to make the container go all the way to the bottom of the topbar */

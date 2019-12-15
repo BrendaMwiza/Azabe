@@ -204,7 +204,7 @@ def username_present(request):
 
 
 
-
+@login_required(login_url='/accounts/login/')
 def partners(request):
     current_user = request.user
     # activities = Activities.objects.filter()
@@ -214,14 +214,14 @@ def partners(request):
     act = Activities.objects.filter(partner_name=current_user.id).all()
     
     message=None
-    # if partner is None:
+    if partner is None:
         
-    #     message= "you are not registered as a partner"
+        message= "you are not registered as a partner"
         
         # redirect(username_present)
         # if partner.approved == False:
         #     redirect("username_present")
-    if partner.approved == False:
+    elif partner.approved == False:
         
         message= "please check in 24 hours  "
     else:
@@ -230,7 +230,7 @@ def partners(request):
     return render(request,'partners.html',{"act":act ,'current_user':current_user,  "message":message, "partner":partner})
 
 
-# @login_required(login_url='/accounts/login/')
+
 def new_event(request):
     current_user = request.user
 
