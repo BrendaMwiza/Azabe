@@ -1,95 +1,94 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
 {% block content %}
-
+<link href="https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Libre+Baskerville&display=swap" rel="stylesheet">
 <style>
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: rgb(15, 15, 15);
+  font-family:'Open Sans', Arial, sans-serif;
+  /* text-decoration: none */
+  /* text-align: center; */
+  padding: 14px 16px;
+  text-decoration: none;
+  /* margin-left:15%; */
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'Libre Baskerville', serif;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+  /* background-color: #ddd; */
+  color: rgb(109, 108, 108);
+}
+/* Style the "active" element to highlight the current page */
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  font-family:'Open Sans', Arial, sans-serif;
+}
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
     display: block;
-    color: rgb(15, 15, 15);
-    font-family: 'Open Sans', Arial, sans-serif;
-    /* text-decoration: none */
-    /* text-align: center; */
-    padding: 14px 16px;
-    text-decoration: none;
-    /* margin-left:15%; */
-    font-size: 17px;
-    font-weight: bold;
-    font-family: 'Libre Baskerville', serif;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
   }
 
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    /* background-color: #ddd; */
-    color: rgb(109, 108, 108);
-  }
-
-  /* Style the "active" element to highlight the current page */
-  /* Style the search box inside the navigation bar */
-  .topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-    font-family: 'Open Sans', Arial, sans-serif;
-  }
-
-  /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-  @media screen and (max-width: 600px) {
-
-    .topnav a,
-    .topnav input[type=text] {
-      float: none;
-      display: block;
-      text-align: left;
-      width: 100%;
-      margin: 0;
-      padding: 14px;
-    }
-
-    .topnav input[type=text] {
-      border: 1px solid #ccc;
-    }
-  }
+}
 </style>
 </head>
-
 <body>
-  <nav class="bg-black navbar navbar-inverse" style="background-color: rgba(22, 22, 22,0.4);">
+	<nav class="bg-black navbar navbar-inverse " style="background-color: rgba(43, 42, 42, 0.4);">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <div class="topnav">
-          <a class="active" href="{% url 'welcome' %}">Home</a>
-
-          
-
-          <a href="{% url 'profile' %}">Profile</a>
-          <a href="{% url 'dash' %}">Activities</a>
-          {% if user is partner_name %}
-          <a href="">logout</a>
-          {% else %}
-          <a href="{% url 'partner' %}">Partner</a>
-          {% endif %}
-          {% if user.is_authenticated %}
-          <a href="/logout">Logout</a>
-          {% else %}
-          <a href="/accounts/login">Login</a>
-          {% endif %}
-
-
-
-
-          <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;"><strong>AZABE</strong></a>
-
-        </div>
-      </div>
+		<div class="navbar-header">
+    <div class="topnav">
+      <a class="active" href="{% url 'welcome' %}">Home</a>
+      <!-- <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
+        <span class="caret">Blogs</span>
+    </a> -->
+<!-- <ul class="dropdown-menu" role="menu">
+<li>
+  <a href="{% url 'blog' %}">view blogs </a>
+</li>
+<li>
+  <a href="{% url 'new-blog' %}">add a blog </a>
+</li></ul> -->
+      <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'dash' %}">Activities</a>
+<!--
+      <a href="{% url 'profile' %}">Profile</a> -->
+      <!-- <a href="">Project</a> -->
+      <!-- <a href="{% url 'profile' %}">Profile</a> -->
+      {% if user.is_authenticated %}
+      <a href="/logout">Logout</a>
+      {% else %}
+      <a  href="/accounts/login">Login</a>
+      {% endif %}
+      {% if user is partner_name %}
+      <a href="">logout</a>
+      {% else %}
+      <a href="{% url 'partner' %}">Partner</a>
+      {% endif %}
+      <a style="color: rgb(15, 15, 15);margin-left:200px;font-size: 30px;font-family: 'Bitter', serif;"><strong>AZABE</strong></a>
+<!--
+      <input type="text" placeholder="Search..">
+        <a href="" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a>
+   -->
     </div>
-  </nav>
-
+  </div>
+</div>
+</nav>
 </body>
 {% endblock %}
-
 </html>

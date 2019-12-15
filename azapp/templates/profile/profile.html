@@ -47,13 +47,14 @@
                 <div class="user-profile-header">
                 </div>
                 <div class="user-profile-avatar text-center">
-                  <img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png">
+                  <img alt="" src="{{user.image}}" aria-placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png">
                 </div>
+                <br><br>
                 <div >
                   <div class="text-center">
                     <h4> {{user.username}} </h4>
                     
-                    <br />
+                    <br/>
                   </div>
                   <div class="panel-footer"></div>
                   <div class="container">
@@ -64,10 +65,6 @@
                     <p>
                         <small>Biography</small>
                         Bio: {{user.profile.boi}}
-                    </p>
-                    <p>
-                        <small>User</small>
-                        
                     </p>
                     <p>
                         <small>Location</small>

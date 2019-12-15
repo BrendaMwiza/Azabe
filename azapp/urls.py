@@ -25,8 +25,9 @@ urlpatterns=[
     url(r'^pareditprofile',views.username_present, name='username_present'),
    
     url(r'^new/comment/(\d+)/$',views.comment, name ='comment'),
-    url(r'^activity/(\d+)$',views.activity, name ='activity'),
-    
+    # url(r'^new/comments/(\d+)/$',views.comments, name ='comments'),
+    url(r'^activity/(\d+)/$',views.activity, name ='activity'),
+    url(r'^likes/(?P<id>\d+)',views.likes, name="like"),
     url(r'^new/blog$',views.new_blog, name ='new-blog'),
     url(r'^blog$',views.blog, name ='blog'),
   
