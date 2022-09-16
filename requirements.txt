@@ -38,7 +38,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 keyring==10.6.0
 keyrings.alt==3.0
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.1.1
 monotonic==1.5
 oauthlib==3.1.0
